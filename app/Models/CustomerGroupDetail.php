@@ -12,4 +12,9 @@ class CustomerGroupDetail extends Model
     protected $table = 'customer_group_detail';
 
     protected $fillable = ['customer_group_id', 'customer_id'];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id')->select('id', 'fullname', 'email');
+    }
 }

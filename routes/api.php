@@ -63,8 +63,9 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
         Route::group(['prefix' => 'customer-group'], function(){
             Route::get('', 'CustomerGroupController@index');
             Route::get('detail', 'CustomerGroupController@detail');
-            Route::post('store', 'CustomerGroupController@store');
-            Route::post('update', 'CustomerGroupController@update');
+            Route::post('save', 'CustomerGroupController@save');
+            Route::get('list', 'CustomerGroupController@list');
+            Route::post('assign', 'CustomerGroupController@assign');
         });
 
         Route::group(['prefix' => 'task'], function(){

@@ -92,4 +92,9 @@ class Customer extends Model
                     ->orWhere('note', 'LIKE', "%$q%");
                     
     }
+
+    public function groups()
+    {
+        return $this->belongsToMany(CustomerGroup::class, 'customer_group_detail', 'customer_id', 'customer_group_id');
+    }
 }
