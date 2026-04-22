@@ -8,31 +8,34 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $tasks = Task::organizer()->orderByDesc('order')->paginate();
+        $tasks = Task::with('user')->orderBy('order')->get();
         return sendResponse($tasks);
     }
 
     public function store(Request $request)
     {
+        if(empty($request->title)) return sendError('Tên công việc bắt buộc');
+
         $task = Task::create([
             'title' => $request->title,
-            'user_id' => auth('api')->id(),
-            'organizer_id' => auth('api')->user()->organizer_id
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'assigned_to' => $request->assigned_to
         ]);
 
-        return sendResponse($task, 'Thêm task thành công');
+        return sendResponse($task, 'Thêm công việc thành công');
     }
 
     public function completed(Request $request)
     {
-        $task = Task::organizer()->find($request->id);
+        $task = Task::find($request->id);
 
         if(!empty($task->completed_at)) {
-            $task->update(['status' => 'pending', 'completed_at' => null]);
+            $task->update(['progress' => 0, 'completed_at' => null]);
         } else {
-            $task->update(['status' => 'completed', 'completed_at' => now()]);
+            $task->update(['progress' => 100, 'completed_at' => now()]);
         }
 
         return sendResponse($task, 'Cập nhật thành công');
@@ -42,19 +45,14 @@ class TaskController extends Controller
     {
         $form = $request->form;
 
-        $task = Task::organizer()->findOrFail($form['id']);
+        $task = Task::findOrFail($form['id']);
         $task->title = $form['title'];
-        $task->priority = $form['priority'];
-        $task->status = $form['status'];
-        $task->due_date = $form['due_date'];
-        $task->description = $form['description'];
+        $task->start_date = $form['start_date'];
+        $task->end_date = $form['end_date'];
+        $task->progress = $form['progress'];
+        $task->assigned_to = $form['assigned_to'];
         $task->note = $form['note'];
-
-        if($form['status'] == 'completed') {
-            $task->completed_at = now();
-        } else {
-            $task->completed_at = null;
-        }
+        $task->completed_at = $form['completed_at'];
 
         $task->save();
 
@@ -63,32 +61,17 @@ class TaskController extends Controller
 
     public function detail(Request $request)
     {
-        $task = Task::organizer()->findOrFail($request->id);
+        $task = Task::findOrFail($request->id);
         return sendResponse($task);
     }
 
     public function delete(Request $request)
     {
-        $task = Task::organizer()->findOrFail($request->id);
+        $task = Task::findOrFail($request->id);
 
         $task->delete();
 
         return sendResponse($task, "Xóa thành công " . $task->title ?? null);
-    }
-
-    public function bookmark(Request $request)
-    {
-        $task = Task::organizer()->findOrFail($request->id);
-
-        if(!empty($task->bookmark)) {
-            $task->update(['bookmark' => null]);
-        } else {
-            $task->update(['bookmark' => 1]);
-        }
-
-        $task->save();
-
-        return sendResponse($task, 'Cập nhật ' . $task->title ?? null);
     }
 
     public function sort(Request $request)

@@ -20,6 +20,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
 
 	Route::middleware(['auth:api'])->group(function () {
         Route::get('me', 'AuthController@me');
+        Route::get('refresh', 'AuthController@refresh');
         Route::post('logout', 'AuthController@logout');
 
         Route::group(['prefix' => 'customer'], function() {
@@ -38,6 +39,32 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
 
         Route::group(['prefix' => 'user'], function(){
             Route::get('', 'UserController@index');
+        });
+
+        Route::group(['prefix' => 'todo'], function(){
+            Route::get('', 'ToDoController@index');
+            Route::get('detail', 'ToDoController@detail');
+            Route::post('store', 'ToDoController@store');
+            Route::post('update', 'ToDoController@update');
+            Route::post('delete', 'ToDoController@delete');
+            Route::post('completed', 'ToDoController@completed');
+            Route::post('bookmark', 'ToDoController@bookmark');
+            Route::post('sort', 'ToDoController@sort');
+        });
+
+        Route::group(['prefix' => 'event'], function(){
+            Route::get('', 'EventController@index');
+            Route::get('detail', 'EventController@detail');
+            Route::post('store', 'EventController@store');
+            Route::post('update', 'EventController@update');
+            Route::post('update-time', 'EventController@updateTime');
+        });
+
+        Route::group(['prefix' => 'customer-group'], function(){
+            Route::get('', 'CustomerGroupController@index');
+            Route::get('detail', 'CustomerGroupController@detail');
+            Route::post('store', 'CustomerGroupController@store');
+            Route::post('update', 'CustomerGroupController@update');
         });
 
         Route::group(['prefix' => 'task'], function(){

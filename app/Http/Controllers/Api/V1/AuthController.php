@@ -38,4 +38,10 @@ class AuthController extends Controller
         auth('api')->logout();
         return sendResponse(null, 'Đăng xuất thành công');
     }
+
+    public function refresh()
+    {
+        $token = auth('api')->refresh();
+        return sendResponse($token);
+    }
 }
