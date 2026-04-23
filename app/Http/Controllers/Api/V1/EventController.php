@@ -13,7 +13,7 @@ class EventController extends Controller
         $start = \Carbon\Carbon::parse($request->start);
         $end = \Carbon\Carbon::parse($request->end);
 
-        $events = Event::whereBetween('start_time', [
+        $events = Event::user()->whereBetween('start_time', [
                             $start,
                             $end
                         ])->get();
@@ -23,7 +23,7 @@ class EventController extends Controller
 
     public function detail(Request $request)
     {
-        $event = Event::findOrFail($request->id);
+        $event = Event::user()->findOrFail($request->id);
         return sendResponse($event, 'Chi tiết sự kiện');
     }
 
@@ -34,10 +34,12 @@ class EventController extends Controller
             'type' => $request->type,
             'start_time' => $request->start_time,
             'end_time' => $request->end_time ?? $request->start_time,
+            'location' => $request->location,
+            'note' => $request->note,
+
             'customer_id' => $request->customer_id ?? null,
             'user_id' => auth('api')->id(),
-            'location' => $request->location,
-            'note' => $request->note
+            'organizer_id' => auth('api')->user()->organizer_id
         ]);
 
         return sendResponse($event, 'Tạo lịch thành công');
@@ -45,7 +47,7 @@ class EventController extends Controller
 
     public function update(Request $request)
     {
-        $event = Event::findOrFail($request->id);
+        $event = Event::user()->findOrFail($request->id);
 
         $event->update([
             'title' => $request->title,
@@ -61,7 +63,7 @@ class EventController extends Controller
 
     public function updateTime(Request $request)
     {
-        $event = Event::find($request->id);
+        $event = Event::user()->find($request->id);
 
         $start = \Carbon\Carbon::parse($request->start);
         $end = \Carbon\Carbon::parse($request->end);
@@ -72,5 +74,14 @@ class EventController extends Controller
         ]);
 
         return sendResponse($event);
+    }
+
+    public function delete(Request $request)
+    {
+        $event = Event::user()->findOrFail($request->id);
+
+        $event->delete();
+
+        return sendResponse($event, "Xóa thành công " . $event->title ?? null);
     }
 }

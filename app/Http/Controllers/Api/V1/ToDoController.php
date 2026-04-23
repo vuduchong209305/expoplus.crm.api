@@ -10,7 +10,7 @@ class ToDoController extends Controller
 {
     public function index()
     {
-        $todos = ToDo::organizer()->orderByDesc('order')->paginate();
+        $todos = ToDo::users()->paginate();
         return sendResponse($todos);
     }
 
@@ -27,7 +27,7 @@ class ToDoController extends Controller
 
     public function completed(Request $request)
     {
-        $todo = ToDo::organizer()->find($request->id);
+        $todo = ToDo::users()->find($request->id);
 
         if(!empty($todo->completed_at)) {
             $todo->update(['status' => 'pending', 'completed_at' => null]);
@@ -42,7 +42,7 @@ class ToDoController extends Controller
     {
         $form = $request->form;
 
-        $todo = ToDo::organizer()->findOrFail($form['id']);
+        $todo = ToDo::users()->findOrFail($form['id']);
         $todo->title = $form['title'];
         $todo->priority = $form['priority'];
         $todo->status = $form['status'];
@@ -63,13 +63,13 @@ class ToDoController extends Controller
 
     public function detail(Request $request)
     {
-        $todo = ToDo::organizer()->findOrFail($request->id);
+        $todo = ToDo::users()->findOrFail($request->id);
         return sendResponse($todo);
     }
 
     public function delete(Request $request)
     {
-        $todo = ToDo::organizer()->findOrFail($request->id);
+        $todo = ToDo::users()->findOrFail($request->id);
 
         $todo->delete();
 
@@ -78,7 +78,7 @@ class ToDoController extends Controller
 
     public function bookmark(Request $request)
     {
-        $todo = ToDo::organizer()->findOrFail($request->id);
+        $todo = ToDo::users()->findOrFail($request->id);
 
         if(!empty($todo->bookmark)) {
             $todo->update(['bookmark' => null]);
@@ -96,7 +96,7 @@ class ToDoController extends Controller
         $todos = $request->tasks;
 
         foreach ($todos as $todo) {
-           ToDo::where('id', $todo['id'])->update(['order' => $todo['order']]);
+           ToDo::users()->where('id', $todo['id'])->update(['order' => $todo['order']]);
         }
 
         return sendResponse($todos, 'Cập nhật thứ tự thành công');

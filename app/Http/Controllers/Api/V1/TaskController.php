@@ -10,7 +10,7 @@ class TaskController extends Controller
 {
     public function index(Request $request)
     {
-        $tasks = Task::with('user')->orderBy('order')->get();
+        $tasks = Task::assignedTo()->with('user')->orderBy('order')->get();
         return sendResponse($tasks);
     }
 
@@ -22,7 +22,8 @@ class TaskController extends Controller
             'title' => $request->title,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
-            'assigned_to' => $request->assigned_to
+            'assigned_to' => $request->assigned_to,
+            'organizer_id' => auth('api')->user()->organizer_id
         ]);
 
         return sendResponse($task, 'Thêm công việc thành công');
@@ -30,7 +31,7 @@ class TaskController extends Controller
 
     public function completed(Request $request)
     {
-        $task = Task::find($request->id);
+        $task = Task::assignedTo()->find($request->id);
 
         if(!empty($task->completed_at)) {
             $task->update(['progress' => 0, 'completed_at' => null]);
@@ -45,7 +46,7 @@ class TaskController extends Controller
     {
         $form = $request->form;
 
-        $task = Task::findOrFail($form['id']);
+        $task = Task::assignedTo()->findOrFail($form['id']);
         $task->title = $form['title'];
         $task->start_date = $form['start_date'];
         $task->end_date = $form['end_date'];
@@ -61,13 +62,13 @@ class TaskController extends Controller
 
     public function detail(Request $request)
     {
-        $task = Task::findOrFail($request->id);
+        $task = Task::assignedTo()->findOrFail($request->id);
         return sendResponse($task);
     }
 
     public function delete(Request $request)
     {
-        $task = Task::findOrFail($request->id);
+        $task = Task::assignedTo()->findOrFail($request->id);
 
         $task->delete();
 
@@ -79,7 +80,7 @@ class TaskController extends Controller
         $tasks = $request->tasks;
 
         foreach ($tasks as $task) {
-           Task::where('id', $task['id'])->update(['order' => $task['order']]);
+           Task::assignedTo()->where('id', $task['id'])->update(['order' => $task['order']]);
         }
 
         return sendResponse($tasks, 'Cập nhật thứ tự thành công');

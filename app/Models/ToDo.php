@@ -44,4 +44,17 @@ class ToDo extends Model
         
         return $query;
     }
+
+    public function scopeUsers($query, $user_id = null)
+    {
+        if(!empty($user_id)) {
+            $query->where('user_id', $user_id);
+        }
+
+        if(auth('api')->check()) {
+            $query->where('user_id', auth('api')->id());
+        }
+  
+        return $query;
+    }
 }

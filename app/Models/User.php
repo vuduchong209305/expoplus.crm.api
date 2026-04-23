@@ -20,9 +20,12 @@ class User extends Authenticatable implements JWTSubject
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'fullname',
         'email',
+        'phone',
+        'birthday',
         'password',
+        'avatar'
     ];
 
     /**
@@ -47,6 +50,23 @@ class User extends Authenticatable implements JWTSubject
     protected function serializeDate(\DateTimeInterface $date)
     {
         return \Carbon\Carbon::instance($date)->timezone(config('app.timezone'))->format('Y-m-d H:i:s');
+    }
+
+    public function scopeOrganizer($query, $organizer_id = null)
+    {
+        if(!empty($organizer_id)) {
+            $query->where('organizer_id', $organizer_id);
+        }
+
+        if(auth('api')->check()) {
+            if(auth('api')->user()->role_id > 1) {
+                $query->where('id', auth('api')->id());
+            }
+
+            $query->where('organizer_id', auth('api')->user()->organizer_id);
+        }
+        
+        return $query;
     }
 
     public function getJWTIdentifier()

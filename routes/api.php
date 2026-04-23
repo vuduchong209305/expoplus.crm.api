@@ -39,6 +39,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
 
         Route::group(['prefix' => 'user'], function(){
             Route::get('', 'UserController@index');
+            Route::post('update', 'UserController@update');
         });
 
         Route::group(['prefix' => 'todo'], function(){
@@ -58,6 +59,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
             Route::post('store', 'EventController@store');
             Route::post('update', 'EventController@update');
             Route::post('update-time', 'EventController@updateTime');
+            Route::post('delete', 'EventController@delete');
         });
 
         Route::group(['prefix' => 'customer-group'], function(){
