@@ -65,11 +65,16 @@ class CustomerGroupController extends Controller
 
     public function assign(Request $request)
     {
-        $customer = Customer::findOrFail($request->customer_id);
+        try {
+            $customer = Customer::where('type_id', 2)->assignedTo()->findOrFail($request->customer_id);
 
-        $customer->groups()->sync($request->group_ids);
+            $customer->groups()->sync($request->group_ids);
 
-        return sendResponse($customer, 'Cập nhật nhóm thành công');
+            return sendResponse($customer, 'Cập nhật nhóm thành công');
+        } catch (\Exception $e) {
+            return sendError('Chỉ áp dụng với Contact');
+        }
+        
     }
 
     public function list(Request $request)

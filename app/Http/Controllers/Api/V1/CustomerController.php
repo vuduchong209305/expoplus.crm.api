@@ -15,12 +15,20 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
         $customers = Customer::select('id', 'avatar', 'fullname', 'email', 'phone', 'company', 'assigned_to', 'bookmark', 'type_id', 'created_at', 'updated_at')
-        ->type($request->type_id)
-        ->assignedTo()
-        ->search($request->search)
-        ->with('assigned')
-        ->latest()
-        ->paginate();
+                    ->type($request->type_id)
+                    ->assignedTo()
+                    ->search($request->search)
+                    ->with('assigned')
+
+                    // 🔥 đoạn quan trọng
+                    ->when($request->campaign_id, function ($query) use ($request) {
+                        $query->whereDoesntHave('campaigns', function ($q) use ($request) {
+                            $q->where('campaign_id', $request->campaign_id);
+                        });
+                    })
+                    
+                    ->latest()
+                    ->paginate();
 
         return sendResponse($customers);
     }

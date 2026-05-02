@@ -97,4 +97,9 @@ class Customer extends Model
     {
         return $this->belongsToMany(CustomerGroup::class, 'customer_group_detail', 'customer_id', 'customer_group_id');
     }
+
+    public function campaigns()
+    {
+        return $this->belongsToMany(Campaign::class, 'campaign_detail', 'customer_id', 'campaign_id');
+    }
 }
