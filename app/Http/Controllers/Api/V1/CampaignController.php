@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\CustomerGroupDetail;
 use App\Models\Campaign;
 use App\Models\CampaignDetail;
 use App\Models\Progress;
+use App\Models\Status;
 
 class CampaignController extends Controller
 {
@@ -30,7 +32,7 @@ class CampaignController extends Controller
         try {
 
             if ($request->id) {
-                $campaign = Campaign::findOrFail($request->id);
+                $campaign = Campaign::assignedTo()->findOrFail($request->id);
                 $campaign->update([
                     'title' => $request->title,
                     'note' => $request->note,
@@ -67,13 +69,26 @@ class CampaignController extends Controller
         }
     }
 
+    public function edit(Request $request)
+    {
+        $keyword = $request->keyword;
+        $campaign = Campaign::assignedTo()->with(['customers' => function($q) use ($keyword) {
+                                $q->search($keyword);
+                            }])->findOrFail($request->id);
+
+        return sendResponse($campaign);
+    }
+
     public function detail(Request $request)
     {
         $keyword = $request->keyword;
 
-        $campaign = Campaign::assignedTo()->with('assigned')->findOrFail($request->id);
+        $campaign = Campaign::assignedTo()
+                            ->with('assigned')
+                            ->withCount('detail')
+                            ->findOrFail($request->id);
 
-        $customers = CampaignDetail::with(['customer', 'progress'])
+        $customers = CampaignDetail::with(['customer', 'progress', 'status'])
             ->where('campaign_id', $campaign->id)
             ->when($keyword, function ($q) use ($keyword) {
                 $q->whereHas('customer', function ($q2) use ($keyword) {
@@ -161,7 +176,7 @@ class CampaignController extends Controller
                     'company' => $customer->company,
 
                     'progress_id' => $customer->pivot->progress_id,
-                    'status' => $customer->pivot->status,
+                    'status_id' => $customer->pivot->status_id,
                     'rating' => $customer->pivot->rating,
                     'note' => $customer->pivot->note,
                 ],
@@ -184,7 +199,7 @@ class CampaignController extends Controller
                 $request->customer_id,
                 [
                     'progress_id' => $request->progress_id,
-                    'status' => $request->status,
+                    'status_id' => $request->status_id,
                     'rating' => $request->rating,
                     'note' => $request->note,
                 ]
@@ -195,6 +210,98 @@ class CampaignController extends Controller
         } catch (\Exception $e) {
             \Log::error($e);
             return sendError('Có lỗi xảy ra');
+        }
+    }
+
+    public function report(Request $request)
+    {
+        $campaign = Campaign::assignedTo()->with('detail')->findOrFail($request->id);
+
+        $details = $campaign->detail;
+
+        $total = $details->count();
+
+        // đã chuyển đổi = progress cuối
+        $lastProgressId = Progress::max('id');
+        $converted = $details->where('progress_id', $lastProgressId)->count();
+        $convertedRate = $total > 0 ? round(($converted / $total) * 100) : 0;
+
+        // có quan tâm = status đầu
+        $firstStatusId = Status::min('id');
+        $interested = $details->where('status_id', $firstStatusId)->count();
+        $interestedRate = $total > 0 ? round(($interested / $total) * 100) : 0;
+        
+        $avgRating = round($details->avg('rating'), 1);
+
+        // STATUS
+        $status = Status::get()->map(function($s) use ($details, $total) {
+            $count = $details->where('status_id', $s->id)->count();
+
+            return [
+                'id' => $s->id,
+                'name' => $s->name,
+                'count' => $count,
+                'percent' => $total > 0 ? round(($count / $total) * 100) : 0
+            ];
+        });
+
+        // PROGRESS
+        $progress = Progress::get()->map(function($p) use ($details, $total) {
+            $count = $details->where('progress_id', $p->id)->count();
+
+            return [
+                'id' => $p->id,
+                'name' => $p->name,
+                'count' => $count,
+                'percent' => $total > 0 ? round(($count / $total) * 100) : 0
+            ];
+        });
+
+        return sendResponse([
+            'total' => $total,
+            'converted' => $converted,
+            'converted_rate' => $convertedRate,
+
+            'interested' => $interested,
+            'interested_rate' => $interestedRate,
+
+            'avg_rating' => $avgRating,
+            'status' => $status,
+            'progress' => $progress
+        ]);
+    }
+
+    public function addGroup(Request $request)
+    {
+        \DB::beginTransaction();
+
+        try {
+            $campaign = Campaign::findOrFail($request->id);
+
+            $groupIds = $request->group_ids ?? [];
+
+            // 👉 lấy customer từ group
+            $customerIds = CustomerGroupDetail::whereIn('customer_group_id', $groupIds)
+                            ->pluck('customer_id')
+                            ->toArray();
+
+            // 👉 lấy customer đã có trong campaign
+            $existing = $campaign->customers()->pluck('id')->toArray();
+
+            // 👉 merge + unique
+            $final = array_unique(array_merge($existing, $customerIds));
+
+            // 👉 sync
+            $campaign->customers()->sync($final);
+
+            \DB::commit();
+
+            return sendResponse([], 'Thêm khách hàng từ nhóm thành công');
+
+        } catch (\Exception $e) {
+            \DB::rollBack();
+            \Log::error($e);
+            return sendError($e->getMessage());
         }
     }
 }

@@ -31,7 +31,7 @@ class Campaign extends Model
     public function customers()
     {
         return $this->belongsToMany(Customer::class, 'campaign_detail', 'campaign_id', 'customer_id')->select('id', 'fullname', 'email', 'phone', 'company', 'avatar', 'address')
-            ->withPivot(['progress_id', 'status', 'rating', 'note'])
+            ->withPivot(['progress_id', 'status_id', 'rating', 'note'])
             ->withTimestamps();
     }
 

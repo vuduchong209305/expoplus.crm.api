@@ -73,6 +73,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
         Route::group(['prefix' => 'campaign'], function(){
             Route::get('', 'CampaignController@index');
             Route::get('detail', 'CampaignController@detail');
+            Route::get('edit', 'CampaignController@edit');
             Route::post('save', 'CampaignController@save');
             Route::get('list', 'CampaignController@list');
             Route::post('assign', 'CampaignController@assign');
@@ -80,6 +81,8 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
             Route::post('deleteCustomer', 'CampaignController@deleteCustomer');
             Route::post('customer', 'CampaignController@customer');
             Route::post('update-customer', 'CampaignController@updateCustomer');
+            Route::post('add-group', 'CampaignController@addGroup');
+            Route::post('report', 'CampaignController@report');
         });
 
         Route::group(['prefix' => 'task'], function(){

@@ -22,4 +22,9 @@ class CampaignDetail extends Model
     {
         return $this->belongsTo(Progress::class, 'progress_id');
     }
+
+    public function status()
+    {
+        return $this->belongsTo(Status::class, 'status_id');
+    }
 }
