@@ -11,7 +11,7 @@ class Task extends Model
 
     protected $table = 'tasks';
 
-    protected $fillable = ['title', 'start_date', 'end_date', 'assigned_to', 'note', 'progress', 'completed_at'];
+    protected $fillable = ['title', 'start_date', 'end_date', 'assigned_to', 'organizer_id', 'note', 'progress', 'completed_at'];
 
     public function user()
     {
