@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 07, 2026 lúc 11:42 AM
+-- Thời gian đã tạo: Th5 07, 2026 lúc 05:11 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -120,6 +120,15 @@ CREATE TABLE `vdh_campaign` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `vdh_campaign`
+--
+
+INSERT INTO `vdh_campaign` (`id`, `title`, `note`, `assigned_to`, `organizer_id`, `start_date`, `end_date`, `created_at`, `updated_at`) VALUES
+(14, 'entech 2026', NULL, 1, 1, NULL, NULL, '2026-05-07 12:50:39', '2026-05-07 12:50:39'),
+(15, '123123', NULL, 1, 1, NULL, NULL, '2026-05-07 13:49:09', '2026-05-07 13:49:09'),
+(16, 'vsadbsdfb', NULL, 1, 1, '2026-05-08', '2026-05-15', '2026-05-07 13:49:48', '2026-05-07 15:08:38');
+
 -- --------------------------------------------------------
 
 --
@@ -136,6 +145,27 @@ CREATE TABLE `vdh_campaign_detail` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `vdh_campaign_detail`
+--
+
+INSERT INTO `vdh_campaign_detail` (`campaign_id`, `customer_id`, `progress_id`, `status_id`, `rating`, `note`, `created_at`, `updated_at`) VALUES
+(14, 10, NULL, NULL, NULL, NULL, '2026-05-07 13:49:32', '2026-05-07 13:49:32'),
+(14, 14, NULL, NULL, NULL, NULL, '2026-05-07 13:49:32', '2026-05-07 13:49:32'),
+(14, 16, NULL, NULL, NULL, NULL, '2026-05-07 13:49:32', '2026-05-07 13:49:32'),
+(14, 117, NULL, NULL, NULL, NULL, '2026-05-07 13:49:32', '2026-05-07 13:49:32'),
+(15, 10, NULL, NULL, NULL, NULL, '2026-05-07 13:49:17', '2026-05-07 13:49:17'),
+(15, 14, NULL, NULL, NULL, NULL, '2026-05-07 13:49:17', '2026-05-07 13:49:17'),
+(15, 16, NULL, NULL, NULL, NULL, '2026-05-07 13:49:17', '2026-05-07 13:49:17'),
+(15, 119, NULL, NULL, NULL, NULL, '2026-05-07 13:49:09', '2026-05-07 13:49:09'),
+(15, 120, NULL, NULL, NULL, NULL, '2026-05-07 13:49:09', '2026-05-07 13:49:09'),
+(16, 10, NULL, NULL, NULL, NULL, '2026-05-07 13:49:48', '2026-05-07 13:49:48'),
+(16, 14, NULL, NULL, NULL, NULL, '2026-05-07 13:49:48', '2026-05-07 13:49:48'),
+(16, 16, NULL, NULL, NULL, NULL, '2026-05-07 13:49:48', '2026-05-07 13:49:48'),
+(16, 119, NULL, NULL, NULL, NULL, '2026-05-07 13:49:48', '2026-05-07 13:49:48'),
+(16, 120, NULL, NULL, NULL, NULL, '2026-05-07 13:49:48', '2026-05-07 13:49:48'),
+(16, 132, NULL, NULL, NULL, NULL, '2026-05-07 13:49:48', '2026-05-07 13:49:48');
 
 -- --------------------------------------------------------
 
@@ -418,6 +448,31 @@ INSERT INTO `vdh_events` (`id`, `title`, `user_id`, `organizer_id`, `start_time`
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `vdh_exhibition`
+--
+
+CREATE TABLE `vdh_exhibition` (
+  `id` int(11) NOT NULL,
+  `title` text DEFAULT NULL,
+  `organizer_id` tinyint(4) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `vdh_exhibition`
+--
+
+INSERT INTO `vdh_exhibition` (`id`, `title`, `organizer_id`, `start_date`, `end_date`, `location`, `created_at`, `updated_at`) VALUES
+(1, 'Entech Hanoi 2026', 1, '2026-06-24', '2026-06-26', 'Trung tâm Hội chợ Triển lãm quốc tế I.C.E Hà Nội - 91 Trần Hưng Đạo, Hà Nội', NULL, NULL),
+(2, 'Envirotex Hanoi 2026', 1, '2026-06-24', '2026-06-26', 'Trung tâm Hội chợ Triển lãm quốc tế I.C.E Hà Nội - 91 Trần Hưng Đạo, Hà Nội', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `vdh_organizer`
 --
 
@@ -499,10 +554,11 @@ INSERT INTO `vdh_progress` (`id`, `name`, `color`, `type`) VALUES
 
 CREATE TABLE `vdh_quotation` (
   `id` int(11) NOT NULL,
-  `code` varchar(20) DEFAULT NULL,
-  `customer_id` int(11) DEFAULT NULL,
-  `organizer_id` int(11) DEFAULT NULL,
-  `assigned_to` int(11) DEFAULT NULL,
+  `code` varchar(20) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `organizer_id` int(11) NOT NULL,
+  `exhibition_id` tinyint(4) NOT NULL,
+  `assigned_to` int(11) NOT NULL,
   `note` varchar(255) DEFAULT NULL,
   `sub_total` decimal(15,0) DEFAULT NULL,
   `vat` decimal(15,0) DEFAULT NULL,
@@ -516,11 +572,11 @@ CREATE TABLE `vdh_quotation` (
 -- Đang đổ dữ liệu cho bảng `vdh_quotation`
 --
 
-INSERT INTO `vdh_quotation` (`id`, `code`, `customer_id`, `organizer_id`, `assigned_to`, `note`, `sub_total`, `vat`, `discount`, `grand_total`, `created_at`, `updated_at`) VALUES
-(6, '69FAC93B9C2C5', 123, 1, 1, 'sdvljhsduivysahejk hsdkjgh kjsadhg usadhgiuos adygui9sadyguiosyadgupysadojg; hsakjlgh sadkjgyh saioudgysdaiuogh sjaodhgi usadhg9o7ui sadhgiusadhg ijsadhgijsd ayhg8osyhad gijhsadgij hsadg9uoyhs adugihsdauigjhsadjigh', 15300000, 1530000, 50000, 16780000, '2026-05-06 04:53:15', '2026-05-06 08:10:53'),
-(11, '69FADDBCC0FED', 130, 1, 1, 'sbvsdfbf', 100000, 10000, 0, 110000, '2026-05-06 06:20:44', '2026-05-06 08:08:42'),
-(12, '69FAE3CA0651E', 122, 1, 1, NULL, 100000, 10000, 0, 110000, '2026-05-06 06:46:34', '2026-05-06 06:46:34'),
-(13, '69FAE3F65A742', 125, 1, 1, NULL, 200000, 20000, 0, 220000, '2026-05-06 06:47:18', '2026-05-06 06:47:18');
+INSERT INTO `vdh_quotation` (`id`, `code`, `customer_id`, `organizer_id`, `exhibition_id`, `assigned_to`, `note`, `sub_total`, `vat`, `discount`, `grand_total`, `created_at`, `updated_at`) VALUES
+(6, '69FAC93B9C2C5', 123, 1, 1, 1, 'sdvljhsduivysahejk hsdkjgh kjsadhg usadhgiuos adygui9sadyguiosyadgupysadojg; hsakjlgh sadkjgyh saioudgysdaiuogh sjaodhgi usadhg9o7ui sadhgiusadhg ijsadhgijsd ayhg8osyhad gijhsadgij hsadg9uoyhs adugihsdauigjhsadjigh', 15300000, 1530000, 50000, 16780000, '2026-05-06 04:53:15', '2026-05-06 08:10:53'),
+(11, '69FADDBCC0FED', 130, 1, 1, 1, 'sbvsdfbf', 100000, 10000, 0, 110000, '2026-05-06 06:20:44', '2026-05-06 08:08:42'),
+(12, '69FAE3CA0651E', 122, 1, 1, 1, NULL, 100000, 10000, 0, 110000, '2026-05-06 06:46:34', '2026-05-06 06:46:34'),
+(13, '69FAE3F65A742', 125, 1, 2, 1, NULL, 200000, 20000, 0, 220000, '2026-05-06 06:47:18', '2026-05-07 14:59:01');
 
 -- --------------------------------------------------------
 
@@ -549,7 +605,7 @@ INSERT INTO `vdh_quotation_detail` (`quotation_id`, `product_id`, `qty`, `price`
 (6, 5, 1, 15000000, 'Gian hàng tiêu chuẩn', 'gian', '2026-05-06 08:10:53', '2026-05-06 08:10:53'),
 (11, 4, 1, 100000, 'Giỏ hoa trang trí', 'giỏ', '2026-05-06 08:08:42', '2026-05-06 08:08:42'),
 (12, 4, 1, 100000, 'Giỏ hoa trang trí', 'giỏ', '2026-05-06 06:47:10', '2026-05-06 06:47:10'),
-(13, 3, 1, 200000, 'Ghế da chân xoay', 'chiếc', '2026-05-06 06:47:18', '2026-05-06 06:47:18');
+(13, 3, 1, 200000, 'Ghế da chân xoay', 'chiếc', '2026-05-07 14:59:01', '2026-05-07 14:59:01');
 
 -- --------------------------------------------------------
 
@@ -766,6 +822,12 @@ ALTER TABLE `vdh_events`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `vdh_exhibition`
+--
+ALTER TABLE `vdh_exhibition`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `vdh_organizer`
 --
 ALTER TABLE `vdh_organizer`
@@ -839,7 +901,7 @@ ALTER TABLE `vdh_activity_logs`
 -- AUTO_INCREMENT cho bảng `vdh_campaign`
 --
 ALTER TABLE `vdh_campaign`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `vdh_comments`
@@ -870,6 +932,12 @@ ALTER TABLE `vdh_customer_type`
 --
 ALTER TABLE `vdh_events`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT cho bảng `vdh_exhibition`
+--
+ALTER TABLE `vdh_exhibition`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `vdh_organizer`
