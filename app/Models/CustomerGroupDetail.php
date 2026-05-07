@@ -15,6 +15,6 @@ class CustomerGroupDetail extends Model
 
     public function customer()
     {
-        return $this->belongsTo(Customer::class, 'customer_id')->select('id', 'fullname', 'email');
+        return $this->belongsTo(Customer::class, 'customer_id')->select('id', 'fullname', 'email', 'phone', 'company');
     }
 }

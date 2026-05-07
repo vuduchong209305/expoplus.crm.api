@@ -80,6 +80,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
             Route::post('delete', 'CampaignController@delete');
             Route::post('deleteCustomer', 'CampaignController@deleteCustomer');
             Route::post('customer', 'CampaignController@customer');
+            Route::get('customer-group', 'CampaignController@customerGroup');
             Route::post('update-customer', 'CampaignController@updateCustomer');
             Route::post('add-group', 'CampaignController@addGroup');
             Route::post('report', 'CampaignController@report');

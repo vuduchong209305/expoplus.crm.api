@@ -271,37 +271,13 @@ class CampaignController extends Controller
         ]);
     }
 
-    public function addGroup(Request $request)
+    public function customerGroup(Request $request)
     {
-        \DB::beginTransaction();
+        $groupIds = $request->group_ids ? [$request->group_ids] : [];
 
-        try {
-            $campaign = Campaign::findOrFail($request->id);
+        // 👉 lấy customer từ group
+        $customers = CustomerGroupDetail::whereIn('customer_group_id', $groupIds)->with('customer')->get();
 
-            $groupIds = $request->group_ids ?? [];
-
-            // 👉 lấy customer từ group
-            $customerIds = CustomerGroupDetail::whereIn('customer_group_id', $groupIds)
-                            ->pluck('customer_id')
-                            ->toArray();
-
-            // 👉 lấy customer đã có trong campaign
-            $existing = $campaign->customers()->pluck('id')->toArray();
-
-            // 👉 merge + unique
-            $final = array_unique(array_merge($existing, $customerIds));
-
-            // 👉 sync
-            $campaign->customers()->sync($final);
-
-            \DB::commit();
-
-            return sendResponse([], 'Thêm khách hàng từ nhóm thành công');
-
-        } catch (\Exception $e) {
-            \DB::rollBack();
-            \Log::error($e);
-            return sendError($e->getMessage());
-        }
+        return sendResponse($customers);
     }
 }
