@@ -29,8 +29,12 @@ class AuthController extends Controller
 
     public function me()
     {
-        $user = auth('api')->user()->only(['id', 'fullname', 'email', 'avatar']);
-        return sendResponse($user);
+        $user = auth('api')->user();
+
+        return sendResponse(
+            $user->load('organizer')
+                 ->only(['id', 'fullname', 'email', 'phone', 'avatar', 'organizer'])
+        );
     }
 
     public function logout()

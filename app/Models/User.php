@@ -52,6 +52,11 @@ class User extends Authenticatable implements JWTSubject
         return \Carbon\Carbon::instance($date)->timezone(config('app.timezone'))->format('Y-m-d H:i:s');
     }
 
+    public function organizer()
+    {
+        return $this->belongsTo(Organizer::class, 'organizer_id')->select('id', 'name', 'phone', 'address', 'email', 'avatar', 'website');
+    }
+
     public function scopeOrganizer($query, $organizer_id = null)
     {
         if(!empty($organizer_id)) {

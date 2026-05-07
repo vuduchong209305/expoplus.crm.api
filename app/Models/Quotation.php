@@ -5,35 +5,37 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Campaign extends Model
+class Quotation extends Model
 {
     use HasFactory;
 
-    protected $table = 'campaign';
+    protected $table = 'quotation';
 
-    protected $fillable = ['title', 'assigned_to', 'organizer_id', 'start_date', 'end_date', 'note'];
+    protected $fillable = ['code', 'customer_id', 'assigned_to', 'note', 'sub_total', 'vat', 'discount', 'grand_total'];
 
     protected function serializeDate(\DateTimeInterface $date)
     {
         return \Carbon\Carbon::instance($date)->timezone(config('app.timezone'))->format('Y-m-d H:i:s');
     }
-
-    public function detail()
+    
+    public function details()
     {
-        return $this->hasMany(CampaignDetail::class, 'campaign_id');
+        return $this->hasMany(QuotationDetail::class, 'quotation_id');
     }
 
-    public function assigned()
+    public function customer()
     {
-        return $this->belongsTo(User::class, 'assigned_to')->select('id', 'fullname', 'email', 'phone');
+        return $this->belongsTo(Customer::class, 'customer_id')->select('id', 'fullname', 'email', 'company', 'phone');
     }
 
-    public function customers()
+    public function assgined()
     {
-        return $this->belongsToMany(Customer::class, 'campaign_detail', 'campaign_id', 'customer_id')
-            ->select('id', 'fullname', 'email', 'phone', 'company', 'avatar', 'address')
-            ->withPivot(['progress_id', 'status_id', 'rating', 'note'])
-            ->withTimestamps();
+        return $this->hasMany(User::class, 'assigned_to');
+    }
+
+    public function organizer()
+    {
+        return $this->hasMany(Organizer::class, 'organizer_id');
     }
 
     public function scopeAssignedTo($query, $assigned_to = null)
@@ -56,8 +58,11 @@ class Campaign extends Model
     public function scopeSearch($query, $q = null)
     {
         if(!empty($q))
-            return $query->where('title', 'LIKE', "%$q%")
-                    ->orWhere('note', 'LIKE', "%$q%");
+            return $query->where('code', 'LIKE', "%$q%")
+                    ->orWhere('note', 'LIKE', "%$q%")
+                    ->orWhere('sub_total', 'LIKE', "%$q%")
+                    ->orWhere('discount', 'LIKE', "%$q%")
+                    ->orWhere('grand_total', 'LIKE', "%$q%");
                     
     }
 }

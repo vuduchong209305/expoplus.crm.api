@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = User::organizer()->select('id', 'fullname', 'email')->get();
+        $user = User::organizer()->select('id', 'fullname', 'email', 'phone')->get();
         return sendResponse($user);
     }
 

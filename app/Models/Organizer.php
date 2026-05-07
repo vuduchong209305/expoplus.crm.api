@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Company extends Model
+class Organizer extends Model
 {
     use HasFactory;
 
-    protected $table = 'company';
+    protected $table = 'organizer';
     protected $fillable = ['name', 'phone', 'address', 'email', 'avatar', 'website', 'status'];
 
     public function scopeStatus($query, $status = 1)
@@ -28,18 +28,13 @@ class Company extends Model
         }
     }
 
-    public function organizer()
+    public function user()
     {
-        return $this->hasMany(Organizer::class, 'company_id');
+        return $this->hasMany(User::class, 'organizer_id');
     }
 
     public function exhibition()
     {
-        return $this->hasMany(Exhibition::class, 'company_id');
-    }
-
-    public function exhibitors()
-    {
-        return $this->hasMany(Exhibitor::class, 'company_organizer_id');
+        return $this->hasMany(Exhibition::class, 'organizer_id');
     }
 }

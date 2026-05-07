@@ -95,5 +95,20 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
             Route::post('bookmark', 'TaskController@bookmark');
             Route::post('sort', 'TaskController@sort');
         });
+
+        Route::group(['prefix' => 'product'], function(){
+            Route::get('', 'ProductController@index');
+            Route::get('edit', 'ProductController@edit');
+            Route::post('save', 'ProductController@save');
+            Route::post('delete', 'ProductController@delete');
+        });
+
+        Route::group(['prefix' => 'quotation'], function(){
+            Route::get('', 'QuotationController@index');
+            Route::get('edit', 'QuotationController@edit');
+            Route::post('save', 'QuotationController@save');
+            Route::post('delete', 'QuotationController@delete');
+            Route::post('export', 'QuotationController@export');
+        });
     });
 });

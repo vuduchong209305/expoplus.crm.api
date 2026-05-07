@@ -20,7 +20,7 @@ class Customer extends Model
     
     public function organizer()
     {
-        return $this->belongsTo(Company::class, 'organizer_id')->select('id', 'name', 'phone');
+        return $this->belongsTo(Organizer::class, 'organizer_id')->select('id', 'name', 'phone');
     }
 
     public function assigned()
