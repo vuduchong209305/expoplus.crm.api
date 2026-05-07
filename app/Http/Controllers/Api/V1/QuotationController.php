@@ -64,6 +64,7 @@ class QuotationController extends Controller
 
             // 👉 save header
             $quotation->customer_id = $request->customer_id;
+            $quotation->exhibition_id = $request->exhibition_id;
             $quotation->organizer_id = auth('api')->user()->organizer_id;
             $quotation->assigned_to = auth('api')->id();
             $quotation->note = $request->note;
@@ -114,7 +115,10 @@ class QuotationController extends Controller
 
     public function edit(Request $request)
     {
-        $quotation = Quotation::assignedTo()->with('details.product', 'customer')->findOrFail($request->id);
+        $quotation = Quotation::assignedTo()
+                                ->with('details.product', 'customer', 'exhibition')
+                                ->findOrFail($request->id);
+                                
         return sendResponse($quotation);
     }
 
@@ -140,10 +144,5 @@ class QuotationController extends Controller
 
             return sendError('Có lỗi xảy ra');
         }
-    }
-
-    public function export(Request $request)
-    {
-
     }
 }

@@ -11,7 +11,7 @@ class Quotation extends Model
 
     protected $table = 'quotation';
 
-    protected $fillable = ['code', 'customer_id', 'assigned_to', 'note', 'sub_total', 'vat', 'discount', 'grand_total'];
+    protected $fillable = ['code', 'customer_id', 'exhibition_id', 'assigned_to', 'note', 'sub_total', 'vat', 'discount', 'grand_total'];
 
     protected function serializeDate(\DateTimeInterface $date)
     {
@@ -26,6 +26,11 @@ class Quotation extends Model
     public function customer()
     {
         return $this->belongsTo(Customer::class, 'customer_id')->select('id', 'fullname', 'email', 'company', 'phone');
+    }
+
+    public function exhibition()
+    {
+        return $this->belongsTo(Exhibition::class, 'exhibition_id');
     }
 
     public function assgined()

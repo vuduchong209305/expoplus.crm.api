@@ -111,5 +111,9 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
             Route::post('delete', 'QuotationController@delete');
             Route::post('export', 'QuotationController@export');
         });
+
+        Route::group(['prefix' => 'exhibition'], function(){
+            Route::get('', 'ExhibitionController@index');
+        });
     });
 });
