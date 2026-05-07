@@ -11,7 +11,29 @@ class QuotationController extends Controller
 {
     public function index(Request $request,)
     {
-        $quotations = Quotation::assignedTo()->with('customer')->withCount('details')->latest()->paginate();
+        $keyword = $request->search;
+        
+        $quotations = Quotation::assignedTo()
+                                ->when($keyword, function ($q) use ($keyword) {
+
+                                    $q->where(function ($query) use ($keyword) {
+
+                                        // search quotation
+                                        $query->search($keyword)
+
+                                            // search customer
+                                            ->orWhereHas('customer', function ($customer) use ($keyword) {
+                                                $customer->search($keyword);
+                                            });
+
+                                    });
+
+                                })
+                                ->with('customer')
+                                ->withCount('details')
+                                ->latest()
+                                ->paginate();
+
         return sendResponse($quotations);
     }
 
