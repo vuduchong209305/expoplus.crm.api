@@ -201,30 +201,6 @@ if(!function_exists('vdh_hidden_string')) {
 	}
 }
 
-if(!function_exists('vdh_meeting_code')) {
-	function vdh_meeting_code() {
-        do {
-	        $code =
-	            'EX-' .
-	            date('ymd') .
-	            '-' .
-	            strtoupper(
-	                substr(
-	                    str_shuffle('ABCDEFGHJKLMNPQRSTUVWXYZ23456789'),
-	                    0,
-	                    4
-	                )
-	            );
-
-	    }
-	    while(
-	        \App\Models\Meeting::where('code',$code)->exists()
-	    );
-
-	    return $code;
-    }
-}
-
 function generateRandomId() {
     // Định dạng mong muốn là 3 nhóm, mỗi nhóm 4 ký tự hexa (hệ 16).
     // Mỗi byte tương đương 2 ký tự hexa.
@@ -383,22 +359,6 @@ if(!function_exists('vdh_status')) {
 				break;
 			default:
 				return "<span class='badge bg-danger-subtle text-danger fw-semibold rounded-pill'>Lock</span>";
-				break;
-		}
-	}
-}
-
-if(!function_exists('vdh_user_type')) {
-	function vdh_user_type($type = 1, $name = 'Exhibitor') {
-		switch ($type) {
-			case 1:
-				return "<span class='badge bg-success text-uppercase'>".$name."</span>";
-				break;
-			case 2:
-				return "<span class='badge bg-warning text-uppercase'>".$name."</span>";
-				break;
-			default:
-				return "<span class='badge bg-primary text-uppercase'>".$name."</span>";
 				break;
 		}
 	}

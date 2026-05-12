@@ -57,21 +57,9 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsTo(Organizer::class, 'organizer_id')->select('id', 'name', 'phone', 'address', 'email', 'avatar', 'website');
     }
 
-    public function scopeOrganizer($query, $organizer_id = null)
+    public function role()
     {
-        if(!empty($organizer_id)) {
-            $query->where('organizer_id', $organizer_id);
-        }
-
-        if(auth('api')->check()) {
-            if(auth('api')->user()->role_id > 1) {
-                $query->where('id', auth('api')->id());
-            }
-
-            $query->where('organizer_id', auth('api')->user()->organizer_id);
-        }
-        
-        return $query;
+        return $this->belongsTo(RoleOrganizer::class, 'role_id')->select('id', 'name');
     }
 
     public function getJWTIdentifier()

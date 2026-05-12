@@ -17,4 +17,19 @@ class Exhibition extends Model
     {
         return $this->belongsTo(Organizer::class, 'organizer_id');
     }
+
+    public function scopeSearch($query, $q = null)
+    {
+        if(!empty($q))
+            return $query->where('title', 'LIKE', "%$q%")
+                    ->orWhere('location', 'LIKE', "%$q%")
+                    ->orWhere('start_date', 'LIKE', "%$q%")
+                    ->orWhere('end_date', 'LIKE', "%$q%");
+                    
+    }
+
+    public function quotations()
+    {
+        return $this->hasMany(Quotation::class, 'exhibition_id');
+    }
 }

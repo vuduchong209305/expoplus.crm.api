@@ -205,6 +205,13 @@ class CampaignController extends Controller
                 ]
             );
 
+            /*
+            |--------------------------------------------------------------------------
+            | CHECK COMPLETE
+            |--------------------------------------------------------------------------
+            */
+            $campaign->refreshCompleteStatus();
+
             return sendResponse([], 'Cập nhật thành công');
 
         } catch (\Exception $e) {

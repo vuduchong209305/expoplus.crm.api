@@ -35,11 +35,14 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
             Route::post('comment', 'CustomerController@comment');
             Route::get('comment', 'CustomerController@listComment');
             Route::get('activityLogs', 'CustomerController@activityLogs');
+            Route::post('assignedTo', 'CustomerController@assignedTo');
         });
 
         Route::group(['prefix' => 'user'], function(){
             Route::get('', 'UserController@index');
-            Route::post('update', 'UserController@update');
+            Route::get('edit', 'UserController@edit');
+            Route::post('save', 'UserController@save');
+            Route::post('delete', 'UserController@delete');
         });
 
         Route::group(['prefix' => 'todo'], function(){
@@ -114,6 +117,14 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
 
         Route::group(['prefix' => 'exhibition'], function(){
             Route::get('', 'ExhibitionController@index');
+            Route::get('edit', 'ExhibitionController@edit');
+            Route::post('save', 'ExhibitionController@save');
+            Route::post('delete', 'ExhibitionController@delete');
+        });
+
+        Route::group(['prefix' => 'report'], function(){
+            Route::get('task', 'ReportController@task');
+            Route::get('customer', 'ReportController@customer');
         });
     });
 });

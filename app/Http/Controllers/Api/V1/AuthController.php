@@ -29,12 +29,23 @@ class AuthController extends Controller
 
     public function me()
     {
-        $user = auth('api')->user();
+        $user = auth('api')->user()->load([
+            'organizer',
+            'role'
+        ]);
 
-        return sendResponse(
-            $user->load('organizer')
-                 ->only(['id', 'fullname', 'email', 'phone', 'avatar', 'organizer'])
-        );
+        return sendResponse([
+            'id' => $user->id,
+            'fullname' => $user->fullname,
+            'email' => $user->email,
+            'phone' => $user->phone,
+            'avatar' => $user->avatar,
+            'role_id' => $user->role_id,
+            'organizer_id' => $user->organizer_id,
+
+            'organizer' => $user->organizer,
+            'role' => $user->role
+        ]);
     }
 
     public function logout()

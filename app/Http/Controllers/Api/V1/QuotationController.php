@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Quotation;
 use App\Models\QuotationDetail;
+use App\Helpers\HTMLHelper;
 
 class QuotationController extends Controller
 {
@@ -24,13 +25,17 @@ class QuotationController extends Controller
                                             // search customer
                                             ->orWhereHas('customer', function ($customer) use ($keyword) {
                                                 $customer->search($keyword);
+                                            })
+
+                                            // search exhibition
+                                            ->orWhereHas('exhibition', function ($exhibition) use ($keyword) {
+                                                $exhibition->search($keyword);
                                             });
 
                                     });
 
                                 })
-                                ->with('customer')
-                                ->withCount('details')
+                                ->with('customer', 'exhibition')
                                 ->latest()
                                 ->paginate();
 
@@ -54,12 +59,16 @@ class QuotationController extends Controller
 
             $grand_total = $sub_total - ($request->discount ?? 0) + $vat;
 
+            if($grand_total < 0) {
+                return sendError('Thành tiền đang bị âm');
+            }
+
             // 👉 tạo hoặc update
             if ($request->id) {
                 $quotation = Quotation::assignedTo()->findOrFail($request->id);
             } else {
                 $quotation = new Quotation();
-                $quotation->code = strtoupper(uniqid());
+                $quotation->code = HTMLHelper::generateCode('BG', Quotation::class);
             }
 
             // 👉 save header

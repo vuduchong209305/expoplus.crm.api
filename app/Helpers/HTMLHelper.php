@@ -172,6 +172,28 @@ class HTMLHelper {
 
         return $fileName;
     }
+
+    public static function generateCode($prefix, $model, $column = 'code')
+    {
+        $date = now()->format('ymd');
+
+        $start = $prefix . '-' . $date . '-';
+
+        $latest = $model::where($column, 'like', $start . '%')->latest('id')->first();
+
+        $number = 1;
+
+        if ($latest) {
+
+            $explode = explode('-', $latest->$column);
+
+            $number = (int) end($explode) + 1;
+        }
+
+        return $start . str_pad($number, 3, '0', STR_PAD_LEFT);
+    }
+
 }
+
 
 ?>

@@ -13,6 +13,8 @@ class CustomerGroupController extends Controller
     public function index(Request $request)
     {
         $customer_group = CustomerGroup::withCount('detail')
+                                        ->assignedTo()
+                                        ->with('assigned')
                                         ->search($request->search)
                                         ->latest()
                                         ->paginate();
@@ -30,12 +32,14 @@ class CustomerGroupController extends Controller
                 $customerGroup = CustomerGroup::findOrFail($request->id);
                 $customerGroup->update([
                     'title' => $request->title,
-                    'note'  => $request->note,
+                    'note'  => $request->note
                 ]);
             } else {
                 $customerGroup = CustomerGroup::create([
                     'title' => $request->title,
                     'note'  => $request->note,
+                    'assigned_to' => auth('api')->id(),
+                    'organizer_id' => auth('api')->user()->organizer_id
                 ]);
             }
 

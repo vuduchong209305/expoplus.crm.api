@@ -28,7 +28,6 @@ class ProductController extends Controller
         $product->note = $request->note;
         $product->price = $request->price;
         $product->unit = $request->unit;
-        $product->title = $request->title;
         $product->avatar = HTMLHelper::uploadImage($product->avatar, 'avatar', 'product');
 
         if($product->save()) return sendResponse($product, 'Lưu thành công');

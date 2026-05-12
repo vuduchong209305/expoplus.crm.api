@@ -202,4 +202,14 @@ class CustomerController extends Controller
 
         return sendResponse($activityLogs);
     }
+
+    public function assignedTo(Request $request)
+    {
+        $user_id = $request->user_id;
+        $customers = $request->customers;
+
+        Customer::assignedTo()->whereIn('id', $customers)->update(['assigned_to' => $user_id]);
+
+        return sendResponse($customers, 'Giao việc thành công');
+    }
 }

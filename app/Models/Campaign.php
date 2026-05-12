@@ -11,7 +11,7 @@ class Campaign extends Model
 
     protected $table = 'campaign';
 
-    protected $fillable = ['title', 'assigned_to', 'organizer_id', 'start_date', 'end_date', 'note'];
+    protected $fillable = ['title', 'assigned_to', 'organizer_id', 'is_complete', 'start_date', 'end_date', 'note'];
 
     protected function serializeDate(\DateTimeInterface $date)
     {
@@ -59,5 +59,20 @@ class Campaign extends Model
             return $query->where('title', 'LIKE', "%$q%")
                     ->orWhere('note', 'LIKE', "%$q%");
                     
+    }
+
+    public function refreshCompleteStatus()
+    {
+        $hasPending = $this->detail()
+            ->where(function($q){
+                $q->whereNull('progress_id')
+                    ->orWhereNull('status_id')
+                    ->orWhereNull('rating');
+
+            })->exists();
+
+        $this->update([
+            'is_complete' => !$hasPending
+        ]);
     }
 }
