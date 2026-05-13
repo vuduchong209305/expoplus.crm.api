@@ -23,108 +23,173 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
         Route::get('refresh', 'AuthController@refresh');
         Route::post('logout', 'AuthController@logout');
 
-        Route::group(['prefix' => 'customer'], function() {
-        	Route::post('', 'CustomerController@index');
-            Route::get('view', 'CustomerController@view');
-            Route::post('store', 'CustomerController@store');
-            Route::post('update', 'CustomerController@update');
-            Route::get('source', 'CustomerController@source');
-            Route::post('bookmark', 'CustomerController@bookmark');
-            Route::post('delete', 'CustomerController@delete');
-            Route::post('avatar', 'CustomerController@avatar');
-            Route::post('comment', 'CustomerController@comment');
-            Route::get('comment', 'CustomerController@listComment');
-            Route::get('activityLogs', 'CustomerController@activityLogs');
-            Route::post('assignedTo', 'CustomerController@assignedTo');
-        });
+        Route::middleware(['permission'])->group(function () {
+            
+            Route::prefix('user')
+                    ->as('user.')
+                    ->controller(UserController::class)
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                        Route::get('edit', 'edit')->name('edit');
+                        Route::post('save', 'save')->name('save');
+                        Route::post('update', 'update')->name('update');
+                        Route::post('delete', 'delete')->name('delete');
+                    });
 
-        Route::group(['prefix' => 'user'], function(){
-            Route::get('', 'UserController@index');
-            Route::get('edit', 'UserController@edit');
-            Route::post('save', 'UserController@save');
-            Route::post('delete', 'UserController@delete');
-        });
+            Route::prefix('role')
+                    ->as('role.')
+                    ->controller(RoleController::class)
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                        Route::get('edit', 'edit')->name('edit');
+                        Route::post('save', 'save')->name('save');
+                        Route::post('delete', 'delete')->name('delete');
+                    });
 
-        Route::group(['prefix' => 'todo'], function(){
-            Route::get('', 'ToDoController@index');
-            Route::get('detail', 'ToDoController@detail');
-            Route::post('store', 'ToDoController@store');
-            Route::post('update', 'ToDoController@update');
-            Route::post('delete', 'ToDoController@delete');
-            Route::post('completed', 'ToDoController@completed');
-            Route::post('bookmark', 'ToDoController@bookmark');
-            Route::post('sort', 'ToDoController@sort');
-        });
+            Route::prefix('todo')
+                    ->as('todo.')
+                    ->controller(ToDoController::class)
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                        Route::get('detail', 'detail')->name('detail');
+                        Route::post('store', 'store')->name('store');
+                        Route::post('update', 'update')->name('update');
+                        Route::post('delete', 'delete')->name('delete');
+                        Route::post('completed', 'completed')->name('completed');
+                        Route::post('bookmark', 'bookmark')->name('bookmark');
+                        Route::post('sort', 'sort')->name('sort');
+                    });
 
-        Route::group(['prefix' => 'event'], function(){
-            Route::get('', 'EventController@index');
-            Route::get('detail', 'EventController@detail');
-            Route::post('store', 'EventController@store');
-            Route::post('update', 'EventController@update');
-            Route::post('update-time', 'EventController@updateTime');
-            Route::post('delete', 'EventController@delete');
-        });
+            Route::prefix('event')
+                    ->as('event.')
+                    ->controller(EventController::class)
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                        Route::get('detail', 'detail')->name('detail');
+                        Route::post('store', 'store')->name('store');
+                        Route::post('update', 'update')->name('update');
+                        Route::post('update-time', 'updateTime')->name('updateTime');
+                        Route::post('delete', 'delete')->name('delete');
+                    });
 
-        Route::group(['prefix' => 'customer-group'], function(){
-            Route::get('', 'CustomerGroupController@index');
-            Route::get('detail', 'CustomerGroupController@detail');
-            Route::post('save', 'CustomerGroupController@save');
-            Route::get('list', 'CustomerGroupController@list');
-            Route::post('assign', 'CustomerGroupController@assign');
-        });
+            Route::prefix('customer')
+                    ->as('customer.')
+                    ->controller(CustomerController::class)
+                    ->group(function () {
+                        Route::post('', 'index')->name('index');
+                        Route::get('view', 'view')->name('view');
+                        Route::post('store', 'store')->name('store');
+                        Route::post('update', 'update')->name('update');
+                        Route::get('source', 'source')->name('source');
+                        Route::post('bookmark', 'bookmark')->name('bookmark');
+                        Route::post('delete', 'delete')->name('delete');
+                        Route::post('avatar', 'avatar')->name('avatar');
+                        Route::post('comment', 'comment')->name('comment.store');
+                        Route::get('comment', 'listComment')->name('comment.index');
+                        Route::get('activityLogs', 'activityLogs')->name('activity.logs');
+                        Route::post('assignedTo', 'assignedTo')->name('assigned');
+                    });
 
-        Route::group(['prefix' => 'campaign'], function(){
-            Route::get('', 'CampaignController@index');
-            Route::get('detail', 'CampaignController@detail');
-            Route::get('edit', 'CampaignController@edit');
-            Route::post('save', 'CampaignController@save');
-            Route::get('list', 'CampaignController@list');
-            Route::post('assign', 'CampaignController@assign');
-            Route::post('delete', 'CampaignController@delete');
-            Route::post('deleteCustomer', 'CampaignController@deleteCustomer');
-            Route::post('customer', 'CampaignController@customer');
-            Route::get('customer-group', 'CampaignController@customerGroup');
-            Route::post('update-customer', 'CampaignController@updateCustomer');
-            Route::post('add-group', 'CampaignController@addGroup');
-            Route::post('report', 'CampaignController@report');
-        });
+            Route::prefix('customer-group')
+                    ->as('customer-group.')
+                    ->controller(CustomerGroupController::class)
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                        Route::get('detail', 'detail')->name('detail');
+                        Route::post('save', 'save')->name('save');
+                        Route::get('list', 'list')->name('list');
+                        Route::post('assign', 'assign')->name('assign');
+                    });
 
-        Route::group(['prefix' => 'task'], function(){
-            Route::get('', 'TaskController@index');
-            Route::get('detail', 'TaskController@detail');
-            Route::post('store', 'TaskController@store');
-            Route::post('update', 'TaskController@update');
-            Route::post('delete', 'TaskController@delete');
-            Route::post('completed', 'TaskController@completed');
-            Route::post('bookmark', 'TaskController@bookmark');
-            Route::post('sort', 'TaskController@sort');
-        });
+            Route::prefix('campaign')
+                    ->as('campaign.')
+                    ->controller(CampaignController::class)
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                        Route::get('detail', 'detail')->name('detail');
+                        Route::get('edit', 'edit')->name('edit');
+                        Route::post('save', 'save')->name('save');
+                        Route::get('list', 'list')->name('list');
+                        Route::post('assign', 'assign')->name('assign');
+                        Route::post('delete', 'delete')->name('delete');
+                        Route::post('deleteCustomer', 'deleteCustomer')->name('deleteCustomer');
+                        Route::post('customer', 'customer')->name('customer');
+                        Route::get('customer-group', 'customerGroup')->name('customerGroup');
+                        Route::post('update-customer', 'updateCustomer')->name('updateCustomer');
+                        Route::post('report', 'report')->name('report');
+                    });
 
-        Route::group(['prefix' => 'product'], function(){
-            Route::get('', 'ProductController@index');
-            Route::get('edit', 'ProductController@edit');
-            Route::post('save', 'ProductController@save');
-            Route::post('delete', 'ProductController@delete');
-        });
+            Route::prefix('task')
+                    ->as('task.')
+                    ->controller(TaskController::class)
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                        Route::get('detail', 'detail')->name('detail');
+                        Route::post('store', 'store')->name('store');
+                        Route::post('update', 'update')->name('update');
+                        Route::post('delete', 'delete')->name('delete');
+                        Route::post('completed', 'completed')->name('completed');
+                        Route::post('bookmark', 'bookmark')->name('bookmark');
+                        Route::post('sort', 'sort')->name('sort');
+                    });
 
-        Route::group(['prefix' => 'quotation'], function(){
-            Route::get('', 'QuotationController@index');
-            Route::get('edit', 'QuotationController@edit');
-            Route::post('save', 'QuotationController@save');
-            Route::post('delete', 'QuotationController@delete');
-            Route::post('export', 'QuotationController@export');
-        });
+            Route::prefix('product')
+                    ->as('product.')
+                    ->controller(ProductController::class)
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                        Route::get('edit', 'edit')->name('edit');
+                        Route::post('save', 'save')->name('save');
+                        Route::post('delete', 'delete')->name('delete');
+                    });
 
-        Route::group(['prefix' => 'exhibition'], function(){
-            Route::get('', 'ExhibitionController@index');
-            Route::get('edit', 'ExhibitionController@edit');
-            Route::post('save', 'ExhibitionController@save');
-            Route::post('delete', 'ExhibitionController@delete');
-        });
+            Route::prefix('quotation')
+                    ->as('quotation.')
+                    ->controller(QuotationController::class)
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                        Route::get('edit', 'edit')->name('edit');
+                        Route::post('save', 'save')->name('save');
+                        Route::post('delete', 'delete')->name('delete');
+                        Route::post('export', 'export')->name('export');
+                    });
 
-        Route::group(['prefix' => 'report'], function(){
-            Route::get('task', 'ReportController@task');
-            Route::get('customer', 'ReportController@customer');
+            Route::prefix('exhibition')
+                    ->as('exhibition.')
+                    ->controller(ExhibitionController::class)
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                        Route::get('edit', 'edit')->name('edit');
+                        Route::post('save', 'save')->name('save');
+                        Route::post('delete', 'delete')->name('delete');
+                    });
+
+            Route::prefix('report')
+                    ->as('report.')
+                    ->controller(ReportController::class)
+                    ->group(function () {
+                        Route::get('task', 'task')->name('task');
+                        Route::get('customer', 'customer')->name('customer');
+                    });
+
+            Route::prefix('permission')
+                    ->as('permission.')
+                    ->controller(PermissionController::class)
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+            Route::prefix('role')
+                    ->as('role.')
+                    ->controller(RoleController::class)
+                    ->group(function () {
+                        Route::post('', 'index')->name('index');
+                        Route::get('edit', 'edit')->name('edit');
+                        Route::post('save', 'save')->name('save');
+                        Route::post('delete', 'delete')->name('delete');
+                    });
+
         });
+        
     });
 });

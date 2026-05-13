@@ -73,5 +73,7 @@ class Kernel extends HttpKernel
 
         'CheckOrganizer' => \App\Http\Middleware\CheckOrganizer::class,
         'CheckOrganizerRole' => \App\Http\Middleware\CheckOrganizerRole::class,
+
+        'permission' => \App\Http\Middleware\CheckPermission::class,
     ];
 }

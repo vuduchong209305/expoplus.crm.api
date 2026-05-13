@@ -62,6 +62,15 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsTo(RoleOrganizer::class, 'role_id')->select('id', 'name');
     }
 
+    public function hasPermission($permission)
+    {
+        if (!$this->role) {
+            return false;
+        }
+
+        return $this->role->permissions->contains('key', $permission);
+    }
+
     public function getJWTIdentifier()
     {
       return $this->getKey();

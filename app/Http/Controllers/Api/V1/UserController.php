@@ -13,7 +13,7 @@ class UserController extends Controller
     {
         $user = User::where('organizer_id', auth('api')->user()->organizer_id)
                     ->with('role')
-                    ->select('id', 'avatar', 'role_id', 'fullname', 'email', 'phone', 'created_at', 'updated_at')
+                    ->select('id', 'avatar', 'role_id', 'is_admin', 'fullname', 'email', 'phone', 'created_at', 'updated_at')
                     ->get();
 
         return sendResponse($user);
@@ -27,17 +27,72 @@ class UserController extends Controller
 
     public function save(Request $request, User $user)
     {
-        if ($request->id) {
+        $isEdit = !empty($request->id);
+
+        if ($isEdit) {
             $user = User::findOrFail($request->id);
         }
+
+        /*
+        |--------------------------------------------------------------------------
+        | VALIDATE
+        |--------------------------------------------------------------------------
+        */
+
+        $rules = [
+            'fullname' => 'required|string|max:255',
+
+            'email' => [
+                'required',
+                'email',
+                'max:255',
+                'unique:users,email' . ($isEdit ? ',' . $user->id : '')
+            ],
+
+            'phone' => 'nullable|string|max:20',
+            'birthday' => 'nullable|string',
+        ];
+
+        /*
+        |--------------------------------------------------------------------------
+        | PASSWORD
+        |--------------------------------------------------------------------------
+        */
+
+        if (!$isEdit || ($isEdit && $request->filled('password'))) {
+            $rules['password'] = 'required|min:6|confirmed';
+        }
+
+        $validated = $request->validate($rules);
+
+        /*
+        |--------------------------------------------------------------------------
+        | SAVE
+        |--------------------------------------------------------------------------
+        */
 
         $user->fullname = $request->fullname;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->birthday = $request->birthday;
-        $user->avatar = HTMLHelper::uploadImage($user->avatar, 'avatar', 'user');
+        $user->role_id = $request->role_id;
+        $user->organizer_id = auth('api')->user()->organizer_id;
+        $user->status = $request->boolean('status');
 
-        if($user->save()) return sendResponse($user, 'Lưu thành công');
+        $user->avatar = HTMLHelper::uploadImage(
+            $user->avatar,
+            'avatar',
+            'user'
+        );
+
+        // update password nếu có nhập
+        if ($request->filled('password')) {
+            $user->password = bcrypt($request->password);
+        }
+
+        $user->save();
+
+        return sendResponse($user, 'Lưu thành công');
     }
 
     public function update(Request $request)

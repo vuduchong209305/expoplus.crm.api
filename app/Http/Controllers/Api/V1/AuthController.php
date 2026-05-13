@@ -23,7 +23,7 @@ class AuthController extends Controller
 
         return sendResponse([
                                 'token' => $token,
-                                'user' => auth('api')->user()->only(['id', 'fullname', 'email', 'avatar'])
+                                'user' => auth('api')->user()->only(['id', 'fullname', 'is_admin', 'email', 'avatar'])
                             ], 'Đăng nhập thành công');
     }
 
@@ -31,7 +31,7 @@ class AuthController extends Controller
     {
         $user = auth('api')->user()->load([
             'organizer',
-            'role'
+            'role.permissions'
         ]);
 
         return sendResponse([
@@ -41,10 +41,13 @@ class AuthController extends Controller
             'phone' => $user->phone,
             'avatar' => $user->avatar,
             'role_id' => $user->role_id,
+            'is_admin' => $user->is_admin,
             'organizer_id' => $user->organizer_id,
 
             'organizer' => $user->organizer,
-            'role' => $user->role
+            'role' => $user->role,
+
+            'permissions' => $user->role?->permissions?->pluck('key')->values()
         ]);
     }
 

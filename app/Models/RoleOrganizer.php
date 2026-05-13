@@ -11,6 +11,11 @@ class RoleOrganizer extends Model
 
     protected $table = 'role_organizer';
 
+    protected function serializeDate(\DateTimeInterface $date)
+    {
+        return \Carbon\Carbon::instance($date)->timezone(config('app.timezone'))->format('Y-m-d H:i:s');
+    }
+
     public function scopeStatus($query, $status = 1)
     {
         return $query->where('status', $status);
@@ -28,5 +33,15 @@ class RoleOrganizer extends Model
                         ->orWhere('permission', 'LIKE', "%$q%")
                         ->orWhere('description', 'LIKE', "%$q%");
         
+    }
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class, 'role_permission', 'role_id', 'permission_id');
+    }
+
+    public function user()
+    {
+        return $this->hasMany(User::class, 'role_id');
     }
 }
