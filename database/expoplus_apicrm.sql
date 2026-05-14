@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 14, 2026 lúc 07:42 AM
+-- Thời gian đã tạo: Th5 14, 2026 lúc 03:55 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -109,6 +109,38 @@ INSERT INTO `vdh_activity_logs` (`id`, `subject_type`, `subject_id`, `causer_typ
 (62, 'App\\Models\\Customer', 123, 'App\\Models\\User', 1, 'update', 'Cập nhật assigned_to', '{\"field\":\"assigned_to\",\"old\":4,\"new\":3}', '2026-05-11 09:58:51', '2026-05-11 09:58:51'),
 (63, 'App\\Models\\Customer', 128, 'App\\Models\\User', 1, 'update', 'Cập nhật assigned_to', '{\"field\":\"assigned_to\",\"old\":4,\"new\":3}', '2026-05-11 09:59:00', '2026-05-11 09:59:00'),
 (64, 'App\\Models\\Customer', 128, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-05-11 09:59:11', '2026-05-11 09:59:11');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `vdh_admins`
+--
+
+CREATE TABLE `vdh_admins` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `password` varchar(100) NOT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `avatar` text DEFAULT NULL,
+  `status` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
+  `fullname` varchar(50) DEFAULT NULL,
+  `birthday` varchar(10) DEFAULT NULL,
+  `passport` varchar(20) DEFAULT NULL,
+  `role_id` int(10) UNSIGNED DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `forgot_pass_token` varchar(100) DEFAULT NULL,
+  `updated_forgot_token` datetime DEFAULT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+
+--
+-- Đang đổ dữ liệu cho bảng `vdh_admins`
+--
+
+INSERT INTO `vdh_admins` (`id`, `email`, `password`, `phone`, `avatar`, `status`, `fullname`, `birthday`, `passport`, `role_id`, `address`, `forgot_pass_token`, `updated_forgot_token`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'vuduchong209305@gmail.com', '$2y$10$4UdQSmNztB457ugofP3H6.SdzeFwxQ/StlFNutTZ9ZKzD4kNgjOcS', '0986209305', '/assets/uploads/media/images/files/agency/vdh.jpg', 1, 'Vũ Đức Hồng', '06-06-1993', NULL, 1, NULL, NULL, NULL, NULL, NULL, '2026-03-17 14:04:38');
 
 -- --------------------------------------------------------
 
@@ -400,6 +432,7 @@ INSERT INTO `vdh_customer_group_detail` (`customer_group_id`, `customer_id`) VAL
 (3, 10),
 (3, 14),
 (3, 16),
+(3, 132),
 (4, 119),
 (4, 132);
 
@@ -482,9 +515,37 @@ CREATE TABLE `vdh_exhibition` (
 --
 
 INSERT INTO `vdh_exhibition` (`id`, `title`, `organizer_id`, `start_date`, `end_date`, `location`, `logo`, `created_at`, `updated_at`) VALUES
-(1, 'Entech Hanoi 2026', 1, '2026-06-24', '2026-06-26', 'Trung tâm Hội chợ Triển lãm quốc tế I.C.E Hà Nội - 91 Trần Hưng Đạo, Hà Nội', 'exhibition/2026/05/11/1778476173-dDYkih04x3TCAPWYChfr.webp', NULL, '2026-05-11 05:09:33'),
+(1, 'Entech Hanoi 2026', 1, '2026-06-24', '2026-06-26', 'Trung tâm Hội chợ Triển lãm quốc tế I.C.E Hà Nội - 91 Trần Hưng Đạo, Hà Nội', 'exhibition/2026/05/14/1778749537-y5FaKLHnD2tnM5Y7j4Cx.webp', NULL, '2026-05-14 09:05:37'),
 (2, 'Envirotex Hanoi 2026', 1, '2026-06-24', '2026-06-26', 'Trung tâm Hội chợ Triển lãm quốc tế I.C.E Hà Nội - 91 Trần Hưng Đạo, Hà Nội', 'exhibition/2026/05/11/1778476276-c1Rb4rXQXEshlBW1rnYA.webp', NULL, '2026-05-11 05:11:16'),
 (3, 'UAV SHOW 2026', 1, '2026-08-26', '2026-08-28', 'Trung tâm Triển lãm quốc gia (VEC), Đại lộ Trường Sa, Đông Anh, Hà Nội.', 'exhibition/2026/05/11/1778476354-GqfNaih2UyqvCXT7rPLX.webp', '2026-05-11 05:12:34', '2026-05-11 05:12:34');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `vdh_languages`
+--
+
+CREATE TABLE `vdh_languages` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `lang_class` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) UNSIGNED DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Đang đổ dữ liệu cho bảng `vdh_languages`
+--
+
+INSERT INTO `vdh_languages` (`id`, `name`, `lang_class`, `title`, `description`, `status`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'vi', 'vi_vn', 'VIE', 'Tiếng Việt', 1, '/assets/images/flag/vietnam.png', '2020-06-19 16:12:11', '2026-01-04 01:56:03'),
+(2, 'en', 'en_es', 'ENG', 'Tiếng Anh', 1, '/assets/images/flag/uk.png', '2020-06-19 16:12:15', '2020-06-19 16:12:17'),
+(3, 'cn', 'cn_CN', 'CN', 'Tiếng Trung', 1, '/assets/images/flag/china.png', '2020-07-05 04:42:05', '2026-01-04 01:54:10'),
+(4, 'kr', 'kr_KR', 'KR', 'Tiếng Hàn', 1, '/assets/images/flag/korea.png', '2026-02-01 12:00:53', '2026-02-01 12:00:54');
 
 -- --------------------------------------------------------
 
@@ -510,7 +571,7 @@ CREATE TABLE `vdh_organizer` (
 --
 
 INSERT INTO `vdh_organizer` (`id`, `name`, `phone`, `address`, `email`, `avatar`, `website`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'CÔNG TY CP TỔ CHỨC SỰ KIỆN VÀ HỘI CHỢ TOÀN CẦU (GLOBAL EXPO)', '024. 3755 3414', 'A24 / D7 KĐT mới Cầu Giấy, Phường Cầu Giấy, Hà Nội', 'info@globalexpo.com.vn', '/assets/uploads/media/images/files/organizer/ge.jpg', 'https://globalexpo.com.vn', 1, '2026-03-19 04:34:16', '2026-03-19 06:21:23'),
+(1, 'CÔNG TY CP TỔ CHỨC SỰ KIỆN VÀ HỘI CHỢ TOÀN CẦU (GLOBAL EXPO)', '024. 3755 3414', 'A24 / D7 KĐT mới Cầu Giấy, Phường Cầu Giấy, Hà Nội', 'info@globalexpo.com.vn', '/assets/uploads/media/images/files/organizer/ge.jpg', 'https://globalexpo.com.vn', 1, '2026-03-19 04:34:16', '2026-05-14 13:22:45'),
 (2, 'CÔNG TY TNHH SỰ KIỆN TRIỂN LÃM VÀ XÚC TIẾN THƯƠNG MẠI CAMEL', '02838293179', 'Tầng 5, Tòa nhà Songdo 62A Phạm Ngọc Thạch, Phường Xuân Hòa, thành phố Hồ Chí Minh', 'camelevents.vn@gmail.com', '/assets/uploads/media/images/files/organizer/camel-event.png', 'https://camelevents.vn/', 1, '2026-03-19 05:00:45', '2026-03-19 05:00:45');
 
 -- --------------------------------------------------------
@@ -728,6 +789,32 @@ INSERT INTO `vdh_quotation_detail` (`quotation_id`, `product_id`, `qty`, `price`
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `vdh_roles`
+--
+
+CREATE TABLE `vdh_roles` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `permission` text NOT NULL,
+  `avatar` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `status` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+
+--
+-- Đang đổ dữ liệu cho bảng `vdh_roles`
+--
+
+INSERT INTO `vdh_roles` (`id`, `name`, `permission`, `avatar`, `description`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'ADMIN', 'dashboard', NULL, 'Quyền cao nhất', 1, '2020-12-10 02:32:39', '2026-05-14 09:09:54'),
+(4, 'Sales', 'dashboard;customer.index;customer.create;customer.store;customer.update;customer.delete;customer.draft;customer.draft;customer.draft.move;customer.draft.delete;customer.exhibitor.index;customer.exhibitor.add;customer.exhibitor.remove;customer.exhibitor.view;customer.exhibitor.store', NULL, 'Nhân viên kinh doanh', 1, '2020-12-28 04:23:51', '2026-03-17 14:11:31'),
+(5, 'Kế toán', 'dashboard', NULL, 'Tài chính kế toán', 1, '2026-03-17 14:00:37', '2026-03-17 14:01:30');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `vdh_role_organizer`
 --
 
@@ -771,6 +858,34 @@ INSERT INTO `vdh_role_permission` (`role_id`, `permission_id`) VALUES
 (1, 74),
 (1, 76),
 (1, 77);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `vdh_setting`
+--
+
+CREATE TABLE `vdh_setting` (
+  `id` int(11) NOT NULL,
+  `option_key` varchar(255) DEFAULT NULL,
+  `option_value` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=DYNAMIC;
+
+--
+-- Đang đổ dữ liệu cho bảng `vdh_setting`
+--
+
+INSERT INTO `vdh_setting` (`id`, `option_key`, `option_value`, `created_at`, `updated_at`) VALUES
+(1, 'phone', '0986209305', '2026-02-08 03:22:48', '2026-02-08 03:26:38'),
+(2, 'zalo', '0986209305', '2026-02-08 03:22:48', '2026-02-08 03:26:38'),
+(3, 'facebook', 'facebook.com/vuduchongdotcom', '2026-02-08 03:22:48', '2026-02-08 03:26:38'),
+(4, 'messenger', 'messenger.com/vuduchongdotcom', '2026-02-08 03:22:48', '2026-02-08 03:27:25'),
+(5, 'maintenance', NULL, '2026-02-08 03:22:48', '2026-02-08 04:49:34'),
+(6, 'seo', '1', '2026-02-08 03:22:48', '2026-02-08 03:26:22'),
+(7, 'robot_index', NULL, '2026-02-08 03:28:15', '2026-02-21 02:02:51'),
+(8, 'hero_typed', '{\"vi\":\"Qua tri\\u1ec3n l\\u00e3m B2B\\r\\nT\\u0103ng c\\u01b0\\u1eddng h\\u1ee3p t\\u00e1c\\r\\nK\\u1ebft n\\u1ed1i giao th\\u01b0\\u01a1ng\",\"en\":\"Through B2B exhibition\\r\\nStrengthen cooperation\\r\\nTrade connection\",\"cn\":\"\\u901a\\u8fc7B2B\\u5c55\\u4f1a\\r\\n\\u52a0\\u5f3a\\u5408\\u4f5c\\r\\n\\u8d38\\u6613\\u8054\\u7cfb\",\"kr\":\"B2B \\uc804\\uc2dc\\ub97c \\ud1b5\\ud574\\r\\n\\ud611\\ub825 \\uac15\\ud654\\r\\n\\ubb34\\uc5ed \\uc5f0\\uacb0\"}', '2026-03-06 11:20:11', '2026-04-10 07:46:37');
 
 -- --------------------------------------------------------
 
@@ -926,10 +1041,10 @@ CREATE TABLE `vdh_users` (
 --
 
 INSERT INTO `vdh_users` (`id`, `email`, `password`, `phone`, `avatar`, `status`, `fullname`, `birthday`, `passport`, `is_admin`, `role_id`, `address`, `organizer_id`, `forgot_pass_token`, `updated_forgot_token`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'vuduchong209305@gmail.com', '$2y$12$vAUtnsz67C1XxXIzjX2/UesJMOVDBDJiRkPHuLn2b9TsCbZ/XHWx.', '0986209305', 'user/2026/05/13/1778660712-OOP4gYy71UzlT6YYC1le.webp', 1, 'Vũ Đức Hồng', NULL, NULL, 1, 1, NULL, 1, NULL, NULL, NULL, NULL, '2026-05-14 04:25:29'),
-(2, 'ph2h.ge@gmail.com', '$2y$12$jImBKmGSeieYWkkQ7ZmUhuyKWwHuXY4HlVTFTit6wTCnW/u0qpXuS', '0904239996', 'user/2026/05/13/1778660703-ZYPJT79FfFmbDsnzpqkM.webp', 1, 'Nguyễn Phi Hùng', '1977', NULL, NULL, 1, NULL, 1, NULL, NULL, NULL, '2026-02-08 04:59:28', '2026-05-14 04:25:18'),
-(3, 'quangvinh@globalexpo.com.vn', '$2y$12$EjOXMDEl.y4NVLycNuVQyugEfctis3bX/VF8hNf39ZjQzW6ucbrWm', '0983109909', 'user/2026/05/12/1778580246-TCmV5vGFnYJD9FMmhrHE.webp', 1, 'Trần Quang Vinh', NULL, NULL, NULL, 1, NULL, 1, NULL, NULL, NULL, '2026-02-08 05:04:04', '2026-05-14 04:06:59'),
-(4, 'phuonglinh@globalexpo.com.vn', '$2y$12$T6srMt8vCkJz5kSzYdYBNel5BGpz6yQOd01fldAWeqXUhm4ELAZVe', NULL, 'user/2026/05/12/1778580221-xKmQL3QBU0xjBzDJ9kOw.webp', 1, 'Phương Linh', NULL, NULL, NULL, 1, NULL, 1, NULL, NULL, NULL, '2026-05-12 09:57:56', '2026-05-14 04:02:46');
+(1, 'vuduchong209305@gmail.com', '$2y$12$vAUtnsz67C1XxXIzjX2/UesJMOVDBDJiRkPHuLn2b9TsCbZ/XHWx.', '0986209305', 'user/2026/05/13/1778660712-OOP4gYy71UzlT6YYC1le.webp', 1, 'Vũ Đức Hồng', NULL, NULL, 1, 1, NULL, 1, NULL, NULL, NULL, NULL, '2026-05-14 13:52:43'),
+(2, 'ph2h.ge@gmail.com', '$2y$12$jImBKmGSeieYWkkQ7ZmUhuyKWwHuXY4HlVTFTit6wTCnW/u0qpXuS', '0904239996', 'user/2026/05/13/1778660703-ZYPJT79FfFmbDsnzpqkM.webp', 1, 'Nguyễn Phi Hùng', '1977', NULL, NULL, 1, NULL, 1, NULL, NULL, NULL, '2026-02-08 04:59:28', '2026-05-14 13:52:43'),
+(3, 'quangvinh@globalexpo.com.vn', '$2y$12$EjOXMDEl.y4NVLycNuVQyugEfctis3bX/VF8hNf39ZjQzW6ucbrWm', '0983109909', 'user/2026/05/12/1778580246-TCmV5vGFnYJD9FMmhrHE.webp', 1, 'Trần Quang Vinh', NULL, NULL, NULL, 1, NULL, 1, NULL, NULL, NULL, '2026-02-08 05:04:04', '2026-05-14 13:52:43'),
+(4, 'phuonglinh@globalexpo.com.vn', '$2y$12$T6srMt8vCkJz5kSzYdYBNel5BGpz6yQOd01fldAWeqXUhm4ELAZVe', NULL, 'user/2026/05/12/1778580221-xKmQL3QBU0xjBzDJ9kOw.webp', 1, 'Phương Linh', NULL, NULL, NULL, 1, NULL, 1, NULL, NULL, NULL, '2026-05-12 09:57:56', '2026-05-14 13:52:43');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -940,6 +1055,12 @@ INSERT INTO `vdh_users` (`id`, `email`, `password`, `phone`, `avatar`, `status`,
 --
 ALTER TABLE `vdh_activity_logs`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `vdh_admins`
+--
+ALTER TABLE `vdh_admins`
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Chỉ mục cho bảng `vdh_campaign`
@@ -997,6 +1118,12 @@ ALTER TABLE `vdh_exhibition`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `vdh_languages`
+--
+ALTER TABLE `vdh_languages`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
 -- Chỉ mục cho bảng `vdh_organizer`
 --
 ALTER TABLE `vdh_organizer`
@@ -1033,6 +1160,12 @@ ALTER TABLE `vdh_quotation_detail`
   ADD PRIMARY KEY (`quotation_id`,`product_id`);
 
 --
+-- Chỉ mục cho bảng `vdh_roles`
+--
+ALTER TABLE `vdh_roles`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
 -- Chỉ mục cho bảng `vdh_role_organizer`
 --
 ALTER TABLE `vdh_role_organizer`
@@ -1043,6 +1176,13 @@ ALTER TABLE `vdh_role_organizer`
 --
 ALTER TABLE `vdh_role_permission`
   ADD PRIMARY KEY (`role_id`,`permission_id`);
+
+--
+-- Chỉ mục cho bảng `vdh_setting`
+--
+ALTER TABLE `vdh_setting`
+  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD UNIQUE KEY `option_key` (`option_key`) USING BTREE;
 
 --
 -- Chỉ mục cho bảng `vdh_source`
@@ -1083,6 +1223,12 @@ ALTER TABLE `vdh_users`
 --
 ALTER TABLE `vdh_activity_logs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+
+--
+-- AUTO_INCREMENT cho bảng `vdh_admins`
+--
+ALTER TABLE `vdh_admins`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `vdh_campaign`
@@ -1127,6 +1273,12 @@ ALTER TABLE `vdh_exhibition`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT cho bảng `vdh_languages`
+--
+ALTER TABLE `vdh_languages`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT cho bảng `vdh_organizer`
 --
 ALTER TABLE `vdh_organizer`
@@ -1157,10 +1309,22 @@ ALTER TABLE `vdh_quotation`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT cho bảng `vdh_roles`
+--
+ALTER TABLE `vdh_roles`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT cho bảng `vdh_role_organizer`
 --
 ALTER TABLE `vdh_role_organizer`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT cho bảng `vdh_setting`
+--
+ALTER TABLE `vdh_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `vdh_source`
