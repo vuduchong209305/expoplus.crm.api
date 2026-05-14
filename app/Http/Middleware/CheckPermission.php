@@ -21,6 +21,11 @@ class CheckPermission
             return sendError('Tài khoản chưa đăng nhập');
         }
 
+        if($user->organizer->status != 1) {
+            auth('api')->logout();
+            return sendError('Ban tổ chức đã bị khóa');
+        }
+        
         /*
         |--------------------------------------------------------------------------
         | SUPER ADMIN BYPASS
@@ -40,6 +45,7 @@ class CheckPermission
             auth('api')->logout();
             return sendError('Tài khoản đã bị khóa');
         }
+
         /*
         |--------------------------------------------------------------------------
         | CHECK PERMISSION

@@ -55,7 +55,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function organizer()
     {
-        return $this->belongsTo(Organizer::class, 'organizer_id')->select('id', 'name', 'phone', 'address', 'email', 'avatar', 'website');
+        return $this->belongsTo(Organizer::class, 'organizer_id');
     }
 
     public function role()
@@ -79,6 +79,12 @@ class User extends Authenticatable implements JWTSubject
                     ->orWhere('email', 'LIKE', "%$q%")
                     ->orWhere('phone', 'LIKE', "%$q%")
                     ->orWhere('birthday', 'LIKE', "%$q%");
+    }
+
+    public function scopeOrganizer($query, $organizer_id = null)
+    {
+        if(!empty($organizer_id))
+            return $query->where('organizer_id', $organizer_id);
     }
 
     public function getJWTIdentifier()

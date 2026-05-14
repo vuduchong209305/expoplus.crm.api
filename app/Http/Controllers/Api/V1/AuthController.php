@@ -8,24 +8,48 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     public function login(Request $request)
-    {    
+    {
         $request->validate([
-            "email"    => "required|email",
-            "password" => "required"
+            'email' => 'required|email',
+            'password' => 'required'
         ]);
 
         $token = auth('api')->attempt([
-            "email"     => $request->email,
-            "password"  => $request->password,
-            "status"    => 1
+            'email' => $request->email,
+            'password' => $request->password,
         ]);
 
-        if(empty($token)) return sendError('Sai thông tin đăng nhập hoặc tài khoản đang bị khóa');
+        if (!$token) {
+            return sendError('Sai thông tin đăng nhập');
+        }
+
+        $user = auth('api')->user()->load('organizer');
+
+        if (!$user->organizer || $user->organizer->status != 1) {
+
+            auth('api')->logout();
+
+            return sendError('Ban tổ chức đã bị khóa');
+        }
+
+        if ($user->status != 1) {
+
+            auth('api')->logout();
+
+            return sendError('Tài khoản đã bị khóa');
+        }
 
         return sendResponse([
-                                'token' => $token,
-                                'user' => auth('api')->user()->only(['id', 'fullname', 'is_admin', 'email', 'avatar'])
-                            ], 'Đăng nhập thành công');
+            'token' => $token,
+
+            'user' => $user->only([
+                'id',
+                'fullname',
+                'is_admin',
+                'email',
+                'avatar'
+            ])
+        ], 'Đăng nhập thành công');
     }
 
     public function me()

@@ -183,7 +183,11 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'Excel'      => Maatwebsite\Excel\Facades\Excel::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'RoleHelper' => App\Helpers\RoleHelper::class,
+        'MenuHelper' => App\Helpers\MenuHelper::class,
+        'HTMLHelper' => App\Helpers\HTMLHelper::class,
+        'LangHelper' => App\Helpers\LangHelper::class,
     ])->toArray(),
 
 ];

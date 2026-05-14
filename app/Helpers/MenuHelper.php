@@ -58,30 +58,21 @@ class MenuHelper {
 
 		$msub = array();
 
-		if (RoleHelper::checkRole('organizer.company.index')) {
-
-			$msub[] = array(
-				'url'    => route('organizer.company.index'),
-				'title'  => 'Công ty',
-				'active' => 'hadmin/organizer/company',
-			);
-		}
-
 		if (RoleHelper::checkRole('organizer.index')) {
 
 			$msub[] = array(
 				'url'    => route('organizer.index'),
-				'title'  => 'Tài khoản',
+				'title'  => 'Danh sách',
 				'active' => 'hadmin/organizer',
 			);
 		}
 
-		if (RoleHelper::checkRole('organizer.role.index')) {
+		if (RoleHelper::checkRole('organizer.user.index')) {
 
 			$msub[] = array(
-				'url'    => route('organizer.role.index'),
-				'title'  => 'Phân quyền',
-				'active' => 'hadmin/organizer/role/*',
+				'url'    => route('organizer.user.index'),
+				'title'  => 'Thành viên',
+				'active' => 'hadmin/organizer/user',
 			);
 		}
 		
@@ -134,51 +125,6 @@ class MenuHelper {
 		return $menu;
 	}
 
-	private static function mail_menu($menu = []) {
-
-		$msub = array();
-
-		if (RoleHelper::checkRole('mail.index')) {
-
-			$msub[] = array(
-				'url'    => route('mail.index'),
-				'title'  => 'Danh sách',
-				'active' => 'hadmin/mail/index',
-			);
-		}
-
-		if (RoleHelper::checkRole('mail.index')) {
-
-			$msub[] = array(
-				'url'    => route('mail.create'),
-				'title'  => 'Thêm mới',
-				'active' => 'hadmin/mail/create',
-			);
-		}
-
-		if (RoleHelper::checkRole('mail.activity')) {
-
-			$msub[] = array(
-				'url'    => route('mail.activity'),
-				'title'  => 'Hoạt động',
-				'active' => 'hadmin/mail/activity',
-			);
-		}
-
-		if (count($msub) > 0) {
-
-			$menu[] = array(
-				'title'   => 'Mail',
-				'url'     => route('mail.index'),
-				'icon'    => 'ti-mail',
-				'active'  => 'hadmin/mail/*',
-				'submenu' => $msub
-			);
-		}
-
-		return $menu;
-	}
-
 	private static function setting_menu($menu = [])
 	{
 		$msub = array();
@@ -215,6 +161,21 @@ class MenuHelper {
 		return $menu;
 	}
 
+	private static function customer_menu($menu = [])
+	{
+		if (RoleHelper::checkRole('customer.index')) {
+			$menu[] = array(
+				'title'   => 'Khách hàng',
+				'url'     => route('customer.index'),
+				'icon'    => 'ti-users',
+				'active'  => 'hadmin/customer/*',
+				'submenu' => []
+			);
+		}
+
+		return $menu;
+	}
+
 	private static function activity_menu($menu = [])
 	{
 		if (RoleHelper::checkRole('activity')) {
@@ -237,7 +198,7 @@ class MenuHelper {
 		$menu = self::admin_menu($menu);
 		$menu = self::organizer_menu($menu);
 		$menu = self::exhibition_menu($menu);
-		$menu = self::mail_menu($menu);
+		$menu = self::customer_menu($menu);
 		$menu = self::setting_menu($menu);
 		$menu = self::activity_menu($menu);
 		

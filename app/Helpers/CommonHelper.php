@@ -52,7 +52,7 @@ if (!function_exists('getLangCode')) {
 if(!function_exists('vdh_paginate')) {
 	function vdh_paginate($data = null, $total = 0) {
 		echo '<div class="mt-2 mb-2">';
-	    	echo !empty($data) ? $data->onEachSide(5)->appends($_GET)->links('vendor.pagination.bootstrap-5') : null;
+	    	echo !empty($data) ? $data->onEachSide(5)->appends($_GET)->links() : null;
 	    	echo "Total: $total data";
 	    echo '</div>';
 	}
