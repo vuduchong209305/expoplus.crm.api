@@ -32,8 +32,9 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
                         Route::get('', 'index')->name('index');
                         Route::get('edit', 'edit')->name('edit');
                         Route::post('save', 'save')->name('save');
-                        Route::post('update', 'update')->name('update');
+                        Route::post('updateProfile', 'updateProfile')->name('updateProfile');
                         Route::post('delete', 'delete')->name('delete');
+                        Route::get('roles', 'roles')->name('roles');
                     });
 
             Route::prefix('role')
@@ -117,6 +118,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
                         Route::get('customer-group', 'customerGroup')->name('customerGroup');
                         Route::post('update-customer', 'updateCustomer')->name('updateCustomer');
                         Route::post('report', 'report')->name('report');
+                        Route::post('assignedTo', 'assignedTo')->name('assigned');
                     });
 
             Route::prefix('task')

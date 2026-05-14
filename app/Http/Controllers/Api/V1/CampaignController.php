@@ -10,6 +10,7 @@ use App\Models\Campaign;
 use App\Models\CampaignDetail;
 use App\Models\Progress;
 use App\Models\Status;
+use App\Models\User;
 
 class CampaignController extends Controller
 {
@@ -286,5 +287,15 @@ class CampaignController extends Controller
         $customers = CustomerGroupDetail::whereIn('customer_group_id', $groupIds)->with('customer')->get();
 
         return sendResponse($customers);
+    }
+
+    public function assignedTo(Request $request)
+    {
+        $user_id = $request->user_id;
+        $campaigns = $request->campaigns;
+
+        Campaign::assignedTo()->whereIn('id', $campaigns)->update(['assigned_to' => $user_id]);
+
+        return sendResponse($campaigns, 'Giao việc thành công');
     }
 }

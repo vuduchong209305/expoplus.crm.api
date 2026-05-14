@@ -58,6 +58,32 @@ class RoleController extends Controller
 
     public function delete(Request $request)
     {
-        
+        $user = auth('api')->user();
+
+        if($user->is_admin == 1) {
+
+            $role = RoleOrganizer::findOrFail($request->id);
+
+            \DB::beginTransaction();
+
+            try {
+                // ❗ Xóa liên kết trong pivot table
+                $role->permissions()->detach();
+
+                // ❗ Xóa campaign
+                $role->delete();
+
+                \DB::commit();
+
+                return sendResponse($role, "Xóa thành công " . $role->name ?? null);
+
+            } catch (\Exception $e) {
+                \DB::rollBack();
+                \Log::error($e);
+
+                return sendError('Có lỗi xảy ra');
+            }
+        }
+        return sendError('Chỉ Admin có quyền xóa');
     }
 }

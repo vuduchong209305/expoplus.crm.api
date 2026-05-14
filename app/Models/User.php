@@ -25,7 +25,8 @@ class User extends Authenticatable implements JWTSubject
         'phone',
         'birthday',
         'password',
-        'avatar'
+        'avatar',
+        'status'
     ];
 
     /**
@@ -69,6 +70,15 @@ class User extends Authenticatable implements JWTSubject
         }
 
         return $this->role->permissions->contains('key', $permission);
+    }
+
+    public function scopeSearch($query, $q = null)
+    {
+        if(!empty($q))
+            return $query->where('fullname', 'LIKE', "%$q%")
+                    ->orWhere('email', 'LIKE', "%$q%")
+                    ->orWhere('phone', 'LIKE', "%$q%")
+                    ->orWhere('birthday', 'LIKE', "%$q%");
     }
 
     public function getJWTIdentifier()

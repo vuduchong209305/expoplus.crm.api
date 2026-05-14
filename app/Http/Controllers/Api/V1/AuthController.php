@@ -16,10 +16,11 @@ class AuthController extends Controller
 
         $token = auth('api')->attempt([
             "email"     => $request->email,
-            "password"  => $request->password
+            "password"  => $request->password,
+            "status"    => 1
         ]);
 
-        if(empty($token)) return sendError('Sai thông tin đăng nhập');
+        if(empty($token)) return sendError('Sai thông tin đăng nhập hoặc tài khoản đang bị khóa');
 
         return sendResponse([
                                 'token' => $token,

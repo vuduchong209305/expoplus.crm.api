@@ -18,7 +18,7 @@ class CheckPermission
         $user = auth('api')->user();
 
         if (!$user) {
-            return sendError('Unauthorized');
+            return sendError('Tài khoản chưa đăng nhập');
         }
 
         /*
@@ -30,7 +30,16 @@ class CheckPermission
         if ($user->is_admin) {
             return $next($request);
         }
+        /*
+        |--------------------------------------------------------------------------
+        | CHECK STATUS
+        |--------------------------------------------------------------------------
+        */
 
+        if($user->status != 1) {
+            auth('api')->logout();
+            return sendError('Tài khoản đã bị khóa');
+        }
         /*
         |--------------------------------------------------------------------------
         | CHECK PERMISSION

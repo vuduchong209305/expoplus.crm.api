@@ -5,15 +5,16 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\RoleOrganizer;
 use App\Helpers\HTMLHelper;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = User::where('organizer_id', auth('api')->user()->organizer_id)
                     ->with('role')
-                    ->select('id', 'avatar', 'role_id', 'is_admin', 'fullname', 'email', 'phone', 'created_at', 'updated_at')
+                    ->search($request->search)
                     ->get();
 
         return sendResponse($user);
@@ -63,7 +64,26 @@ class UserController extends Controller
             $rules['password'] = 'required|min:6|confirmed';
         }
 
-        $validated = $request->validate($rules);
+        /*
+        |--------------------------------------------------------------------------
+        | VALIDATE
+        |--------------------------------------------------------------------------
+        */
+
+        $validated = $request->validate(
+            $rules,
+            [
+                'fullname.required' => 'Vui lòng nhập họ tên',
+
+                'email.required' => 'Vui lòng nhập email',
+                'email.email' => 'Email không hợp lệ',
+                'email.unique' => 'Email đã tồn tại',
+
+                'password.required' => 'Vui lòng nhập mật khẩu',
+                'password.min' => 'Mật khẩu tối thiểu 6 ký tự',
+                'password.confirmed' => 'Xác nhận mật khẩu không khớp',
+            ]
+        );
 
         /*
         |--------------------------------------------------------------------------
@@ -95,7 +115,7 @@ class UserController extends Controller
         return sendResponse($user, 'Lưu thành công');
     }
 
-    public function update(Request $request)
+    public function updateProfile(Request $request)
     {
         try {
             $user = auth('api')->user();
@@ -132,4 +152,14 @@ class UserController extends Controller
             return sendError('Có lỗi xảy ra');
         }
     }
+
+    public function roles()
+    {
+        $roles = RoleOrganizer::where('organizer_id', auth('api')->user()->organizer_id)
+                                ->withCount('user', 'permissions')
+                                ->get();
+
+        return sendResponse($roles);
+    }
 }
+

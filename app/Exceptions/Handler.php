@@ -33,7 +33,7 @@ class Handler extends ExceptionHandler
     {
         // Nếu yêu cầu là API, trả về JSON response
         if ($request->expectsJson()) {
-            return sendError('Unauthenticated');
+            return sendError('Chưa đăng nhập');
         }
 
         // Mặc định cho ứng dụng web (nếu cần)
