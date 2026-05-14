@@ -49,6 +49,15 @@
                     <input type="text" class="form-control" id="phone" name="phone" placeholder="Số điện thoại" value="{{ !empty($user->phone) ? $user->phone : old('phone') }}">
                 </div>
 
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="is_admin">Chỉ định là ADMIN</label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="is_admin" name="is_admin" value="1" {{ old('is_admin', $user->is_admin ?? 0) ? 'checked' : '' }} >
+                            <label class="form-check-label" for="is_admin">Kích hoạt</label>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <hr>

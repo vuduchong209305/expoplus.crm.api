@@ -84,6 +84,14 @@
 
                                 <td>
                                     <a href="{{ route('organizer.user.create', ['id' => $val->id]) }}" title="{{ $val->fullname ?? null }}">{{ $val->fullname ?? null }}</a>
+
+                                    @if($val->is_admin == 1)
+                                        <span class="badge bg-warning-subtle text-warning fw-semibold">
+                                            ADMIN
+                                        </span>
+                                    @else
+                                        <span class="badge bg-success-subtle text-success fw-semibold">{{ $val->role->name ?? null }}</span>
+                                    @endif
                                 </td>
 
                                 <td>

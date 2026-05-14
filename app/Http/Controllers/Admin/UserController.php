@@ -18,7 +18,7 @@ class UserController extends Controller
     {
         $this->html['organizers'] = Organizer::get();
         
-        $this->html['data'] = User::search($request->q)
+        $this->html['data'] = User::orderByDesc('is_admin')->search($request->q)
                                     ->organizer($request->organizer_id)
                                     ->latest()
                                     ->paginate($request->per_page);
@@ -41,15 +41,28 @@ class UserController extends Controller
 
     public function store(Request $request, User $user)
     {
-        if(!empty($request->id))
+        if (!empty($request->id)) {
             $user = User::findOrFail($request->id);
+        }
 
-        $user->email         = $request->email;
-        $user->phone         = $request->phone;
-        $user->fullname      = $request->fullname;
-        $user->organizer_id  = $request->organizer_id;
-        $user->avatar        = HTMLHelper::uploadImage($user->avatar);
-        $user->status        = $request->boolean('status');
+        $isAdmin = $request->boolean('is_admin');
+
+        if ($isAdmin) {
+
+            User::where('organizer_id', $request->organizer_id)
+                ->where('id', '!=', $user->id)
+                ->update([
+                    'is_admin' => null
+                ]);
+        }
+
+        $user->email        = $request->email;
+        $user->phone        = $request->phone;
+        $user->fullname     = $request->fullname;
+        $user->organizer_id = $request->organizer_id;
+        $user->avatar       = HTMLHelper::uploadImage($user->avatar);
+        $user->status       = $request->boolean('status');
+        $user->is_admin     = $isAdmin ? 1 : null;
 
         if($user->save()) {
 
