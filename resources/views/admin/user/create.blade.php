@@ -37,7 +37,7 @@
                 <div class="col-md-6">
                     <label class="form-label" for="organizer_id">Ban tổ chức <span class="text-danger">(*)</span></label>
                     <select name="organizer_id" id="organizer_id" class="form-select">
-                        <option value="">Chọn chức vụ</option>
+                        <option value="">Lựa chọn</option>
                         @foreach($organizers as $organizer)
                         <option value="{{ $organizer->id ?? null }}" {{ !empty($user->organizer_id) && $user->organizer_id == $organizer->id ? 'selected' : null }}>{{ $organizer->name ?? null }}</option>
                         @endforeach
