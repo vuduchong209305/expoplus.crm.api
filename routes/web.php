@@ -65,6 +65,12 @@ Route::group(['prefix' => 'hadmin', 'namespace' => 'Admin'], function() {
                 Route::get('delete', ['as' => 'delete', 'uses' => 'UserController@delete']);
             });
 
+            /* Permission */
+            Route::group(['prefix' => 'permission', 'as' => 'permission.'], function() {
+                Route::get('index', ['as' => 'index', 'uses' => 'PermissionController@index']);
+                Route::post('store', ['as' => 'store', 'uses' => 'PermissionController@store']);;
+            });
+
         });
 
         /* Exhibition */

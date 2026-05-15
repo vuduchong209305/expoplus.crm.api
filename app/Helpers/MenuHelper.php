@@ -76,6 +76,15 @@ class MenuHelper {
 			);
 		}
 		
+		if (RoleHelper::checkRole('organizer.permission.index')) {
+
+			$msub[] = array(
+				'url'    => route('organizer.permission.index'),
+				'title'  => 'Phân quyền',
+				'active' => 'hadmin/organizer/permission/*',
+			);
+		}
+		
 		if (count($msub) > 0) {
 
 			$menu[] = array(
