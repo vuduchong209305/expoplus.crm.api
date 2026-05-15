@@ -68,7 +68,9 @@ Route::group(['prefix' => 'hadmin', 'namespace' => 'Admin'], function() {
             /* Permission */
             Route::group(['prefix' => 'permission', 'as' => 'permission.'], function() {
                 Route::get('index', ['as' => 'index', 'uses' => 'PermissionController@index']);
-                Route::post('store', ['as' => 'store', 'uses' => 'PermissionController@store']);;
+                Route::post('store', ['as' => 'store', 'uses' => 'PermissionController@store']);
+                Route::get('update', ['as' => 'update', 'uses' => 'PermissionController@update']);
+
             });
 
         });

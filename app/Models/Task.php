@@ -25,7 +25,7 @@ class Task extends Model
         }
 
         if(auth('api')->check()) {
-            if(auth('api')->user()->role_id > 1) {
+            if(empty(auth('api')->user()->is_admin)) {
                 $query->where('assigned_to', auth('api')->id());
             }
 

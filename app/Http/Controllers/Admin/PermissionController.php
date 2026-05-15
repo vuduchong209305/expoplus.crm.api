@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Permission;
+use Artisan;
 
 class PermissionController extends Controller
 {
@@ -46,5 +47,11 @@ class PermissionController extends Controller
                 $e->getMessage()
             );
         }
+    }
+
+    public function update()
+    {
+        Artisan::call('permission:sync');
+        return back()->with('success', 'Cập nhật thành công');
     }
 }

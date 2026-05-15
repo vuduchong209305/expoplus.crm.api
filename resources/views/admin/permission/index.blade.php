@@ -9,8 +9,10 @@
             <p class="text-muted mb-0"> Quản lý tên hiển thị và nhóm chức năng </p>
         </div>
         <div class="text-end">
+            <a href="{{ route('organizer.permission.update') }}" class="btn btn-outline-success btn-sm">Tạo dữ liệu</a>
             <span class="badge bg-primary-subtle text-primary px-3 py-2">
-                {{ count($data) }} quyền </span>
+                {{ count($data) }} quyền
+            </span>
         </div>
     </div>
 </div>

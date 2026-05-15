@@ -35,7 +35,7 @@ class QuotationController extends Controller
                                     });
 
                                 })
-                                ->with('customer', 'exhibition')
+                                ->with('customer', 'exhibition', 'assigned')
                                 ->latest()
                                 ->paginate();
 
@@ -125,7 +125,7 @@ class QuotationController extends Controller
     public function edit(Request $request)
     {
         $quotation = Quotation::assignedTo()
-                                ->with('details.product', 'customer', 'exhibition')
+                                ->with('details.product', 'customer', 'exhibition', 'assigned')
                                 ->findOrFail($request->id);
                                 
         return sendResponse($quotation);

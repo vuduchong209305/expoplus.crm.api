@@ -33,14 +33,14 @@ class Quotation extends Model
         return $this->belongsTo(Exhibition::class, 'exhibition_id');
     }
 
-    public function assgined()
+    public function assigned()
     {
-        return $this->hasMany(User::class, 'assigned_to');
+        return $this->belongsTo(User::class, 'assigned_to');
     }
 
     public function organizer()
     {
-        return $this->hasMany(Organizer::class, 'organizer_id');
+        return $this->belongsTo(Organizer::class, 'organizer_id');
     }
 
     public function scopeAssignedTo($query, $assigned_to = null)
@@ -50,7 +50,7 @@ class Quotation extends Model
         }
 
         if(auth('api')->check()) {
-            if(auth('api')->user()->role_id > 1) {
+            if(empty(auth('api')->user()->is_admin)) {
                 $query->where('assigned_to', auth('api')->id());
             }
 

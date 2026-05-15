@@ -89,6 +89,8 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
                         Route::get('comment', 'listComment')->name('comment.index');
                         Route::get('activityLogs', 'activityLogs')->name('activity.logs');
                         Route::post('assignedTo', 'assignedTo')->name('assigned');
+                        Route::get('career', 'career')->name('career');
+                        Route::get('stakeholder', 'stakeholder')->name('stakeholder');
                     });
 
             Route::prefix('customer-group')
@@ -189,20 +191,6 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
                         Route::get('edit', 'edit')->name('edit');
                         Route::post('save', 'save')->name('save');
                         Route::post('delete', 'delete')->name('delete');
-                    });
-
-            Route::prefix('career')
-                    ->as('career.')
-                    ->controller(CareerController::class)
-                    ->group(function () {
-                        Route::get('', 'index')->name('index');
-                    });
-
-            Route::prefix('stakeholder')
-                    ->as('stakeholder.')
-                    ->controller(StakeholderController::class)
-                    ->group(function () {
-                        Route::get('', 'index')->name('index');
                     });
         });
         

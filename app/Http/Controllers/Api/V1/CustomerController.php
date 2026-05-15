@@ -8,6 +8,9 @@ use App\Models\Customer;
 use App\Models\Source;
 use App\Models\Comment;
 use App\Models\ActivityLogs;
+use App\Models\Career;
+use App\Models\Stakeholder;
+
 use App\Helpers\HTMLHelper;
 
 class CustomerController extends Controller
@@ -287,5 +290,17 @@ class CustomerController extends Controller
         Customer::assignedTo()->whereIn('id', $customers)->update(['assigned_to' => $user_id]);
 
         return sendResponse($customers, 'Giao việc thành công');
+    }
+
+    public function career()
+    {
+        $careers = Career::orderBy('title', 'ASC')->get();
+        return sendResponse($careers);
+    }
+
+    public function stakeholder()
+    {
+        $stakeholders = Stakeholder::orderBy('title', 'ASC')->get();
+        return sendResponse($stakeholders);
     }
 }
