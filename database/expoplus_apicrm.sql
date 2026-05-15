@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 14, 2026 lúc 03:55 PM
+-- Thời gian đã tạo: Th5 15, 2026 lúc 04:11 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -108,7 +108,16 @@ INSERT INTO `vdh_activity_logs` (`id`, `subject_type`, `subject_id`, `causer_typ
 (61, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật assigned_to', '{\"field\":\"assigned_to\",\"old\":null,\"new\":1}', '2026-05-11 09:50:53', '2026-05-11 09:50:53'),
 (62, 'App\\Models\\Customer', 123, 'App\\Models\\User', 1, 'update', 'Cập nhật assigned_to', '{\"field\":\"assigned_to\",\"old\":4,\"new\":3}', '2026-05-11 09:58:51', '2026-05-11 09:58:51'),
 (63, 'App\\Models\\Customer', 128, 'App\\Models\\User', 1, 'update', 'Cập nhật assigned_to', '{\"field\":\"assigned_to\",\"old\":4,\"new\":3}', '2026-05-11 09:59:00', '2026-05-11 09:59:00'),
-(64, 'App\\Models\\Customer', 128, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-05-11 09:59:11', '2026-05-11 09:59:11');
+(64, 'App\\Models\\Customer', 128, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-05-11 09:59:11', '2026-05-11 09:59:11'),
+(65, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-05-15 01:59:04', '2026-05-15 01:59:04'),
+(66, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật birthday', '{\"field\":\"birthday\",\"old\":null,\"new\":\"1993\"}', '2026-05-15 02:04:05', '2026-05-15 02:04:05'),
+(67, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":2,\"new\":1}', '2026-05-15 02:04:11', '2026-05-15 02:04:11'),
+(68, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-05-15 02:05:32', '2026-05-15 02:05:32'),
+(69, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật source_id', '{\"field\":\"source_id\",\"old\":null,\"new\":2}', '2026-05-15 02:07:19', '2026-05-15 02:07:19'),
+(70, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật lĩnh vực', '{\"field\":\"careers\",\"old\":[],\"new\":[25,3,22]}', '2026-05-15 02:07:24', '2026-05-15 02:07:24'),
+(71, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật nhóm đối tượng', '{\"field\":\"stakeholders\",\"old\":[],\"new\":[3,4,6]}', '2026-05-15 02:07:30', '2026-05-15 02:07:30'),
+(72, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật lĩnh vực', '{\"field\":\"careers\",\"old\":[3,22,25],\"new\":[25,3,22,26,16,18]}', '2026-05-15 02:10:57', '2026-05-15 02:10:57'),
+(73, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật nhóm đối tượng', '{\"field\":\"stakeholders\",\"old\":[3,4,6],\"new\":[3,4,6,5,7,1]}', '2026-05-15 02:11:05', '2026-05-15 02:11:05');
 
 -- --------------------------------------------------------
 
@@ -207,6 +216,51 @@ INSERT INTO `vdh_campaign_detail` (`campaign_id`, `customer_id`, `progress_id`, 
 (16, 119, 4, 2, 5, NULL, '2026-05-07 13:49:48', '2026-05-11 04:24:32'),
 (16, 120, 3, 2, 3, NULL, '2026-05-07 13:49:48', '2026-05-11 04:24:44'),
 (16, 132, 2, 2, 4, NULL, '2026-05-07 13:49:48', '2026-05-11 04:24:40');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `vdh_careers`
+--
+
+CREATE TABLE `vdh_careers` (
+  `id` tinyint(4) NOT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `vdh_careers`
+--
+
+INSERT INTO `vdh_careers` (`id`, `title`, `created_at`, `updated_at`) VALUES
+(1, 'Nông nghiệp, lâm nghiệp & thủy sản', '2026-05-15 01:10:44', '2026-05-15 01:16:37'),
+(2, 'Khai khoáng', '2026-05-15 01:11:25', '2026-05-15 01:16:43'),
+(3, 'Công nghiệp chế biến, chế tạo', '2026-05-15 01:12:00', '2026-05-15 01:16:50'),
+(4, 'Thiết bị gia dụng', '2026-05-15 01:16:54', '2026-05-15 01:16:54'),
+(5, 'Kim khí cho sản xuất', '2026-05-15 01:16:59', '2026-05-15 01:16:59'),
+(6, 'Xử lý nước', '2026-05-15 01:17:01', '2026-05-15 01:17:01'),
+(7, 'Xử lý môi trường', '2026-05-15 01:17:05', '2026-05-15 01:17:05'),
+(8, 'Công nghệ năng lượng', '2026-05-15 01:17:08', '2026-05-15 01:17:08'),
+(9, 'Xây dựng, vật liệu xây dựng', '2026-05-15 01:17:14', '2026-05-15 01:17:14'),
+(10, 'Buôn bán, sửa chữa ô tô, xe máy, xe đạp', '2026-05-15 01:17:28', '2026-05-15 01:17:28'),
+(11, 'Vận tải kho bãi', '2026-05-15 01:17:31', '2026-05-15 01:17:31'),
+(12, 'Nhà hàng khách sạn', '2026-05-15 01:17:36', '2026-05-15 01:17:36'),
+(13, 'Thông tin và truyền thông', '2026-05-15 01:17:39', '2026-05-15 01:17:39'),
+(14, 'Hoạt động tài chính, ngân hàng, bảo hiểm', '2026-05-15 01:17:45', '2026-05-15 01:17:45'),
+(15, 'Hoạt động kinh doanh bất động sản', '2026-05-15 01:17:51', '2026-05-15 01:17:51'),
+(16, 'Hoạt động chuyên môn, khoa học và công nghệ', '2026-05-15 01:17:59', '2026-05-15 01:17:59'),
+(17, 'Hoạt động hành chính và dịch vụ hỗ trợ', '2026-05-15 01:18:04', '2026-05-15 01:18:04'),
+(18, 'Giáo dục và đào tạo', '2026-05-15 01:18:07', '2026-05-15 01:18:07'),
+(19, 'Y tế', '2026-05-15 01:18:09', '2026-05-15 01:18:09'),
+(20, 'Nghệ thuật, vui chơi và giải trí', '2026-05-15 01:18:15', '2026-05-15 01:18:15'),
+(21, 'Dịch vụ hộ gia đình', '2026-05-15 01:18:18', '2026-05-15 01:18:18'),
+(22, 'Hàng không - Công nghệ cao', '2026-05-15 01:18:22', '2026-05-15 01:18:22'),
+(23, 'Vi mạch bán dẫn - Công nghệ cao', '2026-05-15 01:18:27', '2026-05-15 01:18:27'),
+(24, 'Quang điện tử - Công nghệ cao', '2026-05-15 01:18:32', '2026-05-15 01:18:32'),
+(25, 'Công nghệ cao khác', '2026-05-15 01:18:35', '2026-05-15 01:18:35'),
+(26, 'Hoạt động dịch vụ khác', '2026-05-15 01:18:38', '2026-05-15 01:18:38');
 
 -- --------------------------------------------------------
 
@@ -369,8 +423,31 @@ INSERT INTO `vdh_customers` (`id`, `email`, `company`, `fullname`, `phone`, `ass
 (126, 'contact13@techlink.vn', 'TechLink Co.', 'Nguyen Hong Nhung', '0901000013', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-04-26 11:08:27'),
 (127, 'contact99@digitalinnovation.vn', 'Digital Innovation Ltd.', 'Pham Thi Trang', '0901000099', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-04-26 11:08:32'),
 (128, 'contact100@smartinnovation.vn', 'Smart Innovation Corp.', 'Nguyen Minh Duc', '0901000100', 3, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-05-11 09:59:11'),
-(130, 'vuduchong209305@gmail.com', 'Hội chợ Toàn Cầu', 'Vũ Đức Hồng', NULL, 2, 1, 'zalo 0986209305', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 'customer/2026/04/23/1776915307-Ttv0rzkA35gK9U41dWYB.webp', NULL, '2026-04-21 09:12:20', '2026-05-12 02:58:47'),
+(130, 'vuduchong209305@gmail.com', 'Hội chợ Toàn Cầu', 'Vũ Đức Hồng', NULL, 2, 1, 'zalo 0986209305', NULL, NULL, '1993', NULL, NULL, NULL, NULL, NULL, 1, 2, NULL, 'customer/2026/04/23/1776915307-Ttv0rzkA35gK9U41dWYB.webp', 2, '2026-04-21 09:12:20', '2026-05-15 02:07:19'),
 (132, 'hongvu.media@gmail.com', 'CÔNG TY CP TỔ CHỨC SỰ KIỆN VÀ HỘI CHỢ TOÀN CẦU (GLOBAL EXPO)', 'Vũ Đức Hồng', '0999888777', 2, 1, 'zalo 0986209305', 'Cầu Giấy', 'sự kiện', '1993', '09124093125', 'globalexpo.com.vn', 'mô tả', 'ghi chú', 1, 1, 2, 1, 'customer/2026/04/21/1776763586-CFJMHuFOCj5zgdx08xRY.webp', NULL, '2026-04-21 09:20:55', '2026-05-10 03:36:34');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `vdh_customer_career`
+--
+
+CREATE TABLE `vdh_customer_career` (
+  `customer_id` int(11) NOT NULL,
+  `career_id` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `vdh_customer_career`
+--
+
+INSERT INTO `vdh_customer_career` (`customer_id`, `career_id`) VALUES
+(130, 3),
+(130, 16),
+(130, 18),
+(130, 22),
+(130, 25),
+(130, 26);
 
 -- --------------------------------------------------------
 
@@ -435,6 +512,29 @@ INSERT INTO `vdh_customer_group_detail` (`customer_group_id`, `customer_id`) VAL
 (3, 132),
 (4, 119),
 (4, 132);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `vdh_customer_stakeholder`
+--
+
+CREATE TABLE `vdh_customer_stakeholder` (
+  `customer_id` int(11) NOT NULL,
+  `stakeholder_id` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `vdh_customer_stakeholder`
+--
+
+INSERT INTO `vdh_customer_stakeholder` (`customer_id`, `stakeholder_id`) VALUES
+(130, 1),
+(130, 3),
+(130, 4),
+(130, 5),
+(130, 6),
+(130, 7);
 
 -- --------------------------------------------------------
 
@@ -913,6 +1013,34 @@ INSERT INTO `vdh_source` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `vdh_stakeholders`
+--
+
+CREATE TABLE `vdh_stakeholders` (
+  `id` tinyint(4) NOT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `vdh_stakeholders`
+--
+
+INSERT INTO `vdh_stakeholders` (`id`, `title`, `created_at`, `updated_at`) VALUES
+(1, 'Quản lý nhà nước', '2026-05-15 01:15:38', '2026-05-15 01:15:57'),
+(2, 'Hiệp hội ngành nghề', '2026-05-15 01:16:03', '2026-05-15 01:16:03'),
+(3, 'Đại lý kinh doanh', '2026-05-15 01:16:07', '2026-05-15 01:16:07'),
+(4, 'Nhà sản xuất', '2026-05-15 01:16:10', '2026-05-15 01:16:10'),
+(5, 'Nhà cung cấp dịch vụ', '2026-05-15 01:16:14', '2026-05-15 01:16:14'),
+(6, 'Tổ chức phi chính phủ quốc tế', '2026-05-15 01:16:19', '2026-05-15 01:16:19'),
+(7, 'Văn phòng đại diện', '2026-05-15 01:16:22', '2026-05-15 01:16:22'),
+(8, 'Chuyên gia', '2026-05-15 01:16:24', '2026-05-15 01:16:24'),
+(9, 'Sinh viên', '2026-05-15 01:16:26', '2026-05-15 01:16:26');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `vdh_status`
 --
 
@@ -1075,6 +1203,13 @@ ALTER TABLE `vdh_campaign_detail`
   ADD PRIMARY KEY (`campaign_id`,`customer_id`);
 
 --
+-- Chỉ mục cho bảng `vdh_careers`
+--
+ALTER TABLE `vdh_careers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `title` (`title`) USING BTREE;
+
+--
 -- Chỉ mục cho bảng `vdh_comments`
 --
 ALTER TABLE `vdh_comments`
@@ -1088,6 +1223,12 @@ ALTER TABLE `vdh_customers`
   ADD UNIQUE KEY `email` (`email`,`organizer_id`) USING BTREE;
 
 --
+-- Chỉ mục cho bảng `vdh_customer_career`
+--
+ALTER TABLE `vdh_customer_career`
+  ADD PRIMARY KEY (`customer_id`,`career_id`);
+
+--
 -- Chỉ mục cho bảng `vdh_customer_group`
 --
 ALTER TABLE `vdh_customer_group`
@@ -1098,6 +1239,12 @@ ALTER TABLE `vdh_customer_group`
 --
 ALTER TABLE `vdh_customer_group_detail`
   ADD PRIMARY KEY (`customer_group_id`,`customer_id`);
+
+--
+-- Chỉ mục cho bảng `vdh_customer_stakeholder`
+--
+ALTER TABLE `vdh_customer_stakeholder`
+  ADD PRIMARY KEY (`customer_id`,`stakeholder_id`) USING BTREE;
 
 --
 -- Chỉ mục cho bảng `vdh_customer_type`
@@ -1191,6 +1338,13 @@ ALTER TABLE `vdh_source`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `vdh_stakeholders`
+--
+ALTER TABLE `vdh_stakeholders`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `title` (`title`) USING BTREE;
+
+--
 -- Chỉ mục cho bảng `vdh_status`
 --
 ALTER TABLE `vdh_status`
@@ -1222,7 +1376,7 @@ ALTER TABLE `vdh_users`
 -- AUTO_INCREMENT cho bảng `vdh_activity_logs`
 --
 ALTER TABLE `vdh_activity_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT cho bảng `vdh_admins`
@@ -1235,6 +1389,12 @@ ALTER TABLE `vdh_admins`
 --
 ALTER TABLE `vdh_campaign`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT cho bảng `vdh_careers`
+--
+ALTER TABLE `vdh_careers`
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT cho bảng `vdh_comments`
@@ -1331,6 +1491,12 @@ ALTER TABLE `vdh_setting`
 --
 ALTER TABLE `vdh_source`
   MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `vdh_stakeholders`
+--
+ALTER TABLE `vdh_stakeholders`
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `vdh_status`

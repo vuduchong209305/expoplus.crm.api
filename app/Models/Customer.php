@@ -102,4 +102,14 @@ class Customer extends Model
     {
         return $this->belongsToMany(Campaign::class, 'campaign_detail', 'customer_id', 'campaign_id');
     }
+
+    public function careers()
+    {
+        return $this->belongsToMany(Career::class, 'customer_career', 'customer_id', 'career_id');
+    }
+
+    public function stakeholders()
+    {
+        return $this->belongsToMany(Stakeholder::class, 'customer_stakeholder', 'customer_id', 'stakeholder_id');
+    }
 }

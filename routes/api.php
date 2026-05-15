@@ -191,6 +191,19 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
                         Route::post('delete', 'delete')->name('delete');
                     });
 
+            Route::prefix('career')
+                    ->as('career.')
+                    ->controller(CareerController::class)
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
+
+            Route::prefix('stakeholder')
+                    ->as('stakeholder.')
+                    ->controller(StakeholderController::class)
+                    ->group(function () {
+                        Route::get('', 'index')->name('index');
+                    });
         });
         
     });

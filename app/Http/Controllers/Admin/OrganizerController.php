@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Organizer;
-use App\Models\OrganizerRole;
 
 class OrganizerController extends Controller
 {
@@ -17,6 +16,8 @@ class OrganizerController extends Controller
 
     public function create(Request $request)
     {
+        $this->html = [];
+        
         if(!empty($request->id))
             $this->html['organizer'] = Organizer::findOrFail($request->id);
 

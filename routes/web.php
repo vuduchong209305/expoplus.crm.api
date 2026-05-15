@@ -109,6 +109,24 @@ Route::group(['prefix' => 'hadmin', 'namespace' => 'Admin'], function() {
 
         });
 
+        /* Career */
+        Route::group(['prefix' => 'career', 'as' => 'career.'], function() {
+            Route::get('index', ['as' => 'index', 'uses' => 'CareerController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'CareerController@create']);
+            Route::post('store', ['as' => 'store', 'uses' => 'CareerController@store']);
+            Route::put('store', ['as' => 'update', 'uses' => 'CareerController@store']);
+            Route::get('delete', ['as' => 'delete', 'uses' => 'CareerController@delete']);
+        });
+
+        /* Stakeholder */
+        Route::group(['prefix' => 'stakeholder', 'as' => 'stakeholder.'], function() {
+            Route::get('index', ['as' => 'index', 'uses' => 'StakeholderController@index']);
+            Route::get('create', ['as' => 'create', 'uses' => 'StakeholderController@create']);
+            Route::post('store', ['as' => 'store', 'uses' => 'StakeholderController@store']);
+            Route::put('store', ['as' => 'update', 'uses' => 'StakeholderController@store']);
+            Route::get('delete', ['as' => 'delete', 'uses' => 'StakeholderController@delete']);
+        });
+
         Route::get('activity', ['as' => 'activity', 'uses' => 'ActivityController@index']);
 
     });

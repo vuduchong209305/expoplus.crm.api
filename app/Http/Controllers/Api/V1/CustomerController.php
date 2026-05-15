@@ -78,7 +78,7 @@ class CustomerController extends Controller
 
     public function view(Request $request)
     {
-        $customer = Customer::assignedTo()->with('organizer', 'owner', 'source')->findOrFail($request->id);
+        $customer = Customer::assignedTo()->with('organizer', 'owner', 'source', 'careers', 'stakeholders')->findOrFail($request->id);
         return sendResponse($customer);
     }
 
@@ -91,16 +91,88 @@ class CustomerController extends Controller
             $field = $request->field;
             $newValue = $request->value;
 
-            // 👉 lấy giá trị cũ trước
+            /*
+            |--------------------------------------------------------------------------
+            | CAREERS
+            |--------------------------------------------------------------------------
+            */
+
+            if ($field == 'careers') {
+
+                $oldValue = $customer->careers()
+                                    ->pluck('career_id')
+                                    ->toArray();
+
+                $customer->careers()->sync($newValue);
+
+                activityLog(
+                    $customer,
+                    'update',
+                    'Cập nhật lĩnh vực',
+                    [
+                        'field' => $field,
+                        'old' => $oldValue,
+                        'new' => $newValue
+                    ]
+                );
+
+                return sendResponse([], 'Cập nhật thành công');
+            }
+
+            /*
+            |--------------------------------------------------------------------------
+            | STAKEHOLDERS
+            |--------------------------------------------------------------------------
+            */
+
+            if ($field == 'stakeholders') {
+
+                $oldValue = $customer->stakeholders()
+                                    ->pluck('stakeholder_id')
+                                    ->toArray();
+
+                $customer->stakeholders()->sync($newValue);
+
+                activityLog(
+                    $customer,
+                    'update',
+                    'Cập nhật nhóm đối tượng',
+                    [
+                        'field' => $field,
+                        'old' => $oldValue,
+                        'new' => $newValue
+                    ]
+                );
+
+                return sendResponse([], 'Cập nhật thành công');
+            }
+
+            /*
+            |--------------------------------------------------------------------------
+            | NORMAL FIELD
+            |--------------------------------------------------------------------------
+            */
+
             $oldValue = $customer->{$field};
 
-            if($newValue == $oldValue) return sendResponse($customer, 'Dữ liệu không thay đổi');
+            if ($newValue == $oldValue) {
 
-            // 👉 update
+                return sendResponse(
+                    $customer,
+                    'Dữ liệu không thay đổi'
+                );
+            }
+
             $customer->{$field} = $newValue;
+
             $customer->save();
 
-            // 👉 log
+            /*
+            |--------------------------------------------------------------------------
+            | LOG
+            |--------------------------------------------------------------------------
+            */
+
             activityLog(
                 $customer,
                 'update',
@@ -112,9 +184,13 @@ class CustomerController extends Controller
                 ]
             );
 
-            return sendResponse($customer, 'Cập nhật thành công');
+            return sendResponse(
+                $customer,
+                'Cập nhật thành công'
+            );
 
         } catch (\Exception $e) {
+
             return sendError($e->getMessage());
         }
     }

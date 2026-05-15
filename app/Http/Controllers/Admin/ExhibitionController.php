@@ -3,15 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\ExhibitionRequest;
 use App\Models\Exhibition;
-use App\Models\ExhibitionDetail;
-use App\Models\OrganizerExhibition;
 use App\Models\Organizer;
-use App\Models\Company;
-use App\Models\Location;
-use App\Helpers\LangHelper;
-use File;
 
 class ExhibitionController extends BaseController
 {

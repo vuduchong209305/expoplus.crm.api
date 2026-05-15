@@ -176,6 +176,36 @@ class MenuHelper {
 		return $menu;
 	}
 
+	private static function career_menu($menu = [])
+	{
+		if (RoleHelper::checkRole('career.index')) {
+			$menu[] = array(
+				'title'   => 'Lĩnh vực',
+				'url'     => route('career.index'),
+				'icon'    => 'ti-file-cv',
+				'active'  => 'hadmin/career/*',
+				'submenu' => []
+			);
+		}
+
+		return $menu;
+	}
+
+	private static function stakeholder_menu($menu = [])
+	{
+		if (RoleHelper::checkRole('stakeholder.index')) {
+			$menu[] = array(
+				'title'   => 'Nhóm đối tượng',
+				'url'     => route('stakeholder.index'),
+				'icon'    => 'ti-briefcase',
+				'active'  => 'hadmin/stakeholder/*',
+				'submenu' => []
+			);
+		}
+
+		return $menu;
+	}
+
 	private static function activity_menu($menu = [])
 	{
 		if (RoleHelper::checkRole('activity')) {
@@ -199,6 +229,8 @@ class MenuHelper {
 		$menu = self::organizer_menu($menu);
 		$menu = self::exhibition_menu($menu);
 		$menu = self::customer_menu($menu);
+		$menu = self::career_menu($menu);
+		$menu = self::stakeholder_menu($menu);
 		$menu = self::setting_menu($menu);
 		$menu = self::activity_menu($menu);
 		
