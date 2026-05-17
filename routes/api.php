@@ -113,7 +113,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
                         Route::get('edit', 'edit')->name('edit');
                         Route::post('save', 'save')->name('save');
                         Route::get('list', 'list')->name('list');
-                        Route::post('assign', 'assign')->name('assign');
+                        // Route::post('assign', 'assign')->name('assign');
                         Route::post('delete', 'delete')->name('delete');
                         Route::post('deleteCustomer', 'deleteCustomer')->name('deleteCustomer');
                         Route::post('customer', 'customer')->name('customer');

@@ -104,19 +104,6 @@ class CampaignController extends Controller
         ]);
     }
 
-    public function assign(Request $request)
-    {
-        try {
-            $customer = Customer::where('type_id', 2)->assignedTo()->findOrFail($request->customer_id);
-
-            $customer->groups()->sync($request->group_ids);
-
-            return sendResponse($customer, 'Cập nhật nhóm thành công');
-        } catch (\Exception $e) {
-            return sendError('Chỉ áp dụng với Contact');
-        }   
-    }
-
     public function delete(Request $request)
     {
         $campaign = Campaign::assignedTo()->findOrFail($request->id);
@@ -288,6 +275,19 @@ class CampaignController extends Controller
 
         return sendResponse($customers);
     }
+
+    // public function assign(Request $request)
+    // {
+    //     try {
+    //         $customer = Customer::where('type_id', 2)->assignedTo()->findOrFail($request->customer_id);
+
+    //         $customer->groups()->sync($request->group_ids);
+
+    //         return sendResponse($customer, 'Cập nhật nhóm thành công');
+    //     } catch (\Exception $e) {
+    //         return sendError('Chỉ áp dụng với Contact');
+    //     }   
+    // }
 
     public function assignedTo(Request $request)
     {
