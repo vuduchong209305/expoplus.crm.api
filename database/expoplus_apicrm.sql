@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 15, 2026 lúc 04:11 AM
+-- Thời gian đã tạo: Th5 19, 2026 lúc 04:29 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -117,7 +117,9 @@ INSERT INTO `vdh_activity_logs` (`id`, `subject_type`, `subject_id`, `causer_typ
 (70, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật lĩnh vực', '{\"field\":\"careers\",\"old\":[],\"new\":[25,3,22]}', '2026-05-15 02:07:24', '2026-05-15 02:07:24'),
 (71, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật nhóm đối tượng', '{\"field\":\"stakeholders\",\"old\":[],\"new\":[3,4,6]}', '2026-05-15 02:07:30', '2026-05-15 02:07:30'),
 (72, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật lĩnh vực', '{\"field\":\"careers\",\"old\":[3,22,25],\"new\":[25,3,22,26,16,18]}', '2026-05-15 02:10:57', '2026-05-15 02:10:57'),
-(73, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật nhóm đối tượng', '{\"field\":\"stakeholders\",\"old\":[3,4,6],\"new\":[3,4,6,5,7,1]}', '2026-05-15 02:11:05', '2026-05-15 02:11:05');
+(73, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật nhóm đối tượng', '{\"field\":\"stakeholders\",\"old\":[3,4,6],\"new\":[3,4,6,5,7,1]}', '2026-05-15 02:11:05', '2026-05-15 02:11:05'),
+(74, 'App\\Models\\Customer', 123, 'App\\Models\\User', 1, 'update', 'Cập nhật lĩnh vực', '{\"field\":\"careers\",\"old\":[],\"new\":[25,21,16]}', '2026-05-15 07:40:24', '2026-05-15 07:40:24'),
+(75, 'App\\Models\\Customer', 123, 'App\\Models\\User', 1, 'update', 'Cập nhật nhóm đối tượng', '{\"field\":\"stakeholders\",\"old\":[],\"new\":[3,4,6]}', '2026-05-15 07:40:27', '2026-05-15 07:40:27');
 
 -- --------------------------------------------------------
 
@@ -442,6 +444,9 @@ CREATE TABLE `vdh_customer_career` (
 --
 
 INSERT INTO `vdh_customer_career` (`customer_id`, `career_id`) VALUES
+(123, 16),
+(123, 21),
+(123, 25),
 (130, 3),
 (130, 16),
 (130, 18),
@@ -529,6 +534,9 @@ CREATE TABLE `vdh_customer_stakeholder` (
 --
 
 INSERT INTO `vdh_customer_stakeholder` (`customer_id`, `stakeholder_id`) VALUES
+(123, 3),
+(123, 4),
+(123, 6),
 (130, 1),
 (130, 3),
 (130, 4),
@@ -694,10 +702,10 @@ CREATE TABLE `vdh_permissions` (
 --
 
 INSERT INTO `vdh_permissions` (`id`, `key`, `title`, `group`, `created_at`, `updated_at`) VALUES
-(1, 'user.index', 'user.index', 'thành viên', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
-(2, 'user.edit', 'user.edit', 'thành viên', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
-(3, 'user.save', 'user.save', 'thành viên', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
-(4, 'user.delete', 'user.delete', 'thành viên', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(1, 'user.index', 'Danh sách', 'thành viên', '2026-05-13 01:12:36', '2026-05-15 07:28:50'),
+(2, 'user.edit', 'Chỉnh sửa', 'thành viên', '2026-05-13 01:12:36', '2026-05-15 07:28:50'),
+(3, 'user.save', 'Lưu dữ liệu', 'thành viên', '2026-05-13 01:12:36', '2026-05-15 07:28:50'),
+(4, 'user.delete', 'Xóa', 'thành viên', '2026-05-13 01:12:36', '2026-05-15 07:28:50'),
 (5, 'role.index', 'role.index', 'phân quyền', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
 (6, 'role.edit', 'role.edit', 'phân quyền', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
 (7, 'role.save', 'role.save', 'phân quyền', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
@@ -740,7 +748,7 @@ INSERT INTO `vdh_permissions` (`id`, `key`, `title`, `group`, `created_at`, `upd
 (44, 'campaign.list', 'campaign.list', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
 (45, 'campaign.assign', 'Giao cho người phụ trách', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
 (46, 'campaign.delete', 'Xóa chiến dịch', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
-(47, 'campaign.deleteCustomer', 'Xóa khách hàng trong chiến dịch', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(47, 'campaign.deleteCustomer', 'Xóa KH trong chiến dịch', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-15 07:30:16'),
 (48, 'campaign.customer', 'campaign.customer', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
 (49, 'campaign.customerGroup', 'campaign.customerGroup', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
 (50, 'campaign.updateCustomer', 'campaign.updateCustomer', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
@@ -768,9 +776,12 @@ INSERT INTO `vdh_permissions` (`id`, `key`, `title`, `group`, `created_at`, `upd
 (72, 'exhibition.delete', 'exhibition.delete', 'triển lãm', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
 (73, 'report.task', 'report.task', 'báo cáo', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
 (74, 'report.customer', 'report.customer', 'báo cáo', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
-(75, 'permission.index', 'permission.index', 'permission', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(75, 'permission.index', 'permission.index', 'phân quyền', '2026-05-13 01:12:36', '2026-05-15 07:25:33'),
 (76, 'user.updateProfile', 'user.updateProfile', 'thành viên', '2026-05-13 12:33:12', '2026-05-13 12:33:12'),
-(77, 'user.roles', 'user.roles', 'thành viên', '2026-05-13 12:33:12', '2026-05-13 12:33:12');
+(77, 'user.roles', 'user.roles', 'thành viên', '2026-05-13 12:33:12', '2026-05-13 12:33:12'),
+(78, 'customer.career', 'customer.career', 'customer', '2026-05-15 08:34:23', '2026-05-15 08:34:23'),
+(79, 'customer.stakeholder', 'customer.stakeholder', 'customer', '2026-05-15 08:34:23', '2026-05-15 08:34:23'),
+(80, 'campaign.assigned', 'campaign.assigned', 'campaign', '2026-05-15 08:34:23', '2026-05-15 08:34:23');
 
 -- --------------------------------------------------------
 
@@ -853,7 +864,9 @@ INSERT INTO `vdh_quotation` (`id`, `code`, `customer_id`, `organizer_id`, `exhib
 (12, '69FAE3CA0651E', 122, 1, 1, 1, NULL, 100000, 10000, 0, 110000, '2026-05-06 06:46:34', '2026-05-06 06:46:34'),
 (13, '69FAE3F65A742', 132, 1, 2, 1, NULL, 200000, 20000, 100000, 120000, '2026-05-06 06:47:18', '2026-05-10 03:46:39'),
 (14, 'BG-260510-001', 132, 1, 1, 1, NULL, 15000000, 1500000, 0, 16500000, '2026-05-10 02:00:52', '2026-05-10 02:00:52'),
-(15, 'BG-260510-002', 49, 1, 2, 1, NULL, 100000, 10000, 100000, 10000, '2026-05-10 02:01:07', '2026-05-10 04:26:02');
+(15, 'BG-260510-002', 49, 1, 2, 1, NULL, 100000, 10000, 100000, 10000, '2026-05-10 02:01:07', '2026-05-10 04:26:02'),
+(16, 'BG-260515-001', 27, 1, 3, 3, NULL, 100000, 10000, 0, 110000, '2026-05-15 08:18:25', '2026-05-15 08:18:25'),
+(17, 'BG-260515-002', 117, 1, 1, 1, NULL, 100000, 10000, 0, 110000, '2026-05-15 08:19:01', '2026-05-15 08:19:01');
 
 -- --------------------------------------------------------
 
@@ -884,7 +897,9 @@ INSERT INTO `vdh_quotation_detail` (`quotation_id`, `product_id`, `qty`, `price`
 (12, 4, 1, 100000, 'Giỏ hoa trang trí', 'giỏ', '2026-05-06 06:47:10', '2026-05-06 06:47:10'),
 (13, 3, 1, 200000, 'Ghế da chân xoay', 'chiếc', '2026-05-10 03:46:39', '2026-05-10 03:46:39'),
 (14, 5, 1, 15000000, 'Gian hàng tiêu chuẩn', 'gian', '2026-05-10 02:00:52', '2026-05-10 02:00:52'),
-(15, 4, 1, 100000, 'Giỏ hoa trang trí', 'giỏ', '2026-05-10 04:26:02', '2026-05-10 04:26:02');
+(15, 4, 1, 100000, 'Giỏ hoa trang trí', 'giỏ', '2026-05-10 04:26:02', '2026-05-10 04:26:02'),
+(16, 4, 1, 100000, 'Giỏ hoa trang trí', 'giỏ', '2026-05-15 08:18:25', '2026-05-15 08:18:25'),
+(17, 4, 1, 100000, 'Giỏ hoa trang trí', 'giỏ', '2026-05-15 08:19:01', '2026-05-15 08:19:01');
 
 -- --------------------------------------------------------
 
@@ -954,8 +969,75 @@ INSERT INTO `vdh_role_permission` (`role_id`, `permission_id`) VALUES
 (1, 2),
 (1, 3),
 (1, 4),
+(1, 5),
+(1, 6),
+(1, 7),
+(1, 8),
+(1, 9),
+(1, 10),
+(1, 11),
+(1, 12),
+(1, 13),
+(1, 14),
+(1, 15),
+(1, 16),
+(1, 17),
+(1, 18),
+(1, 19),
+(1, 20),
+(1, 21),
+(1, 22),
+(1, 23),
+(1, 24),
+(1, 25),
+(1, 26),
+(1, 27),
+(1, 28),
+(1, 29),
+(1, 30),
+(1, 31),
+(1, 32),
+(1, 33),
+(1, 35),
+(1, 36),
+(1, 37),
+(1, 38),
+(1, 39),
+(1, 40),
+(1, 41),
+(1, 42),
+(1, 43),
+(1, 44),
+(1, 46),
+(1, 47),
+(1, 48),
+(1, 49),
+(1, 50),
+(1, 51),
+(1, 52),
+(1, 53),
+(1, 54),
+(1, 55),
+(1, 56),
+(1, 57),
+(1, 58),
+(1, 59),
+(1, 60),
+(1, 61),
+(1, 62),
+(1, 63),
+(1, 64),
+(1, 65),
+(1, 66),
+(1, 67),
+(1, 68),
+(1, 69),
+(1, 70),
+(1, 71),
+(1, 72),
 (1, 73),
 (1, 74),
+(1, 75),
 (1, 76),
 (1, 77);
 
@@ -1086,20 +1168,20 @@ CREATE TABLE `vdh_tasks` (
 --
 
 INSERT INTO `vdh_tasks` (`id`, `title`, `start_date`, `end_date`, `assigned_to`, `organizer_id`, `progress`, `note`, `completed_at`, `order`, `created_at`, `updated_at`) VALUES
-(1, 'Thiết kế in ấn biển tên Vip', '2026-04-23', '2026-04-23', 3, 1, 0, NULL, NULL, 9, '2026-04-22 06:38:25', '2026-05-03 08:18:38'),
-(3, 'đi nhậu 123', '2026-04-23', '2026-04-24', 2, 1, 0, NULL, NULL, 2, '2026-04-22 06:39:36', '2026-05-11 09:15:40'),
-(5, 'Thông cáo báo chí', '2026-04-22', '2026-04-23', 3, 1, 50, NULL, NULL, 8, '2026-04-22 07:40:43', '2026-05-03 08:18:38'),
-(7, 'đăng báo', '2026-04-24', '2026-04-25', 1, 1, 0, '123123', NULL, 6, '2026-04-22 07:42:51', '2026-05-03 08:18:38'),
-(8, 'lên kịch bản khai mạc', '2026-04-23', '2026-04-24', 2, 1, 0, NULL, NULL, 5, '2026-04-22 07:43:30', '2026-05-03 08:18:38'),
-(9, 'gửi duyệt phía Trung Quốc', '2026-04-24', '2026-04-25', 3, 1, 0, NULL, NULL, 3, '2026-04-22 07:43:40', '2026-05-10 05:25:56'),
-(10, 'Check lỗi phía Việt Nam', '2026-04-28', '2026-04-29', 3, 1, 25, NULL, NULL, 1, '2026-04-22 07:44:19', '2026-05-03 08:18:38'),
-(11, 'Kiểm tra các ảnh theo hạng mục quyết toán', '2026-04-23', '2026-04-24', 2, 1, 0, NULL, NULL, 4, '2026-04-22 07:50:57', '2026-05-10 05:26:03'),
-(12, 'Lên chủ đề hội thảo', '2026-04-23', '2026-04-24', 3, 1, 0, NULL, NULL, 7, '2026-04-22 07:51:09', '2026-05-03 08:18:38'),
-(13, 'bdfbdfsn', '2026-05-12', '2026-05-13', 1, 1, 0, NULL, NULL, NULL, '2026-05-05 02:39:44', '2026-05-05 02:39:44'),
-(14, '12312312', '2026-05-15', '2026-05-29', 1, 1, 0, NULL, NULL, NULL, '2026-05-05 02:39:47', '2026-05-05 02:39:47'),
-(15, 'bsdbsdbn', '2026-05-14', '2026-05-21', 2, 1, 0, NULL, NULL, NULL, '2026-05-05 02:40:10', '2026-05-10 05:25:52'),
-(16, 'svsdbs', '2026-05-13', '2026-05-27', 2, 1, 45, NULL, NULL, NULL, '2026-05-11 09:12:51', '2026-05-11 09:15:01'),
-(17, 'vsdbsdb', '2026-05-19', '2026-05-29', 2, 1, 0, NULL, NULL, NULL, '2026-05-11 09:14:40', '2026-05-11 09:14:55');
+(1, 'Thiết kế in ấn biển tên Vip', '2026-04-23', '2026-04-23', 3, 1, 0, NULL, NULL, 14, '2026-04-22 06:38:25', '2026-05-19 02:02:50'),
+(3, 'đi nhậu 123', '2026-04-23', '2026-04-24', 2, 1, 0, NULL, NULL, 7, '2026-04-22 06:39:36', '2026-05-19 02:02:50'),
+(5, 'Thông cáo báo chí', '2026-04-22', '2026-04-23', 3, 1, 50, NULL, NULL, 13, '2026-04-22 07:40:43', '2026-05-19 02:02:50'),
+(7, 'đăng báo', '2026-04-24', '2026-04-25', 1, 1, 0, '123123', NULL, 11, '2026-04-22 07:42:51', '2026-05-19 02:02:50'),
+(8, 'lên kịch bản khai mạc', '2026-04-23', '2026-04-24', 2, 1, 0, NULL, NULL, 10, '2026-04-22 07:43:30', '2026-05-19 02:02:50'),
+(9, 'gửi duyệt phía Trung Quốc', '2026-04-24', '2026-04-25', 3, 1, 0, NULL, NULL, 8, '2026-04-22 07:43:40', '2026-05-19 02:02:50'),
+(10, 'Check lỗi phía Việt Nam', '2026-04-28', '2026-04-29', 3, 1, 25, NULL, NULL, 6, '2026-04-22 07:44:19', '2026-05-19 02:02:50'),
+(11, 'Kiểm tra các ảnh theo hạng mục quyết toán', '2026-04-23', '2026-04-24', 2, 1, 0, NULL, NULL, 9, '2026-04-22 07:50:57', '2026-05-19 02:02:50'),
+(12, 'Lên chủ đề hội thảo', '2026-04-23', '2026-04-24', 3, 1, 0, NULL, NULL, 12, '2026-04-22 07:51:09', '2026-05-19 02:02:50'),
+(13, 'bdfbdfsn', '2026-05-17', '2026-05-27', 2, 1, 55, NULL, NULL, 2, '2026-05-05 02:39:44', '2026-05-19 02:02:50'),
+(14, '12312312', '2026-05-15', '2026-05-29', 1, 1, 0, NULL, NULL, 1, '2026-05-05 02:39:47', '2026-05-19 02:02:50'),
+(15, 'bsdbsdbn', '2026-05-14', '2026-05-21', 2, 1, 0, NULL, NULL, 3, '2026-05-05 02:40:10', '2026-05-19 02:02:50'),
+(16, 'svsdbs', '2026-05-19', '2026-05-20', 4, 1, 45, NULL, NULL, 4, '2026-05-11 09:12:51', '2026-05-19 02:02:50'),
+(17, 'vsdbsdb', '2026-05-19', '2026-05-29', 2, 1, 0, NULL, NULL, 5, '2026-05-11 09:14:40', '2026-05-19 02:02:50');
 
 -- --------------------------------------------------------
 
@@ -1376,7 +1458,7 @@ ALTER TABLE `vdh_users`
 -- AUTO_INCREMENT cho bảng `vdh_activity_logs`
 --
 ALTER TABLE `vdh_activity_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT cho bảng `vdh_admins`
@@ -1448,7 +1530,7 @@ ALTER TABLE `vdh_organizer`
 -- AUTO_INCREMENT cho bảng `vdh_permissions`
 --
 ALTER TABLE `vdh_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT cho bảng `vdh_products`
@@ -1466,7 +1548,7 @@ ALTER TABLE `vdh_progress`
 -- AUTO_INCREMENT cho bảng `vdh_quotation`
 --
 ALTER TABLE `vdh_quotation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `vdh_roles`
