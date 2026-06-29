@@ -62,8 +62,9 @@
                                     <input type="checkbox" class="form-check-input checkall">
                                 </th>
                                 <th width="5%">Avatar</th>
-                                <th width="20%">Họ tên</th>
-                                <th width="55%">Ban tổ chức</th>
+                                <th width="15%">Họ tên</th>
+                                <th width="15%">Email</th>
+                                <th width="45%">Ban tổ chức</th>
                                 <th width="10%">Trạng thái</th>
                                 <th width="5%">#</th>
                             </tr>
@@ -92,6 +93,10 @@
                                     @else
                                         <span class="badge bg-success-subtle text-success fw-semibold">{{ $val->role->name ?? null }}</span>
                                     @endif
+                                </td>
+
+                                <td>
+                                    <a href="{{ route('organizer.user.create', ['id' => $val->id]) }}" title="{{ $val->email ?? null }}">{{ $val->email ?? null }}</a>
                                 </td>
 
                                 <td>
