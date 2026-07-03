@@ -115,13 +115,13 @@ class CustomerGroupController extends Controller
 
     public function delete(Request $request)
     {
-        $listID = trim($request->id ?? '');
+        $listID = $request->id ?? [];
 
         if (empty($listID)) {
             return back()->withErrors('Không có ID');
         }
 
-        $ids = collect(explode(';', $listID))
+        $ids = collect($listID)
             ->filter()
             ->unique()
             ->map(fn($id) => (int) $id)
@@ -142,7 +142,7 @@ class CustomerGroupController extends Controller
                                 ->delete();
             });
 
-            return sendResponse([], 'Xóa thành công');
+            return sendResponse([], "Xóa thành công " . count($ids) . " dữ liệu");
 
         } catch (\Throwable $e) {
             report($e);

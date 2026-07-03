@@ -17,7 +17,7 @@ class CampaignController extends Controller
     public function index(Request $request)
     {
         $campaigns = Campaign::assignedTo()
-                                ->withCount('detail')
+                                ->withCount('details')
                                 ->with('assigned')
                                 ->search($request->search)
                                 ->latest()
@@ -86,7 +86,7 @@ class CampaignController extends Controller
 
         $campaign = Campaign::assignedTo()
                             ->with('assigned')
-                            ->withCount('detail')
+                            ->withCount('details')
                             ->findOrFail($request->id);
 
         $customers = CampaignDetail::with(['customer', 'progress', 'status'])
@@ -102,31 +102,6 @@ class CampaignController extends Controller
             'campaign' => $campaign,
             'customers' => $customers
         ]);
-    }
-
-    public function delete(Request $request)
-    {
-        $campaign = Campaign::assignedTo()->findOrFail($request->id);
-
-        \DB::beginTransaction();
-
-        try {
-            // ❗ Xóa liên kết trong pivot table
-            $campaign->customers()->detach();
-
-            // ❗ Xóa campaign
-            $campaign->delete();
-
-            \DB::commit();
-
-            return sendResponse($campaign, "Xóa thành công " . $campaign->title ?? null);
-
-        } catch (\Exception $e) {
-            \DB::rollBack();
-            \Log::error($e);
-
-            return sendError('Có lỗi xảy ra');
-        }
     }
 
     public function deleteCustomer(Request $request)
@@ -210,9 +185,9 @@ class CampaignController extends Controller
 
     public function report(Request $request)
     {
-        $campaign = Campaign::assignedTo()->with('detail')->findOrFail($request->id);
+        $campaign = Campaign::assignedTo()->with('details')->findOrFail($request->id);
 
-        $details = $campaign->detail;
+        $details = $campaign->details;
 
         $total = $details->count();
 
@@ -297,5 +272,42 @@ class CampaignController extends Controller
         Campaign::assignedTo()->whereIn('id', $campaigns)->update(['assigned_to' => $user_id]);
 
         return sendResponse($campaigns, 'Giao việc thành công');
+    }
+
+    public function delete(Request $request)
+    {
+        $listID = $request->id ?? [];
+
+        if (empty($listID)) {
+            return back()->withErrors('Không có ID');
+        }
+
+        $ids = collect($listID)
+            ->filter()
+            ->unique()
+            ->map(fn($id) => (int) $id)
+            ->filter(fn($id) => $id > 0)
+            ->values()
+            ->toArray();
+
+        if (empty($ids)) {
+            return sendError('Danh sách ID không hợp lệ');
+        }
+
+        try {
+        
+            \DB::transaction(function () use ($ids) {
+                Campaign::whereIn('id', $ids)
+                                ->get()
+                                ->each
+                                ->delete();
+            });
+
+            return sendResponse([], "Xóa thành công " . count($ids) . " dữ liệu");
+
+        } catch (\Throwable $e) {
+            report($e);
+            return sendError('Có lỗi xảy ra khi xóa dữ liệu');
+        }
     }
 }
