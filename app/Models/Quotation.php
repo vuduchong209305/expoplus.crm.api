@@ -18,6 +18,13 @@ class Quotation extends Model
         return \Carbon\Carbon::instance($date)->timezone(config('app.timezone'))->format('Y-m-d H:i:s');
     }
     
+     protected static function booted()
+    {
+        static::deleting(function ($data) {
+            $data->details()->delete();
+        });
+    }
+    
     public function details()
     {
         return $this->hasMany(QuotationDetail::class, 'quotation_id');

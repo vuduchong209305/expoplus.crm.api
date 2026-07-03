@@ -13,6 +13,13 @@ class Product extends Model
 
     protected $fillable = ['id', 'title', 'note', 'unit', 'price'];
 
+    protected static function booted()
+    {
+        static::deleting(function ($data) {
+            deleteFile($data->avatar);
+        });
+    }
+
     public function scopeSearch($query, $q = null)
     {
         if(!empty($q))

@@ -18,7 +18,14 @@ class CustomerGroup extends Model
         return \Carbon\Carbon::instance($date)->timezone(config('app.timezone'))->format('Y-m-d H:i:s');
     }
 
-    public function detail()
+    protected static function booted()
+    {
+        static::deleting(function ($data) {
+            $data->details()->delete();
+        });
+    }
+
+    public function details()
     {
         return $this->hasMany(CustomerGroupDetail::class, 'customer_group_id');
     }

@@ -12,7 +12,7 @@ class CustomerGroupController extends Controller
 {
     public function index(Request $request)
     {
-        $customer_group = CustomerGroup::withCount('detail')
+        $customer_group = CustomerGroup::withCount('details')
                                         ->assignedTo()
                                         ->with('assigned')
                                         ->search($request->search)
@@ -110,6 +110,43 @@ class CustomerGroupController extends Controller
         } catch (\Exception $e) {
             \Log::error($e);
             return sendError($e->getMessage());
+        }
+    }
+
+    public function delete(Request $request)
+    {
+        $listID = trim($request->id ?? '');
+
+        if (empty($listID)) {
+            return back()->withErrors('Không có ID');
+        }
+
+        $ids = collect(explode(';', $listID))
+            ->filter()
+            ->unique()
+            ->map(fn($id) => (int) $id)
+            ->filter(fn($id) => $id > 0)
+            ->values()
+            ->toArray();
+
+        if (empty($ids)) {
+            return sendError('Danh sách ID không hợp lệ');
+        }
+
+        try {
+        
+            \DB::transaction(function () use ($ids) {
+                CustomerGroup::whereIn('id', $ids)
+                                ->get()
+                                ->each
+                                ->delete();
+            });
+
+            return sendResponse([], 'Xóa thành công');
+
+        } catch (\Throwable $e) {
+            report($e);
+            return sendError('Có lỗi xảy ra khi xóa dữ liệu');
         }
     }
 }

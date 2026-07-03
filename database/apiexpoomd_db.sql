@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 26, 2026 at 07:25 AM
+-- Generation Time: Jul 03, 2026 at 01:53 PM
 -- Server version: 11.8.6-MariaDB-ubu2404
 -- PHP Version: 8.4.18
 
@@ -87,7 +87,185 @@ INSERT INTO `vdh_activity_logs` (`id`, `subject_type`, `subject_id`, `causer_typ
 (40, 'App\\Models\\Customer', 121, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-04-22 03:30:19', '2026-04-22 03:30:19'),
 (41, 'App\\Models\\Customer', 125, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-04-22 03:30:25', '2026-04-22 03:30:25'),
 (42, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật company', '{\"field\":\"company\",\"old\":null,\"new\":\"H\\u1ed9i ch\\u1ee3 To\\u00e0n C\\u1ea7u\"}', '2026-04-23 03:34:20', '2026-04-23 03:34:20'),
-(43, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật contact', '{\"field\":\"contact\",\"old\":null,\"new\":\"zalo 0986209305\"}', '2026-04-23 04:42:02', '2026-04-23 04:42:02');
+(43, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật contact', '{\"field\":\"contact\",\"old\":null,\"new\":\"zalo 0986209305\"}', '2026-04-23 04:42:02', '2026-04-23 04:42:02'),
+(44, 'App\\Models\\Customer', 120, 'App\\Models\\User', 1, 'update', 'Đã đánh dấu sao', '{\"field\":\"bookmark\",\"old\":null,\"new\":1}', '2026-04-26 00:31:14', '2026-04-26 00:31:14'),
+(45, 'App\\Models\\Customer', 124, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-04-26 11:06:41', '2026-04-26 11:06:41'),
+(46, 'App\\Models\\Customer', 14, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-04-26 11:06:46', '2026-04-26 11:06:46'),
+(47, 'App\\Models\\Customer', 16, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-04-26 11:06:52', '2026-04-26 11:06:52'),
+(48, 'App\\Models\\Customer', 22, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-04-26 11:06:57', '2026-04-26 11:06:57'),
+(49, 'App\\Models\\Customer', 23, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-04-26 11:07:02', '2026-04-26 11:07:02'),
+(50, 'App\\Models\\Customer', 30, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-04-26 11:07:09', '2026-04-26 11:07:09'),
+(51, 'App\\Models\\Customer', 122, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-04-26 11:07:14', '2026-04-26 11:07:14'),
+(52, 'App\\Models\\Customer', 35, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-04-26 11:08:02', '2026-04-26 11:08:02'),
+(53, 'App\\Models\\Customer', 126, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-04-26 11:08:27', '2026-04-26 11:08:27'),
+(54, 'App\\Models\\Customer', 127, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-04-26 11:08:32', '2026-04-26 11:08:32'),
+(55, 'App\\Models\\Customer', 26, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-04-26 11:08:37', '2026-04-26 11:08:37'),
+(56, 'App\\Models\\Customer', 16, 'App\\Models\\User', 1, 'update', 'Đã bỏ đánh dấu sao', '{\"field\":\"bookmark\",\"old\":1,\"new\":null}', '2026-05-05 13:13:57', '2026-05-05 13:13:57'),
+(57, 'App\\Models\\Customer', 132, 'App\\Models\\User', 1, 'update', 'Cập nhật company', '{\"field\":\"company\",\"old\":\"GE\",\"new\":\"C\\u00d4NG TY CP T\\u1ed4 CH\\u1ee8C S\\u1ef0 KI\\u1ec6N V\\u00c0 H\\u1ed8I CH\\u1ee2 TO\\u00c0N C\\u1ea6U (GLOBAL EXPO)\"}', '2026-05-10 01:46:55', '2026-05-10 01:46:55'),
+(58, 'App\\Models\\Customer', 132, 'App\\Models\\User', 1, 'update', 'Cập nhật company', '{\"field\":\"company\",\"old\":\"C\\u00d4NG TY CP T\\u1ed4 CH\\u1ee8C S\\u1ef0 KI\\u1ec6N V\\u00c0 H\\u1ed8I CH\\u1ee2 TO\\u00c0N C\\u1ea6U (GLOBAL EXPO)\",\"new\":\"C\\u00d4NG TY CP T\\u1ed4 CH\\u1ee8C S\\u1ef0 KI\\u1ec6N V\\u00c0 H\\u1ed8I CH\\u1ee2 TO\\u00c0N C\\u1ea6U (GLOBAL EXPO) 342 354 2356 23623 6236\"}', '2026-05-10 03:36:25', '2026-05-10 03:36:25'),
+(59, 'App\\Models\\Customer', 132, 'App\\Models\\User', 1, 'update', 'Cập nhật company', '{\"field\":\"company\",\"old\":\"C\\u00d4NG TY CP T\\u1ed4 CH\\u1ee8C S\\u1ef0 KI\\u1ec6N V\\u00c0 H\\u1ed8I CH\\u1ee2 TO\\u00c0N C\\u1ea6U (GLOBAL EXPO) 342 354 2356 23623 6236\",\"new\":\"C\\u00d4NG TY CP T\\u1ed4 CH\\u1ee8C S\\u1ef0 KI\\u1ec6N V\\u00c0 H\\u1ed8I CH\\u1ee2 TO\\u00c0N C\\u1ea6U (GLOBAL EXPO)\"}', '2026-05-10 03:36:34', '2026-05-10 03:36:34'),
+(60, 'App\\Models\\Customer', 14, 'App\\Models\\User', 1, 'update', 'Cập nhật email', '{\"field\":\"email\",\"old\":\"contact14@vietsoft.vn 123\",\"new\":\"contact14@vietsoft.vn\"}', '2026-05-10 09:32:12', '2026-05-10 09:32:12'),
+(61, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật assigned_to', '{\"field\":\"assigned_to\",\"old\":null,\"new\":1}', '2026-05-11 09:50:53', '2026-05-11 09:50:53'),
+(62, 'App\\Models\\Customer', 123, 'App\\Models\\User', 1, 'update', 'Cập nhật assigned_to', '{\"field\":\"assigned_to\",\"old\":4,\"new\":3}', '2026-05-11 09:58:51', '2026-05-11 09:58:51'),
+(63, 'App\\Models\\Customer', 128, 'App\\Models\\User', 1, 'update', 'Cập nhật assigned_to', '{\"field\":\"assigned_to\",\"old\":4,\"new\":3}', '2026-05-11 09:59:00', '2026-05-11 09:59:00'),
+(64, 'App\\Models\\Customer', 128, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-05-11 09:59:11', '2026-05-11 09:59:11'),
+(65, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-05-15 01:59:04', '2026-05-15 01:59:04'),
+(66, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật birthday', '{\"field\":\"birthday\",\"old\":null,\"new\":\"1993\"}', '2026-05-15 02:04:05', '2026-05-15 02:04:05'),
+(67, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":2,\"new\":1}', '2026-05-15 02:04:11', '2026-05-15 02:04:11'),
+(68, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-05-15 02:05:32', '2026-05-15 02:05:32'),
+(69, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật source_id', '{\"field\":\"source_id\",\"old\":null,\"new\":2}', '2026-05-15 02:07:19', '2026-05-15 02:07:19'),
+(70, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật lĩnh vực', '{\"field\":\"careers\",\"old\":[],\"new\":[25,3,22]}', '2026-05-15 02:07:24', '2026-05-15 02:07:24'),
+(71, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật nhóm đối tượng', '{\"field\":\"stakeholders\",\"old\":[],\"new\":[3,4,6]}', '2026-05-15 02:07:30', '2026-05-15 02:07:30'),
+(72, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật lĩnh vực', '{\"field\":\"careers\",\"old\":[3,22,25],\"new\":[25,3,22,26,16,18]}', '2026-05-15 02:10:57', '2026-05-15 02:10:57'),
+(73, 'App\\Models\\Customer', 130, 'App\\Models\\User', 1, 'update', 'Cập nhật nhóm đối tượng', '{\"field\":\"stakeholders\",\"old\":[3,4,6],\"new\":[3,4,6,5,7,1]}', '2026-05-15 02:11:05', '2026-05-15 02:11:05'),
+(74, 'App\\Models\\Customer', 123, 'App\\Models\\User', 1, 'update', 'Cập nhật lĩnh vực', '{\"field\":\"careers\",\"old\":[],\"new\":[25,21,16]}', '2026-05-15 02:23:56', '2026-05-15 02:23:56'),
+(75, 'App\\Models\\Customer', 123, 'App\\Models\\User', 1, 'update', 'Cập nhật nhóm đối tượng', '{\"field\":\"stakeholders\",\"old\":[],\"new\":[2,1,6]}', '2026-05-15 02:23:57', '2026-05-15 02:23:57'),
+(76, 'App\\Models\\Customer', 123, 'App\\Models\\User', 2, 'update', 'Cập nhật type_id', '{\"field\":\"type_id\",\"old\":1,\"new\":2}', '2026-06-29 15:24:48', '2026-06-29 15:24:48'),
+(77, 'App\\Models\\Customer', 132, 'App\\Models\\User', 2, 'update', 'Cập nhật note', '{\"field\":\"note\",\"old\":\"ghi ch\\u00fa\",\"new\":\"Tham gia gian h\\u00e0ng t\\u1ea1i Entech\\n Hanoi 2026\"}', '2026-06-29 15:57:19', '2026-06-29 15:57:19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_admins`
+--
+
+CREATE TABLE `vdh_admins` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `password` varchar(100) NOT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `avatar` text DEFAULT NULL,
+  `status` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
+  `fullname` varchar(50) DEFAULT NULL,
+  `birthday` varchar(10) DEFAULT NULL,
+  `passport` varchar(20) DEFAULT NULL,
+  `role_id` int(10) UNSIGNED DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `forgot_pass_token` varchar(100) DEFAULT NULL,
+  `updated_forgot_token` datetime DEFAULT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `vdh_admins`
+--
+
+INSERT INTO `vdh_admins` (`id`, `email`, `password`, `phone`, `avatar`, `status`, `fullname`, `birthday`, `passport`, `role_id`, `address`, `forgot_pass_token`, `updated_forgot_token`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'vuduchong209305@gmail.com', '$2y$10$4UdQSmNztB457ugofP3H6.SdzeFwxQ/StlFNutTZ9ZKzD4kNgjOcS', '0986209305', '/assets/uploads/media/images/files/agency/vdh.jpg', 1, 'Vũ Đức Hồng', '06-06-1993', NULL, 1, NULL, NULL, NULL, NULL, NULL, '2026-03-17 14:04:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_campaign`
+--
+
+CREATE TABLE `vdh_campaign` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `assigned_to` tinyint(4) DEFAULT NULL,
+  `organizer_id` tinyint(4) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `is_complete` tinyint(1) DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_campaign`
+--
+
+INSERT INTO `vdh_campaign` (`id`, `title`, `note`, `assigned_to`, `organizer_id`, `start_date`, `end_date`, `is_complete`, `created_at`, `updated_at`) VALUES
+(14, 'entech 2026', NULL, 3, 1, '2026-06-19', '2026-07-30', 1, '2026-05-07 12:50:39', '2026-05-19 08:48:16'),
+(15, '123123', NULL, 3, 1, '2026-05-20', '2026-05-28', 0, '2026-05-07 13:49:09', '2026-05-13 12:44:17'),
+(16, 'vsadbsdfb', NULL, 3, 1, '2026-05-08', '2026-05-15', 0, '2026-05-07 13:49:48', '2026-05-15 03:08:50'),
+(17, 'Mời tham gia triển lãm tháng 8 (Lần 1)', NULL, 2, 1, '2026-06-29', '2026-07-03', 0, '2026-06-29 10:05:33', '2026-06-29 10:05:33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_campaign_detail`
+--
+
+CREATE TABLE `vdh_campaign_detail` (
+  `campaign_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `progress_id` tinyint(1) DEFAULT NULL,
+  `status_id` tinyint(1) DEFAULT NULL,
+  `rating` tinyint(1) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_campaign_detail`
+--
+
+INSERT INTO `vdh_campaign_detail` (`campaign_id`, `customer_id`, `progress_id`, `status_id`, `rating`, `note`, `created_at`, `updated_at`) VALUES
+(14, 10, 4, 1, 4, NULL, '2026-05-07 13:49:32', '2026-05-19 08:47:55'),
+(14, 14, 2, 2, 4, NULL, '2026-05-07 13:49:32', '2026-05-19 08:48:06'),
+(14, 16, 1, 3, 4, NULL, '2026-05-07 13:49:32', '2026-05-19 08:48:10'),
+(14, 117, 3, 2, 4, NULL, '2026-05-07 13:49:32', '2026-05-19 08:48:16'),
+(15, 10, NULL, NULL, NULL, NULL, '2026-05-07 13:49:17', '2026-05-11 04:25:09'),
+(15, 14, NULL, NULL, NULL, NULL, '2026-05-07 13:49:17', '2026-05-07 13:49:17'),
+(15, 16, NULL, NULL, NULL, NULL, '2026-05-07 13:49:17', '2026-05-07 13:49:17'),
+(15, 119, NULL, NULL, NULL, NULL, '2026-05-07 13:49:09', '2026-05-07 13:49:09'),
+(15, 120, NULL, NULL, NULL, NULL, '2026-05-07 13:49:09', '2026-05-07 13:49:09'),
+(16, 10, 2, 1, 4, NULL, '2026-05-07 13:49:48', '2026-05-11 04:24:17'),
+(16, 14, 3, 2, 1, NULL, '2026-05-07 13:49:48', '2026-05-11 04:24:58'),
+(16, 16, 4, 2, 3, NULL, '2026-05-07 13:49:48', '2026-05-11 04:24:27'),
+(16, 119, 4, 2, 5, NULL, '2026-05-07 13:49:48', '2026-05-11 04:24:32'),
+(16, 120, 3, 2, 3, NULL, '2026-05-07 13:49:48', '2026-05-11 04:24:44'),
+(16, 132, 2, NULL, 4, NULL, '2026-05-07 13:49:48', '2026-05-15 03:08:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_careers`
+--
+
+CREATE TABLE `vdh_careers` (
+  `id` tinyint(4) NOT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_careers`
+--
+
+INSERT INTO `vdh_careers` (`id`, `title`, `created_at`, `updated_at`) VALUES
+(1, 'Nông nghiệp, lâm nghiệp & thủy sản', '2026-05-15 01:10:44', '2026-05-15 01:16:37'),
+(2, 'Khai khoáng', '2026-05-15 01:11:25', '2026-05-15 01:16:43'),
+(3, 'Công nghiệp chế biến, chế tạo', '2026-05-15 01:12:00', '2026-05-15 01:16:50'),
+(4, 'Thiết bị gia dụng', '2026-05-15 01:16:54', '2026-05-15 01:16:54'),
+(5, 'Kim khí cho sản xuất', '2026-05-15 01:16:59', '2026-05-15 01:16:59'),
+(6, 'Xử lý nước', '2026-05-15 01:17:01', '2026-05-15 01:17:01'),
+(7, 'Xử lý môi trường', '2026-05-15 01:17:05', '2026-05-15 01:17:05'),
+(8, 'Công nghệ năng lượng', '2026-05-15 01:17:08', '2026-05-15 01:17:08'),
+(9, 'Xây dựng, vật liệu xây dựng', '2026-05-15 01:17:14', '2026-05-15 01:17:14'),
+(10, 'Buôn bán, sửa chữa ô tô, xe máy, xe đạp', '2026-05-15 01:17:28', '2026-05-15 01:17:28'),
+(11, 'Vận tải kho bãi', '2026-05-15 01:17:31', '2026-05-15 01:17:31'),
+(12, 'Nhà hàng khách sạn', '2026-05-15 01:17:36', '2026-05-15 01:17:36'),
+(13, 'Thông tin và truyền thông', '2026-05-15 01:17:39', '2026-05-15 01:17:39'),
+(14, 'Hoạt động tài chính, ngân hàng, bảo hiểm', '2026-05-15 01:17:45', '2026-05-15 01:17:45'),
+(15, 'Hoạt động kinh doanh bất động sản', '2026-05-15 01:17:51', '2026-05-15 01:17:51'),
+(16, 'Hoạt động chuyên môn, khoa học và công nghệ', '2026-05-15 01:17:59', '2026-05-15 01:17:59'),
+(17, 'Hoạt động hành chính và dịch vụ hỗ trợ', '2026-05-15 01:18:04', '2026-05-15 01:18:04'),
+(18, 'Giáo dục và đào tạo', '2026-05-15 01:18:07', '2026-05-15 01:18:07'),
+(19, 'Y tế', '2026-05-15 01:18:09', '2026-05-15 01:18:09'),
+(20, 'Nghệ thuật, vui chơi và giải trí', '2026-05-15 01:18:15', '2026-05-15 01:18:15'),
+(21, 'Dịch vụ hộ gia đình', '2026-05-15 01:18:18', '2026-05-15 01:18:18'),
+(22, 'Hàng không - Công nghệ cao', '2026-05-15 01:18:22', '2026-05-15 01:18:22'),
+(23, 'Vi mạch bán dẫn - Công nghệ cao', '2026-05-15 01:18:27', '2026-05-15 01:18:27'),
+(24, 'Quang điện tử - Công nghệ cao', '2026-05-15 01:18:32', '2026-05-15 01:18:32'),
+(25, 'Công nghệ cao khác', '2026-05-15 01:18:35', '2026-05-15 01:18:35'),
+(26, 'Hoạt động dịch vụ khác', '2026-05-15 01:18:38', '2026-05-15 01:18:38');
 
 -- --------------------------------------------------------
 
@@ -120,34 +298,8 @@ INSERT INTO `vdh_comments` (`id`, `customer_id`, `content`, `owner_id`, `created
 (9, 10, 'avsdvbsdba', 1, '2026-04-20 05:37:24', '2026-04-20 05:37:24'),
 (10, 132, 'gặp khách', 1, '2026-04-22 02:32:37', '2026-04-22 02:32:37'),
 (11, 130, 'sao khách này chưa ...', 1, '2026-04-23 04:41:45', '2026-04-23 04:41:45'),
-(12, 14, 'khách chưa quan tâm', 1, '2026-04-24 09:16:31', '2026-04-24 09:16:31');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `vdh_company`
---
-
-CREATE TABLE `vdh_company` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `avatar` varchar(255) DEFAULT NULL,
-  `website` varchar(255) DEFAULT NULL,
-  `status` tinyint(4) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
-
---
--- Dumping data for table `vdh_company`
---
-
-INSERT INTO `vdh_company` (`id`, `name`, `phone`, `address`, `email`, `avatar`, `website`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'CÔNG TY CP TỔ CHỨC SỰ KIỆN VÀ HỘI CHỢ TOÀN CẦU (GLOBAL EXPO)', '024. 3755 3414', 'A24 / D7 Khu Đô thị mới Cầu Giấy Phường Dịch Vọng, Quận Cầu Giấy, Hà Nội', 'info@globalexpo.com.vn', '/assets/uploads/media/images/files/organizer/ge.jpg', 'https://globalexpo.com.vn', 1, '2026-03-19 04:34:16', '2026-03-19 06:21:23'),
-(2, 'CÔNG TY TNHH SỰ KIỆN TRIỂN LÃM VÀ XÚC TIẾN THƯƠNG MẠI CAMEL', '02838293179', 'Tầng 5, Tòa nhà Songdo 62A Phạm Ngọc Thạch, Phường Xuân Hòa, thành phố Hồ Chí Minh', 'camelevents.vn@gmail.com', '/assets/uploads/media/images/files/organizer/camel-event.png', 'https://camelevents.vn/', 1, '2026-03-19 05:00:45', '2026-03-19 05:00:45');
+(12, 14, 'khách chưa quan tâm', 1, '2026-04-24 09:16:31', '2026-04-24 09:16:31'),
+(13, 123, 'Mới chuyển từ Lead sang Contact', 2, '2026-06-29 15:27:12', '2026-06-29 15:27:12');
 
 -- --------------------------------------------------------
 
@@ -186,42 +338,42 @@ CREATE TABLE `vdh_customers` (
 --
 
 INSERT INTO `vdh_customers` (`id`, `email`, `company`, `fullname`, `phone`, `assigned_to`, `organizer_id`, `contact`, `address`, `profession`, `birthday`, `mst`, `website`, `description`, `note`, `gender`, `owner_id`, `type_id`, `bookmark`, `avatar`, `source_id`, `created_at`, `updated_at`) VALUES
-(10, 'contact10@smartlife.vn', 'Smart Life Co', 'Nguyen Thi Mai', '0901000010', 1, 1, 'zalo 0982093053', NULL, NULL, NULL, '123123123', NULL, NULL, NULL, 1, NULL, 2, 1, 'customer/2026/04/20/1776690705-HrPdFhaTUAwGekhwdFfv.webp', 1, '2026-04-02 16:22:38', '2026-04-21 01:25:51'),
-(14, 'contact14@vietsoft.vn 123', 'VietSoft JSC', 'Pham Duc Long', '0901000014', 1, 1, '123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 'customer/2026/04/20/1776690723-w7PDL8sjxEzZBO9vRLhc.webp', NULL, '2026-04-02 16:22:38', '2026-04-21 03:37:03'),
-(16, 'contact16@smartcity.vn', 'Smart City Co.', 'Nguyen Van Hung', '0901000016', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 'customer/2026/04/20/1776660437-yHONAxJyKuxHr1YaQQgi.webp', NULL, '2026-04-02 16:22:38', '2026-04-20 07:36:03'),
-(22, 'contact22@aitech.vn', 'AI Tech JSC', 'Le Thi Ngoc', '0901000022', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, '2026-04-02 16:22:38', '2026-04-20 07:36:20'),
-(23, 'contact23@digitalsolution.vn', 'Digital Solution', 'Pham Quoc Khanh', '0901000023', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, '2026-04-02 16:22:38', '2026-04-20 07:36:18'),
-(24, 'contact24@smartgroup.vn', 'Smart Group Co.', 'Nguyen Van Tai', '0901000024', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(26, 'contact26@viettech.vn', 'Viet Tech JSC', 'Le Hoang Anh', '0901000026', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-21 01:25:59'),
-(27, 'contact27@innovation.vn', 'Innovation Co.', 'Pham Van Hieu', '0901000027', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(28, 'contact28@futuregroup.vn', 'Future Group Ltd.', 'Nguyen Thi Trang', '0901000028', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(29, 'contact29@smartconnect.vn', 'Smart Connect', 'Tran Minh Tuan', '0901000029', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(30, 'contact30@techglobal.vn', 'Tech Global Co.', 'Le Van Hiep', '0901000030', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, '2026-04-02 16:22:38', '2026-04-20 03:22:26'),
-(31, 'contact31@vietnamtech.vn', 'Vietnam Tech Ltd.', 'Pham Thi Nga', '0901000031', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(32, 'contact32@digitalcorp.vn', 'Digital Corp.', 'Nguyen Van Duc', '0901000032', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(33, 'contact33@smartinnovation.vn', 'Smart Innovation', 'Tran Thi Hang', '0901000033', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(34, 'contact34@futurecorp.vn', 'Future Corp.', 'Le Minh Quan', '0901000034', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(35, 'contact35@ecoworld.vn', 'Eco World Co.', 'Pham Van Thanh', '0901000035', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, '2026-04-02 16:22:38', '2026-04-20 03:21:04'),
-(36, 'contact36@techsolution.vn', 'Tech Solution Ltd.', 'Nguyen Thi Thuy', '0901000036', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(37, 'contact37@globalinnovation.vn', 'Global Innovation', 'Tran Van Dat', '0901000037', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(38, 'contact38@smartvision.vn', 'Smart Vision Co.', 'Le Thi Hanh', '0901000038', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(39, 'contact39@vietdigital.vn', 'Viet Digital Ltd.', 'Pham Minh Tri', '0901000039', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(40, 'contact40@nexttech.vn', 'Next Tech JSC', 'Nguyen Van Phong', '0901000040', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(41, 'contact41@futureconnect.vn', 'Future Connect', 'Tran Thi Linh', '0901000041', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(42, 'contact42@aigroup.vn', 'AI Group Co.', 'Le Quang Huy', '0901000042', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(43, 'contact43@techcorp.vn', 'Tech Corp.', 'Pham Van Duc', '0901000043', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(44, 'contact44@smartcorp.vn', 'Smart Corp.', 'Nguyen Thi Nga', '0901000044', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(45, 'contact45@globalvision.vn', 'Global Vision Ltd.', 'Tran Minh Duc', '0901000045', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(46, 'contact46@digitaltech.vn', 'Digital Tech Co.', 'Le Van Nam', '0901000046', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(47, 'contact47@ecogroup.vn', 'Eco Group', 'Pham Thi Hoa', '0901000047', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(48, 'contact48@futuretech.vn', 'Future Tech JSC', 'Nguyen Thanh Hai', '0901000048', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(49, 'contact49@smartdigital.vn', 'Smart Digital', 'Tran Van Hung', '0901000049', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(50, 'contact50@vietcorp.vn', 'Viet Corp.', 'Le Thi Trang', '0901000050', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(51, 'contact51@innovation.vn', 'Innovation Ltd.', 'Pham Quoc Anh', '0901000051', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(52, 'contact52@techgroup.vn', 'Tech Group Co.', 'Nguyen Minh Tuan', '0901000052', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(53, 'contact53@futuregroup.vn', 'Future Group JSC', 'Tran Thi Nga', '0901000053', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(54, 'contact54@smartgroup.vn', 'Smart Group Ltd.', 'Le Van Dat', '0901000054', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(55, 'contact55@globalgroup.vn', 'Global Group', 'Pham Minh Hieu', '0901000055', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
+(10, 'contact10@smartlife.vn', 'Smart Life Co', 'Nguyen Thi Mai', '0901000010', 4, 1, 'zalo 0982093053', NULL, NULL, NULL, '123123123', NULL, NULL, NULL, 1, NULL, 2, 1, 'customer/2026/04/20/1776690705-HrPdFhaTUAwGekhwdFfv.webp', 1, '2026-04-02 16:22:38', '2026-05-15 03:20:39'),
+(14, 'contact14@vietsoft.vn', 'VietSoft JSC', 'Pham Duc Long', '0901000014', 4, 1, '123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 'customer/2026/04/20/1776690723-w7PDL8sjxEzZBO9vRLhc.webp', NULL, '2026-04-02 16:22:38', '2026-05-15 03:20:39'),
+(16, 'contact16@smartcity.vn', 'Smart City Co.', 'Nguyen Van Hung', '0901000016', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, 'customer/2026/04/20/1776660437-yHONAxJyKuxHr1YaQQgi.webp', NULL, '2026-04-02 16:22:38', '2026-05-15 03:20:39'),
+(22, 'contact22@aitech.vn', 'AI Tech JSC', 'Le Thi Ngoc', '0901000022', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, NULL, NULL, '2026-04-02 16:22:38', '2026-04-26 11:06:57'),
+(23, 'contact23@digitalsolution.vn', 'Digital Solution', 'Pham Quoc Khanh', '0901000023', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, NULL, NULL, '2026-04-02 16:22:38', '2026-04-26 11:07:02'),
+(24, 'contact24@smartgroup.vn', 'Smart Group Co.', 'Nguyen Van Tai', '0901000024', 3, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-12 03:00:13'),
+(26, 'contact26@viettech.vn', 'Viet Tech JSC', 'Le Hoang Anh', '0901000026', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-26 11:08:37'),
+(27, 'contact27@innovation.vn', 'Innovation Co.', 'Pham Van Hieu', '0901000027', 3, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-12 03:00:13'),
+(28, 'contact28@futuregroup.vn', 'Future Group Ltd.', 'Nguyen Thi Trang', '0901000028', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-12 02:58:47'),
+(29, 'contact29@smartconnect.vn', 'Smart Connect', 'Tran Minh Tuan', '0901000029', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-12 02:58:47'),
+(30, 'contact30@techglobal.vn', 'Tech Global Co.', 'Le Van Hiep', '0901000030', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, NULL, NULL, '2026-04-02 16:22:38', '2026-04-26 11:07:09'),
+(31, 'contact31@vietnamtech.vn', 'Vietnam Tech Ltd.', 'Pham Thi Nga', '0901000031', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-12 02:58:47'),
+(32, 'contact32@digitalcorp.vn', 'Digital Corp.', 'Nguyen Van Duc', '0901000032', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-12 02:58:47'),
+(33, 'contact33@smartinnovation.vn', 'Smart Innovation', 'Tran Thi Hang', '0901000033', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-12 02:58:47'),
+(34, 'contact34@futurecorp.vn', 'Future Corp.', 'Le Minh Quan', '0901000034', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-12 02:58:47'),
+(35, 'contact35@ecoworld.vn', 'Eco World Co.', 'Pham Van Thanh', '0901000035', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, NULL, NULL, '2026-04-02 16:22:38', '2026-04-26 11:08:02'),
+(36, 'contact36@techsolution.vn', 'Tech Solution Ltd.', 'Nguyen Thi Thuy', '0901000036', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-12 02:58:47'),
+(37, 'contact37@globalinnovation.vn', 'Global Innovation', 'Tran Van Dat', '0901000037', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-12 02:58:47'),
+(38, 'contact38@smartvision.vn', 'Smart Vision Co.', 'Le Thi Hanh', '0901000038', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-12 02:58:47'),
+(39, 'contact39@vietdigital.vn', 'Viet Digital Ltd.', 'Pham Minh Tri', '0901000039', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-12 02:58:47'),
+(40, 'contact40@nexttech.vn', 'Next Tech JSC', 'Nguyen Van Phong', '0901000040', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-12 02:58:47'),
+(41, 'contact41@futureconnect.vn', 'Future Connect', 'Tran Thi Linh', '0901000041', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
+(42, 'contact42@aigroup.vn', 'AI Group Co.', 'Le Quang Huy', '0901000042', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
+(43, 'contact43@techcorp.vn', 'Tech Corp.', 'Pham Van Duc', '0901000043', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
+(44, 'contact44@smartcorp.vn', 'Smart Corp.', 'Nguyen Thi Nga', '0901000044', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
+(45, 'contact45@globalvision.vn', 'Global Vision Ltd.', 'Tran Minh Duc', '0901000045', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
+(46, 'contact46@digitaltech.vn', 'Digital Tech Co.', 'Le Van Nam', '0901000046', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
+(47, 'contact47@ecogroup.vn', 'Eco Group', 'Pham Thi Hoa', '0901000047', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
+(48, 'contact48@futuretech.vn', 'Future Tech JSC', 'Nguyen Thanh Hai', '0901000048', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
+(49, 'contact49@smartdigital.vn', 'Smart Digital', 'Tran Van Hung', '0901000049', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
+(50, 'contact50@vietcorp.vn', 'Viet Corp.', 'Le Thi Trang', '0901000050', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
+(51, 'contact51@innovation.vn', 'Innovation Ltd.', 'Pham Quoc Anh', '0901000051', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
+(52, 'contact52@techgroup.vn', 'Tech Group Co.', 'Nguyen Minh Tuan', '0901000052', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
+(53, 'contact53@futuregroup.vn', 'Future Group JSC', 'Tran Thi Nga', '0901000053', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
+(54, 'contact54@smartgroup.vn', 'Smart Group Ltd.', 'Le Van Dat', '0901000054', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
+(55, 'contact55@globalgroup.vn', 'Global Group', 'Pham Minh Hieu', '0901000055', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-05-11 10:57:57'),
 (56, 'contact56@digitalgroup.vn', 'Digital Group Co.', 'Nguyen Thi Hang', '0901000056', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
 (57, 'contact57@ecotech.vn', 'EcoTech Ltd.', 'Tran Van Binh', '0901000057', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
 (58, 'contact58@viettech.vn', 'VietTech Corp.', 'Le Minh Duc', '0901000058', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
@@ -265,20 +417,46 @@ INSERT INTO `vdh_customers` (`id`, `email`, `company`, `fullname`, `phone`, `ass
 (96, 'contact96@futuretech.vn', 'Future Tech Corp.', 'Nguyen Van Hieu', '0901000096', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
 (97, 'contact97@techinnovation.vn', 'Tech Innovation', 'Tran Thi Hoa', '0901000097', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
 (98, 'contact98@globalinnovation.vn', 'Global Innovation Corp.', 'Le Van Tuan', '0901000098', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-02 16:22:38', '2026-04-02 16:22:38'),
-(117, 'contact1@techvision.vn', 'Tech Vision Co.', 'Nguyen Van An', '0901000001', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 'customer/2026/04/16/1776328632-Wd6zMJ1d6rEJjMbumILv.webp', 1, '2026-04-16 08:36:12', '2026-04-22 03:26:45'),
+(117, 'contact1@techvision.vn', 'Tech Vision Co.', 'Nguyen Van An', '0901000001', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, 'customer/2026/04/16/1776328632-Wd6zMJ1d6rEJjMbumILv.webp', 1, '2026-04-16 08:36:12', '2026-05-15 03:20:39'),
 (118, 'contact2@globalexpo.vn', 'Global Expo Ltd.', 'Tran Thi Bich', '0901000002', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-04-16 09:13:21'),
-(119, 'contact3@smarttech.vn', 'Smart Tech JSC', 'Le Minh Hoang', '0901000003', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, NULL, NULL, '2026-04-16 08:36:12', '2026-04-22 03:27:04'),
-(120, 'contact4@vietinnovation.vn', 'Viet Innovation', 'Pham Quang Huy', '0901000004', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-04-22 03:26:54'),
-(121, 'contact5@nextgen.vn', 'NextGen Solutions', 'Hoang Thi Lan', '0901000005', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, NULL, NULL, '2026-04-16 08:36:12', '2026-04-22 03:30:19'),
-(122, 'contact6@digitalworld.vn', 'Digital World Co.', 'Nguyen Duc Manh', '0901000006', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-04-16 08:36:12'),
-(123, 'contact7@futuretech.vn', 'Future Tech Ltd.', 'Tran Van Nam', '0901000007', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-04-16 08:36:12'),
-(124, 'contact11@innovatech.vn', 'Innovatech Ltd.', 'Tran Quoc Bao', '0901000011', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-04-16 08:36:12'),
-(125, 'contact12@globalconnect.vn', 'Global Connect', 'Le Van Binh', '0901000012', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, NULL, NULL, '2026-04-16 08:36:12', '2026-04-22 03:30:25'),
-(126, 'contact13@techlink.vn', 'TechLink Co.', 'Nguyen Hong Nhung', '0901000013', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-04-16 08:36:12'),
-(127, 'contact99@digitalinnovation.vn', 'Digital Innovation Ltd.', 'Pham Thi Trang', '0901000099', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-04-16 08:36:12'),
-(128, 'contact100@smartinnovation.vn', 'Smart Innovation Corp.', 'Nguyen Minh Duc', '0901000100', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-04-16 08:36:12'),
-(130, 'vuduchong209305@gmail.com', 'Hội chợ Toàn Cầu', 'Vũ Đức Hồng', NULL, NULL, 1, 'zalo 0986209305', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, 'customer/2026/04/23/1776915307-Ttv0rzkA35gK9U41dWYB.webp', NULL, '2026-04-21 09:12:20', '2026-04-23 04:42:02'),
-(132, 'hongvu.media@gmail.com', 'GE', 'Vũ Đức Hồng', '0999888777', 2, 1, 'zalo 0986209305', 'Cầu Giấy', 'sự kiện', '1993', '09124093125', 'globalexpo.com.vn', 'mô tả', 'ghi chú', 1, 1, 2, 1, 'customer/2026/04/21/1776763586-CFJMHuFOCj5zgdx08xRY.webp', NULL, '2026-04-21 09:20:55', '2026-04-21 09:26:26');
+(119, 'contact3@smarttech.vn', 'Smart Tech JSC', 'Le Minh Hoang', '0901000003', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, NULL, NULL, '2026-04-16 08:36:12', '2026-05-15 03:20:39'),
+(120, 'contact4@vietinnovation.vn', 'Viet Innovation', 'Pham Quang Huy', '0901000004', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, NULL, NULL, '2026-04-16 08:36:12', '2026-05-15 03:20:39'),
+(121, 'contact5@nextgen.vn', 'NextGen Solutions', 'Hoang Thi Lan', '0901000005', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, NULL, NULL, '2026-04-16 08:36:12', '2026-05-15 03:20:39'),
+(122, 'contact6@digitalworld.vn', 'Digital World Co.', 'Nguyen Duc Manh', '0901000006', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-05-15 03:20:39'),
+(123, 'contact7@futuretech.vn', 'Future Tech Ltd.', 'Tran Van Nam', '0901000007', 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-06-29 15:24:48'),
+(124, 'contact11@innovatech.vn', 'Innovatech Ltd.', 'Tran Quoc Bao', '0901000011', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-05-15 03:20:39'),
+(125, 'contact12@globalconnect.vn', 'Global Connect', 'Le Van Binh', '0901000012', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, 1, NULL, NULL, '2026-04-16 08:36:12', '2026-05-15 03:20:39'),
+(126, 'contact13@techlink.vn', 'TechLink Co.', 'Nguyen Hong Nhung', '0901000013', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-05-15 03:20:39'),
+(127, 'contact99@digitalinnovation.vn', 'Digital Innovation Ltd.', 'Pham Thi Trang', '0901000099', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-05-15 03:20:39'),
+(128, 'contact100@smartinnovation.vn', 'Smart Innovation Corp.', 'Nguyen Minh Duc', '0901000100', 4, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, NULL, NULL, '2026-04-16 08:36:12', '2026-05-15 03:20:39'),
+(130, 'vuduchong209305@gmail.com', 'Hội chợ Toàn Cầu', 'Vũ Đức Hồng', NULL, 3, 1, 'zalo 0986209305', NULL, NULL, '1993', NULL, NULL, NULL, NULL, NULL, 1, 2, NULL, 'customer/2026/04/23/1776915307-Ttv0rzkA35gK9U41dWYB.webp', 2, '2026-04-21 09:12:20', '2026-07-01 09:19:30'),
+(132, 'hongvu.media@gmail.com', 'CÔNG TY CP TỔ CHỨC SỰ KIỆN VÀ HỘI CHỢ TOÀN CẦU (GLOBAL EXPO)', 'Vũ Đức Hồng', '0999888777', 3, 1, 'zalo 0986209305', 'Cầu Giấy', 'sự kiện', '1993', '09124093125', 'globalexpo.com.vn', 'mô tả', 'Tham gia gian hàng tại Entech\n Hanoi 2026', 1, 1, 2, 1, 'customer/2026/04/21/1776763586-CFJMHuFOCj5zgdx08xRY.webp', NULL, '2026-04-21 09:20:55', '2026-07-01 07:22:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_customer_career`
+--
+
+CREATE TABLE `vdh_customer_career` (
+  `customer_id` int(11) NOT NULL,
+  `career_id` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_customer_career`
+--
+
+INSERT INTO `vdh_customer_career` (`customer_id`, `career_id`) VALUES
+(123, 16),
+(123, 21),
+(123, 25),
+(130, 3),
+(130, 16),
+(130, 18),
+(130, 22),
+(130, 25),
+(130, 26);
 
 -- --------------------------------------------------------
 
@@ -290,6 +468,8 @@ CREATE TABLE `vdh_customer_group` (
   `id` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `note` varchar(255) DEFAULT NULL,
+  `assigned_to` tinyint(4) DEFAULT NULL,
+  `organizer_id` tinyint(4) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
@@ -298,10 +478,11 @@ CREATE TABLE `vdh_customer_group` (
 -- Dumping data for table `vdh_customer_group`
 --
 
-INSERT INTO `vdh_customer_group` (`id`, `title`, `note`, `created_at`, `updated_at`) VALUES
-(1, 'Entech 2026', 'Có quan tâm thuê gian hàng', '2026-04-22 04:12:39', '2026-04-22 09:38:33'),
-(2, 'Battery 2026', 'khách hàng battery có email', '2026-04-22 05:13:27', '2026-04-22 09:38:03'),
-(3, 'Envirotex 2026', NULL, '2026-04-23 04:43:07', '2026-04-23 04:43:07');
+INSERT INTO `vdh_customer_group` (`id`, `title`, `note`, `assigned_to`, `organizer_id`, `created_at`, `updated_at`) VALUES
+(1, 'Entech 2026', 'Có quan tâm thuê gian hàng', 1, 1, '2026-04-22 04:12:39', '2026-04-22 09:38:33'),
+(2, 'Battery 2026', 'khách hàng battery có email', 1, 1, '2026-04-22 05:13:27', '2026-04-22 09:38:03'),
+(3, 'Envirotex 2026', NULL, 1, 1, '2026-04-23 04:43:07', '2026-04-23 04:43:07'),
+(4, 'vsdbsdabn', NULL, 1, 1, '2026-05-11 11:37:31', '2026-05-11 11:37:31');
 
 -- --------------------------------------------------------
 
@@ -319,16 +500,52 @@ CREATE TABLE `vdh_customer_group_detail` (
 --
 
 INSERT INTO `vdh_customer_group_detail` (`customer_group_id`, `customer_id`) VALUES
+(1, 10),
+(1, 14),
+(1, 16),
+(1, 22),
+(1, 23),
+(1, 117),
 (1, 119),
-(1, 125),
+(1, 121),
+(1, 122),
+(1, 124),
+(1, 126),
+(1, 127),
 (1, 132),
+(2, 119),
 (2, 120),
-(2, 121),
-(2, 125),
-(2, 132),
-(3, 119),
-(3, 120),
-(3, 121);
+(3, 10),
+(3, 14),
+(3, 16),
+(3, 123),
+(4, 119);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_customer_stakeholder`
+--
+
+CREATE TABLE `vdh_customer_stakeholder` (
+  `customer_id` int(11) NOT NULL,
+  `stakeholder_id` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_customer_stakeholder`
+--
+
+INSERT INTO `vdh_customer_stakeholder` (`customer_id`, `stakeholder_id`) VALUES
+(123, 1),
+(123, 2),
+(123, 6),
+(130, 1),
+(130, 3),
+(130, 4),
+(130, 5),
+(130, 6),
+(130, 7);
 
 -- --------------------------------------------------------
 
@@ -381,7 +598,469 @@ INSERT INTO `vdh_events` (`id`, `title`, `user_id`, `organizer_id`, `start_time`
 (1, 'Đi nhậu', 1, 1, '2026-04-19 23:00:00', '2026-04-20 00:00:00', 'sdsdbsdb', NULL, 'vsdv', 'call', NULL, NULL, NULL, '2026-04-21 23:58:08', '2026-04-22 01:54:44'),
 (2, 'Họp khách', 1, 1, '2026-04-20 23:00:00', '2026-04-21 01:00:00', 'sdghsdh', NULL, 'dfsdgf', 'meeting', NULL, NULL, NULL, '2026-04-22 00:00:31', '2026-04-23 03:24:15'),
 (4, 'đón con', 1, 1, '2026-04-23 00:30:00', '2026-04-23 01:00:00', NULL, NULL, NULL, 'call', NULL, NULL, NULL, '2026-04-22 00:33:21', '2026-04-22 00:34:03'),
-(5, 'di chợ', 1, 1, '2026-04-23 00:00:00', '2026-04-23 00:30:00', NULL, NULL, NULL, 'call', NULL, NULL, NULL, '2026-04-22 00:33:45', '2026-04-23 04:47:08');
+(5, 'di chợ', 1, 1, '2026-04-23 00:00:00', '2026-04-23 00:30:00', NULL, NULL, NULL, 'call', NULL, NULL, NULL, '2026-04-22 00:33:45', '2026-04-23 04:47:08'),
+(8, 'vsbsdnbsdb', 1, 1, '2026-05-04 23:30:00', '2026-05-05 00:00:00', NULL, NULL, NULL, 'call', NULL, NULL, NULL, '2026-05-05 02:37:36', '2026-05-05 13:05:08'),
+(9, 'sadfdsdg', 1, 1, '2026-05-04 23:00:00', '2026-05-04 23:30:00', NULL, NULL, NULL, 'call', NULL, NULL, NULL, '2026-05-05 02:38:11', '2026-05-05 02:38:11'),
+(10, 'vsbsdbn', 1, 1, '2026-05-06 01:30:00', '2026-05-06 02:00:00', NULL, NULL, NULL, 'call', NULL, NULL, NULL, '2026-05-05 02:39:36', '2026-05-05 13:05:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_exhibition`
+--
+
+CREATE TABLE `vdh_exhibition` (
+  `id` int(11) NOT NULL,
+  `title` text DEFAULT NULL,
+  `organizer_id` tinyint(4) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_exhibition`
+--
+
+INSERT INTO `vdh_exhibition` (`id`, `title`, `organizer_id`, `start_date`, `end_date`, `location`, `logo`, `created_at`, `updated_at`) VALUES
+(1, 'Entech Hanoi 2026', 1, '2026-06-24', '2026-06-26', 'Trung tâm Hội chợ Triển lãm quốc tế I.C.E Hà Nội - 91 Trần Hưng Đạo, Hà Nội', 'exhibition/2026/05/14/1778749537-y5FaKLHnD2tnM5Y7j4Cx.webp', NULL, '2026-05-14 09:05:37'),
+(2, 'Envirotex Hanoi 2026', 1, '2026-06-24', '2026-06-26', 'Trung tâm Hội chợ Triển lãm quốc tế I.C.E Hà Nội - 91 Trần Hưng Đạo, Hà Nội', 'exhibition/2026/05/11/1778476276-c1Rb4rXQXEshlBW1rnYA.webp', NULL, '2026-05-11 05:11:16'),
+(3, 'UAV SHOW 2026', 1, '2026-08-26', '2026-08-28', 'Trung tâm Triển lãm quốc gia (VEC), Đại lộ Trường Sa, Đông Anh, Hà Nội.', 'exhibition/2026/05/11/1778476354-GqfNaih2UyqvCXT7rPLX.webp', '2026-05-11 05:12:34', '2026-05-11 05:12:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_languages`
+--
+
+CREATE TABLE `vdh_languages` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `lang_class` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `status` tinyint(1) UNSIGNED DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `vdh_languages`
+--
+
+INSERT INTO `vdh_languages` (`id`, `name`, `lang_class`, `title`, `description`, `status`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'vi', 'vi_vn', 'VIE', 'Tiếng Việt', 1, '/assets/images/flag/vietnam.png', '2020-06-19 16:12:11', '2026-01-04 01:56:03'),
+(2, 'en', 'en_es', 'ENG', 'Tiếng Anh', 1, '/assets/images/flag/uk.png', '2020-06-19 16:12:15', '2020-06-19 16:12:17'),
+(3, 'cn', 'cn_CN', 'CN', 'Tiếng Trung', 1, '/assets/images/flag/china.png', '2020-07-05 04:42:05', '2026-01-04 01:54:10'),
+(4, 'kr', 'kr_KR', 'KR', 'Tiếng Hàn', 1, '/assets/images/flag/korea.png', '2026-02-01 12:00:53', '2026-02-01 12:00:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_organizer`
+--
+
+CREATE TABLE `vdh_organizer` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_organizer`
+--
+
+INSERT INTO `vdh_organizer` (`id`, `name`, `phone`, `address`, `email`, `avatar`, `website`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'CÔNG TY CP TỔ CHỨC SỰ KIỆN VÀ HỘI CHỢ TOÀN CẦU (GLOBAL EXPO)', '024. 3755 3414', 'A24 / D7 KĐT mới Cầu Giấy, Phường Cầu Giấy, Hà Nội', 'info@globalexpo.com.vn', '/assets/uploads/media/images/files/organizer/ge.jpg', 'https://globalexpo.com.vn', 1, '2026-03-19 04:34:16', '2026-05-15 03:10:25'),
+(2, 'CÔNG TY TNHH SỰ KIỆN TRIỂN LÃM VÀ XÚC TIẾN THƯƠNG MẠI CAMEL', '02838293179', 'Tầng 5, Tòa nhà Songdo 62A Phạm Ngọc Thạch, Phường Xuân Hòa, thành phố Hồ Chí Minh', 'camelevents.vn@gmail.com', '/assets/uploads/media/images/files/organizer/camel-event.png', 'https://camelevents.vn/', 0, '2026-03-19 05:00:45', '2026-05-15 03:10:05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_permissions`
+--
+
+CREATE TABLE `vdh_permissions` (
+  `id` int(11) NOT NULL,
+  `key` varchar(50) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `group` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_permissions`
+--
+
+INSERT INTO `vdh_permissions` (`id`, `key`, `title`, `group`, `created_at`, `updated_at`) VALUES
+(1, 'user.index', 'user.index', 'thành viên', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(2, 'user.edit', 'user.edit', 'thành viên', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(3, 'user.save', 'user.save', 'thành viên', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(4, 'user.delete', 'user.delete', 'thành viên', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(5, 'role.index', 'role.index', 'phân quyền', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(6, 'role.edit', 'role.edit', 'phân quyền', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(7, 'role.save', 'role.save', 'phân quyền', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(8, 'role.delete', 'role.delete', 'phân quyền', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(9, 'todo.index', 'todo.index', 'ngày của tôi', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(10, 'todo.detail', 'todo.detail', 'ngày của tôi', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(11, 'todo.store', 'todo.store', 'ngày của tôi', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(12, 'todo.update', 'todo.update', 'ngày của tôi', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(13, 'todo.delete', 'todo.delete', 'ngày của tôi', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(14, 'todo.completed', 'todo.completed', 'ngày của tôi', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(15, 'todo.bookmark', 'todo.bookmark', 'ngày của tôi', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(16, 'todo.sort', 'todo.sort', 'ngày của tôi', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(17, 'event.index', 'event.index', 'lịch của tôi', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(18, 'event.detail', 'event.detail', 'lịch của tôi', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(19, 'event.store', 'event.store', 'lịch của tôi', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(20, 'event.update', 'event.update', 'lịch của tôi', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(21, 'event.updateTime', 'event.updateTime', 'lịch của tôi', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(22, 'event.delete', 'event.delete', 'lịch của tôi', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(23, 'customer.index', 'customer.index', 'khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(24, 'customer.view', 'customer.view', 'khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(25, 'customer.store', 'customer.store', 'khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(26, 'customer.update', 'customer.update', 'khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(27, 'customer.source', 'customer.source', 'khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(28, 'customer.bookmark', 'customer.bookmark', 'khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(29, 'customer.delete', 'customer.delete', 'khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(30, 'customer.avatar', 'customer.avatar', 'khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(31, 'customer.comment.store', 'customer.comment.store', 'khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(32, 'customer.comment.index', 'customer.comment.index', 'khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(33, 'customer.activity.logs', 'customer.activity.logs', 'khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(34, 'customer.assigned', 'customer.assigned', 'khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(35, 'customer-group.index', 'customer-group.index', 'nhóm khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(36, 'customer-group.detail', 'customer-group.detail', 'nhóm khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(37, 'customer-group.save', 'customer-group.save', 'nhóm khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(38, 'customer-group.list', 'customer-group.list', 'nhóm khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(39, 'customer-group.assign', 'customer-group.assign', 'nhóm khách hàng', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(40, 'campaign.index', 'Danh sách chiến dịch', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(41, 'campaign.detail', 'Chi tiết chiến dịch', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(42, 'campaign.edit', 'Sửa chiến dịch', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(43, 'campaign.save', 'Lưu chiến dịch', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(44, 'campaign.list', 'campaign.list', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(45, 'campaign.assign', 'Giao cho người phụ trách', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(46, 'campaign.delete', 'Xóa chiến dịch', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(47, 'campaign.deleteCustomer', 'Xóa khách hàng trong chiến dịch', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(48, 'campaign.customer', 'campaign.customer', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(49, 'campaign.customerGroup', 'campaign.customerGroup', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(50, 'campaign.updateCustomer', 'campaign.updateCustomer', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(51, 'campaign.report', 'Xem báo cáo', 'chiến dịch', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(52, 'task.index', 'task.index', 'công việc', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(53, 'task.detail', 'task.detail', 'công việc', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(54, 'task.store', 'task.store', 'công việc', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(55, 'task.update', 'task.update', 'công việc', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(56, 'task.delete', 'task.delete', 'công việc', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(57, 'task.completed', 'task.completed', 'công việc', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(58, 'task.bookmark', 'task.bookmark', 'công việc', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(59, 'task.sort', 'task.sort', 'công việc', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(60, 'product.index', 'product.index', 'sản phẩm', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(61, 'product.edit', 'product.edit', 'sản phẩm', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(62, 'product.save', 'product.save', 'sản phẩm', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(63, 'product.delete', 'product.delete', 'sản phẩm', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(64, 'quotation.index', 'quotation.index', 'báo giá', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(65, 'quotation.edit', 'quotation.edit', 'báo giá', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(66, 'quotation.save', 'quotation.save', 'báo giá', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(67, 'quotation.delete', 'quotation.delete', 'báo giá', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(68, 'quotation.export', 'quotation.export', 'báo giá', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(69, 'exhibition.index', 'exhibition.index', 'triển lãm', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(70, 'exhibition.edit', 'exhibition.edit', 'triển lãm', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(71, 'exhibition.save', 'exhibition.save', 'triển lãm', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(72, 'exhibition.delete', 'exhibition.delete', 'triển lãm', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(73, 'report.task', 'report.task', 'báo cáo', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(74, 'report.customer', 'report.customer', 'báo cáo', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(75, 'permission.index', 'permission.index', 'permission', '2026-05-13 01:12:36', '2026-05-13 01:12:36'),
+(76, 'user.updateProfile', 'user.updateProfile', 'thành viên', '2026-05-13 12:33:12', '2026-05-13 12:33:12'),
+(77, 'user.roles', 'user.roles', 'thành viên', '2026-05-13 12:33:12', '2026-05-13 12:33:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_products`
+--
+
+CREATE TABLE `vdh_products` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `price` decimal(10,0) DEFAULT NULL,
+  `unit` varchar(20) DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_products`
+--
+
+INSERT INTO `vdh_products` (`id`, `title`, `price`, `unit`, `avatar`, `note`, `created_at`, `updated_at`) VALUES
+(3, 'Ghế da chân xoay', 200000, 'chiếc', 'product/2026/05/05/1777990491-JjIMN9tmmWBobQauPx4s.webp', 'null', '2026-05-05 13:55:39', '2026-05-05 14:14:51'),
+(4, 'Giỏ hoa trang trí', 100000, 'giỏ', 'product/2026/05/13/1778660576-Hf3D9iCBMkRtkiQGalIt.webp', 'null', '2026-05-05 14:14:03', '2026-05-13 08:22:56'),
+(5, 'Gian hàng tiêu chuẩn', 5000000, 'gian', NULL, 'null', '2026-05-05 14:28:27', '2026-05-10 03:56:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_progress`
+--
+
+CREATE TABLE `vdh_progress` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `color` varchar(50) DEFAULT NULL,
+  `type` varchar(50) DEFAULT NULL COMMENT 'sale / onboarding'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_progress`
+--
+
+INSERT INTO `vdh_progress` (`id`, `name`, `color`, `type`) VALUES
+(1, 'Gọi điện', 'border-gray-500 text-gray-500', NULL),
+(2, 'Chờ gọi lại', 'border-red-500 text-red-500', NULL),
+(3, 'Thanh toán', 'border-indigo-500 text-indigo-500', NULL),
+(4, 'Đã chuyển đổi', 'border-green-500 text-green-500', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_quotation`
+--
+
+CREATE TABLE `vdh_quotation` (
+  `id` int(11) NOT NULL,
+  `code` varchar(20) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `organizer_id` int(11) NOT NULL,
+  `exhibition_id` tinyint(4) NOT NULL,
+  `assigned_to` int(11) NOT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `sub_total` decimal(15,0) DEFAULT NULL,
+  `vat` decimal(15,0) DEFAULT NULL,
+  `discount` decimal(15,0) DEFAULT NULL,
+  `grand_total` decimal(15,0) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_quotation`
+--
+
+INSERT INTO `vdh_quotation` (`id`, `code`, `customer_id`, `organizer_id`, `exhibition_id`, `assigned_to`, `note`, `sub_total`, `vat`, `discount`, `grand_total`, `created_at`, `updated_at`) VALUES
+(6, '69FAC93B9C2C5', 123, 1, 1, 1, 'sdvljhsduivysahejk hsdkjgh kjsadhg usadhgiuos adygui9sadyguiosyadgupysadojg; hsakjlgh sadkjgyh saioudgysdaiuogh sjaodhgi usadhg9o7ui sadhgiusadhg ijsadhgijsd ayhg8osyhad gijhsadgij hsadg9uoyhs adugihsdauigjhsadjigh', 15300000, 1530000, 50000, 16780000, '2026-05-06 04:53:15', '2026-05-06 08:10:53'),
+(11, '69FADDBCC0FED', 130, 1, 1, 1, 'sbvsdfbf', 100000, 10000, 0, 110000, '2026-05-06 06:20:44', '2026-05-06 08:08:42'),
+(12, '69FAE3CA0651E', 122, 1, 1, 1, NULL, 100000, 10000, 0, 110000, '2026-05-06 06:46:34', '2026-05-06 06:46:34'),
+(13, '69FAE3F65A742', 132, 1, 2, 1, NULL, 200000, 20000, 100000, 120000, '2026-05-06 06:47:18', '2026-05-10 03:46:39'),
+(14, 'BG-260510-001', 132, 1, 1, 1, NULL, 15000000, 1500000, 0, 16500000, '2026-05-10 02:00:52', '2026-05-10 02:00:52'),
+(15, 'BG-260510-002', 49, 1, 2, 1, NULL, 100000, 10000, 100000, 10000, '2026-05-10 02:01:07', '2026-05-10 04:26:02'),
+(16, 'BG-260515-001', 40, 1, 1, 1, 'jhgjhgjhgfjhf', 5100000, 510000, 50000, 5560000, '2026-05-15 03:07:06', '2026-05-15 03:07:06'),
+(17, 'BG-260519-001', 132, 1, 1, 1, NULL, 5400000, 540000, 500000, 5440000, '2026-05-19 08:49:02', '2026-06-16 01:38:26'),
+(18, 'BG-260629-001', 132, 1, 3, 2, '- Báo giá trên đã bao gồm VAT\n- Giá trên là giá cho thuê, sau khi kết thúc sự kiện, toàn bộ vật tư thuộc về bên cung cấp', 10800000, 1080000, 0, 11880000, '2026-06-29 10:02:15', '2026-06-29 16:07:51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_quotation_detail`
+--
+
+CREATE TABLE `vdh_quotation_detail` (
+  `quotation_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `qty` float NOT NULL,
+  `price` decimal(15,0) NOT NULL,
+  `product_name` varchar(100) DEFAULT NULL,
+  `unit` varchar(50) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_quotation_detail`
+--
+
+INSERT INTO `vdh_quotation_detail` (`quotation_id`, `product_id`, `qty`, `price`, `product_name`, `unit`, `created_at`, `updated_at`) VALUES
+(6, 3, 1, 200000, 'Ghế da chân xoay', 'chiếc', '2026-05-06 08:10:53', '2026-05-06 08:10:53'),
+(6, 4, 1, 100000, 'Giỏ hoa trang trí', 'giỏ', '2026-05-06 08:10:53', '2026-05-06 08:10:53'),
+(6, 5, 1, 15000000, 'Gian hàng tiêu chuẩn', 'gian', '2026-05-06 08:10:53', '2026-05-06 08:10:53'),
+(11, 4, 1, 100000, 'Giỏ hoa trang trí', 'giỏ', '2026-05-06 08:08:42', '2026-05-06 08:08:42'),
+(12, 4, 1, 100000, 'Giỏ hoa trang trí', 'giỏ', '2026-05-06 06:47:10', '2026-05-06 06:47:10'),
+(13, 3, 1, 200000, 'Ghế da chân xoay', 'chiếc', '2026-05-10 03:46:39', '2026-05-10 03:46:39'),
+(14, 5, 1, 15000000, 'Gian hàng tiêu chuẩn', 'gian', '2026-05-10 02:00:52', '2026-05-10 02:00:52'),
+(15, 4, 1, 100000, 'Giỏ hoa trang trí', 'giỏ', '2026-05-10 04:26:02', '2026-05-10 04:26:02'),
+(16, 4, 1, 100000, 'Giỏ hoa trang trí', 'giỏ', '2026-05-15 03:07:06', '2026-05-15 03:07:06'),
+(16, 5, 1, 5000000, 'Gian hàng tiêu chuẩn', 'gian', '2026-05-15 03:07:06', '2026-05-15 03:07:06'),
+(17, 3, 1, 200000, 'Ghế da chân xoay', 'chiếc', '2026-06-16 01:38:26', '2026-06-16 01:38:26'),
+(17, 4, 2, 100000, 'Giỏ hoa trang trí', 'giỏ', '2026-06-16 01:38:26', '2026-06-16 01:38:26'),
+(17, 5, 1, 5000000, 'Gian hàng tiêu chuẩn', 'gian', '2026-06-16 01:38:26', '2026-06-16 01:38:26'),
+(18, 3, 4, 200000, 'Ghế da chân xoay', 'chiếc', '2026-06-29 16:07:51', '2026-06-29 16:07:51'),
+(18, 5, 2, 5000000, 'Gian hàng tiêu chuẩn', 'gian', '2026-06-29 16:07:51', '2026-06-29 16:07:51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_roles`
+--
+
+CREATE TABLE `vdh_roles` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `permission` text NOT NULL,
+  `avatar` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `status` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `vdh_roles`
+--
+
+INSERT INTO `vdh_roles` (`id`, `name`, `permission`, `avatar`, `description`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'ADMIN', 'dashboard', NULL, 'Quyền cao nhất', 1, '2020-12-10 02:32:39', '2026-05-14 09:09:54'),
+(4, 'Sales', 'dashboard;customer.index;customer.create;customer.store;customer.update;customer.delete;customer.draft;customer.draft;customer.draft.move;customer.draft.delete;customer.exhibitor.index;customer.exhibitor.add;customer.exhibitor.remove;customer.exhibitor.view;customer.exhibitor.store', NULL, 'Nhân viên kinh doanh', 1, '2020-12-28 04:23:51', '2026-03-17 14:11:31'),
+(5, 'Kế toán', 'dashboard', NULL, 'Tài chính kế toán', 1, '2026-03-17 14:00:37', '2026-03-17 14:01:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_role_organizer`
+--
+
+CREATE TABLE `vdh_role_organizer` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `organizer_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `vdh_role_organizer`
+--
+
+INSERT INTO `vdh_role_organizer` (`id`, `name`, `description`, `organizer_id`, `created_at`, `updated_at`) VALUES
+(1, 'Sale', NULL, 1, '2026-05-13 02:48:57', '2026-05-13 02:48:57'),
+(3, 'Marketing', NULL, 1, '2026-05-15 03:19:20', '2026-05-15 03:19:20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_role_permission`
+--
+
+CREATE TABLE `vdh_role_permission` (
+  `role_id` tinyint(4) NOT NULL,
+  `permission_id` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_role_permission`
+--
+
+INSERT INTO `vdh_role_permission` (`role_id`, `permission_id`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 9),
+(1, 10),
+(1, 11),
+(1, 12),
+(1, 13),
+(1, 14),
+(1, 15),
+(1, 16),
+(1, 17),
+(1, 18),
+(1, 19),
+(1, 20),
+(1, 21),
+(1, 22),
+(1, 23),
+(1, 24),
+(1, 25),
+(1, 26),
+(1, 27),
+(1, 28),
+(1, 29),
+(1, 30),
+(1, 31),
+(1, 32),
+(1, 33),
+(1, 34),
+(1, 52),
+(1, 53),
+(1, 54),
+(1, 55),
+(1, 56),
+(1, 57),
+(1, 58),
+(1, 59),
+(1, 73),
+(1, 74),
+(1, 76),
+(1, 77),
+(3, 40),
+(3, 41),
+(3, 42),
+(3, 43),
+(3, 44),
+(3, 45),
+(3, 46),
+(3, 47),
+(3, 48),
+(3, 49),
+(3, 50),
+(3, 51),
+(3, 64),
+(3, 65),
+(3, 66),
+(3, 67),
+(3, 68),
+(3, 73),
+(3, 74);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_setting`
+--
+
+CREATE TABLE `vdh_setting` (
+  `id` int(11) NOT NULL,
+  `option_key` varchar(255) DEFAULT NULL,
+  `option_value` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `vdh_setting`
+--
+
+INSERT INTO `vdh_setting` (`id`, `option_key`, `option_value`, `created_at`, `updated_at`) VALUES
+(1, 'phone', '0986209305', '2026-02-08 03:22:48', '2026-02-08 03:26:38'),
+(2, 'zalo', '0986209305', '2026-02-08 03:22:48', '2026-02-08 03:26:38'),
+(3, 'facebook', 'facebook.com/vuduchongdotcom', '2026-02-08 03:22:48', '2026-02-08 03:26:38'),
+(4, 'messenger', 'messenger.com/vuduchongdotcom', '2026-02-08 03:22:48', '2026-02-08 03:27:25'),
+(5, 'maintenance', NULL, '2026-02-08 03:22:48', '2026-02-08 04:49:34'),
+(6, 'seo', '1', '2026-02-08 03:22:48', '2026-02-08 03:26:22'),
+(7, 'robot_index', NULL, '2026-02-08 03:28:15', '2026-02-21 02:02:51'),
+(8, 'hero_typed', '{\"vi\":\"Qua tri\\u1ec3n l\\u00e3m B2B\\r\\nT\\u0103ng c\\u01b0\\u1eddng h\\u1ee3p t\\u00e1c\\r\\nK\\u1ebft n\\u1ed1i giao th\\u01b0\\u01a1ng\",\"en\":\"Through B2B exhibition\\r\\nStrengthen cooperation\\r\\nTrade connection\",\"cn\":\"\\u901a\\u8fc7B2B\\u5c55\\u4f1a\\r\\n\\u52a0\\u5f3a\\u5408\\u4f5c\\r\\n\\u8d38\\u6613\\u8054\\u7cfb\",\"kr\":\"B2B \\uc804\\uc2dc\\ub97c \\ud1b5\\ud574\\r\\n\\ud611\\ub825 \\uac15\\ud654\\r\\n\\ubb34\\uc5ed \\uc5f0\\uacb0\"}', '2026-03-06 11:20:11', '2026-04-10 07:46:37');
 
 -- --------------------------------------------------------
 
@@ -409,6 +1088,56 @@ INSERT INTO `vdh_source` (`id`, `name`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `vdh_stakeholders`
+--
+
+CREATE TABLE `vdh_stakeholders` (
+  `id` tinyint(4) NOT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_stakeholders`
+--
+
+INSERT INTO `vdh_stakeholders` (`id`, `title`, `created_at`, `updated_at`) VALUES
+(1, 'Quản lý nhà nước', '2026-05-15 01:15:38', '2026-05-15 01:15:57'),
+(2, 'Hiệp hội ngành nghề', '2026-05-15 01:16:03', '2026-05-15 01:16:03'),
+(3, 'Đại lý kinh doanh', '2026-05-15 01:16:07', '2026-05-15 01:16:07'),
+(4, 'Nhà sản xuất', '2026-05-15 01:16:10', '2026-05-15 01:16:10'),
+(5, 'Nhà cung cấp dịch vụ', '2026-05-15 01:16:14', '2026-05-15 01:16:14'),
+(6, 'Tổ chức phi chính phủ quốc tế', '2026-05-15 01:16:19', '2026-05-15 01:16:19'),
+(7, 'Văn phòng đại diện', '2026-05-15 01:16:22', '2026-05-15 01:16:22'),
+(8, 'Chuyên gia', '2026-05-15 01:16:24', '2026-05-15 01:16:24'),
+(9, 'Sinh viên', '2026-05-15 01:16:26', '2026-05-15 01:16:26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vdh_status`
+--
+
+CREATE TABLE `vdh_status` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `color` varchar(50) DEFAULT NULL,
+  `type` varchar(50) DEFAULT NULL COMMENT 'sale / onboarding'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `vdh_status`
+--
+
+INSERT INTO `vdh_status` (`id`, `name`, `color`, `type`) VALUES
+(1, 'Có quan tâm', 'border-green-500 text-green-500', NULL),
+(2, 'Đang cân nhắc', 'border-indigo-500 text-indigo-500', NULL),
+(3, 'Không quan tâm', 'border-red-500 text-red-500', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `vdh_tasks`
 --
 
@@ -432,15 +1161,21 @@ CREATE TABLE `vdh_tasks` (
 --
 
 INSERT INTO `vdh_tasks` (`id`, `title`, `start_date`, `end_date`, `assigned_to`, `organizer_id`, `progress`, `note`, `completed_at`, `order`, `created_at`, `updated_at`) VALUES
-(1, 'Thiết kế in ấn biển tên Vip', '2026-04-23', '2026-04-23', 3, 1, 0, NULL, NULL, 9, '2026-04-22 06:38:25', '2026-04-23 04:29:02'),
-(3, 'đi nhậu 123', '2026-04-23', '2026-04-24', 2, 1, 0, NULL, NULL, 3, '2026-04-22 06:39:36', '2026-04-23 00:23:09'),
-(5, 'Thông cáo báo chí', '2026-04-22', '2026-04-23', 3, 1, 50, NULL, NULL, 8, '2026-04-22 07:40:43', '2026-04-23 00:23:09'),
-(7, 'đăng báo', '2026-04-24', '2026-04-25', 1, 1, 0, '123123', NULL, 6, '2026-04-22 07:42:51', '2026-04-23 00:23:09'),
-(8, 'lên kịch bản khai mạc', '2026-04-23', '2026-04-24', 2, 1, 0, NULL, NULL, 5, '2026-04-22 07:43:30', '2026-04-23 00:23:09'),
-(9, 'gửi duyệt phía Trung Quốc', '2026-04-24', '2026-04-25', 2, 1, 0, NULL, NULL, 4, '2026-04-22 07:43:40', '2026-04-23 00:23:09'),
-(10, 'Check lỗi phía Việt Nam', '2026-04-28', '2026-04-29', 3, 1, 25, NULL, NULL, 2, '2026-04-22 07:44:19', '2026-04-23 00:23:09'),
-(11, 'Kiểm tra các ảnh theo hạng mục quyết toán', '2026-04-23', '2026-04-24', 3, 1, 0, NULL, NULL, 1, '2026-04-22 07:50:57', '2026-04-23 00:23:09'),
-(12, 'Lên chủ đề hội thảo', '2026-04-23', '2026-04-24', 3, 1, 0, NULL, NULL, 7, '2026-04-22 07:51:09', '2026-04-23 00:23:09');
+(1, 'Thiết kế in ấn biển tên Vip', '2026-04-23', '2026-04-23', 3, 1, 0, 'Việc này cần thực hiện sớm', NULL, 9, '2026-04-22 06:38:25', '2026-05-19 05:40:21'),
+(3, 'đi nhậu 123', '2026-04-23', '2026-04-24', 2, 1, 0, NULL, NULL, 2, '2026-04-22 06:39:36', '2026-05-11 09:15:40'),
+(5, 'Thông cáo báo chí', '2026-04-22', '2026-04-23', 3, 1, 50, NULL, NULL, 8, '2026-04-22 07:40:43', '2026-05-03 08:18:38'),
+(7, 'đăng báo', '2026-04-24', '2026-04-25', 1, 1, 0, '123123', NULL, 6, '2026-04-22 07:42:51', '2026-05-03 08:18:38'),
+(8, 'lên kịch bản khai mạc', '2026-04-23', '2026-04-25', 2, 1, 0, NULL, NULL, 5, '2026-04-22 07:43:30', '2026-05-19 05:28:10'),
+(9, 'gửi duyệt phía Trung Quốc', '2026-04-24', '2026-04-25', 3, 1, 0, NULL, NULL, 3, '2026-04-22 07:43:40', '2026-05-10 05:25:56'),
+(10, 'Check lỗi phía Việt Nam', '2026-04-28', '2026-04-29', 3, 1, 25, NULL, NULL, 1, '2026-04-22 07:44:19', '2026-05-03 08:18:38'),
+(11, 'Kiểm tra các ảnh theo hạng mục quyết toán', '2026-04-23', '2026-04-24', 2, 1, 0, NULL, NULL, 4, '2026-04-22 07:50:57', '2026-05-19 05:35:52'),
+(12, 'Lên chủ đề hội thảo', '2026-04-23', '2026-04-24', 3, 1, 0, NULL, NULL, 7, '2026-04-22 07:51:09', '2026-05-03 08:18:38'),
+(13, 'bdfbdfsn', '2026-05-12', '2026-05-13', 1, 1, 0, NULL, NULL, NULL, '2026-05-05 02:39:44', '2026-05-15 03:38:03'),
+(14, '12312312', '2026-05-15', '2026-05-29', 1, 1, 0, NULL, NULL, NULL, '2026-05-05 02:39:47', '2026-05-15 03:42:44'),
+(15, 'bsdbsdbn', '2026-05-14', '2026-05-21', 2, 1, 35, NULL, NULL, NULL, '2026-05-05 02:40:10', '2026-05-19 05:27:05'),
+(16, 'svsdbs', '2026-05-13', '2026-05-27', 2, 1, 100, NULL, '2026-05-19 05:37:00', NULL, '2026-05-11 09:12:51', '2026-05-19 05:38:04'),
+(17, 'vsdbsdb', '2026-05-19', '2026-05-29', 2, 1, 0, NULL, NULL, NULL, '2026-05-11 09:14:40', '2026-05-11 09:14:55'),
+(18, 'sub task', '2026-05-19', '2026-05-20', 1, 1, 0, NULL, NULL, NULL, '2026-05-19 05:29:43', '2026-05-19 05:29:43');
 
 -- --------------------------------------------------------
 
@@ -470,12 +1205,28 @@ CREATE TABLE `vdh_to_do` (
 --
 
 INSERT INTO `vdh_to_do` (`id`, `title`, `description`, `note`, `user_id`, `organizer_id`, `priority`, `status`, `due_date`, `bookmark`, `completed_at`, `order`, `created_at`, `updated_at`) VALUES
-(11, 'Uống thuốc', NULL, NULL, 1, 1, 'high', 'pending', NULL, NULL, NULL, 3, '2026-04-21 02:44:51', '2026-04-23 04:25:44'),
-(13, 'Họp với Linh Phong', NULL, NULL, 1, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-04-23 04:25:50', '2026-04-23 04:25:50'),
-(14, 'Hẹn gặp sở công thương', NULL, NULL, 1, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-04-23 04:26:00', '2026-04-23 04:26:00'),
-(15, 'Bố trí gian hàng Entech', NULL, NULL, 1, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-04-23 04:26:18', '2026-04-23 04:26:18'),
+(13, 'Họp với Linh Phong', NULL, NULL, 1, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-04-23 04:25:50', '2026-06-16 01:36:04'),
+(14, 'Hẹn gặp sở công thương', NULL, NULL, 1, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-04-23 04:26:00', '2026-04-26 01:17:48'),
+(15, 'Bố trí gian hàng Entech', NULL, NULL, 1, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-04-23 04:26:18', '2026-05-11 02:50:29'),
 (16, 'đi ăn lòng lợn', NULL, NULL, 1, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-04-23 04:28:02', '2026-04-23 04:28:02'),
-(17, 'oanhsb ài', NULL, NULL, 1, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-04-24 06:53:29', '2026-04-24 06:53:29');
+(17, 'Hẹn gặp khách ENTECH', NULL, NULL, 1, 1, 'low', 'pending', NULL, 1, NULL, NULL, '2026-04-24 06:53:29', '2026-05-19 08:52:57'),
+(18, 'ssbdb', NULL, NULL, 1, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-05-05 02:40:15', '2026-05-05 02:40:15'),
+(19, 'công việc mới', NULL, NULL, 3, 1, 'low', 'completed', NULL, NULL, '2026-06-29 09:17:39', NULL, '2026-05-15 03:21:14', '2026-06-29 09:17:39'),
+(20, 'Điều chỉnh layout triển lãm tháng 8', NULL, NULL, 3, 1, 'low', 'pending', '2026-06-30 09:22:00', NULL, NULL, NULL, '2026-06-29 09:18:10', '2026-06-29 09:20:17'),
+(21, 'Tạo kệ thống báo cáo,. bổ sung sau', NULL, NULL, 2, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-06-29 15:19:32', '2026-06-29 15:30:37'),
+(22, 'Bỏ phần lịch làm việc', NULL, NULL, 2, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-06-29 15:21:42', '2026-06-29 15:21:42'),
+(23, 'Tạo tính năng import contact mới → Cấn có mục tạo mẫu form để phục vụ import dữliệu', NULL, NULL, 2, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-06-29 15:23:46', '2026-06-29 15:23:46'),
+(24, 'Phần bình luận trong Contact. không tự mất sau khi bấm nút Send', NULL, NULL, 2, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-06-29 15:29:54', '2026-06-29 15:29:54'),
+(25, 'Phần thông báo chưa hoạt động?', NULL, NULL, 2, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-06-29 15:31:23', '2026-06-29 15:31:23'),
+(26, 'Chưa có nút chuyển đổi từ Lead sang Contact', NULL, NULL, 2, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-06-29 15:31:59', '2026-06-29 15:31:59'),
+(27, 'Bộ lọc trong contact chưa hoạt động', NULL, NULL, 2, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-06-29 15:34:11', '2026-06-29 15:34:11'),
+(28, 'Thêm mục \"Việc được giao\"→ Hiển thị các công việc được cấp trên giao', NULL, NULL, 2, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-06-29 15:47:09', '2026-06-29 16:01:50'),
+(29, 'Tạo lịch trong Contact chưa hoạt động', NULL, NULL, 2, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-06-29 15:51:56', '2026-06-29 15:51:56'),
+(30, 'Phần Khách hàng thay mục Thêm mới bằng mục mục Organization', NULL, NULL, 2, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-06-29 15:54:09', '2026-06-29 16:04:46'),
+(31, 'Phần \"Nhóm khách hàng\" cần có bộ lọc để tìm danh sách doanh nghiệp trong các lĩnh vực phù hợp', NULL, NULL, 2, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-06-29 16:00:54', '2026-06-29 16:00:54'),
+(32, 'Thêm mục xóa  Nhóm', NULL, NULL, 2, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-06-29 16:10:48', '2026-06-29 16:10:48'),
+(33, 'Mỗi sản phẩm phải gắn với từng triển lãm vì cùng 1 lúc bán 2 triển lãm với giá gian hàng khác nhau', NULL, NULL, 2, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-06-30 15:39:15', '2026-06-30 15:39:15'),
+(34, 'Dữ liệu Contact chỉ cho thêm và sửa không cho xóa chỉ người cao nhất mới được xóa', NULL, NULL, 2, 1, 'low', 'pending', NULL, NULL, NULL, NULL, '2026-06-30 15:45:36', '2026-06-30 15:45:36');
 
 -- --------------------------------------------------------
 
@@ -493,6 +1244,7 @@ CREATE TABLE `vdh_users` (
   `fullname` varchar(50) DEFAULT NULL,
   `birthday` varchar(10) DEFAULT NULL,
   `passport` varchar(20) DEFAULT NULL,
+  `is_admin` tinyint(4) DEFAULT NULL,
   `role_id` int(10) UNSIGNED DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `organizer_id` int(11) DEFAULT NULL,
@@ -507,10 +1259,11 @@ CREATE TABLE `vdh_users` (
 -- Dumping data for table `vdh_users`
 --
 
-INSERT INTO `vdh_users` (`id`, `email`, `password`, `phone`, `avatar`, `status`, `fullname`, `birthday`, `passport`, `role_id`, `address`, `organizer_id`, `forgot_pass_token`, `updated_forgot_token`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'vuduchong209305@gmail.com', '$2y$12$vAUtnsz67C1XxXIzjX2/UesJMOVDBDJiRkPHuLn2b9TsCbZ/XHWx.', NULL, 'user/2026/04/23/1776917939-OSzxGuT6arHStGMU3QNU.webp', 1, 'Vũ Đức Hồng', NULL, NULL, 1, NULL, 1, NULL, NULL, NULL, NULL, '2026-04-23 04:18:59'),
-(2, 'ph2h.ge@gmail.com', '$2y$12$jImBKmGSeieYWkkQ7ZmUhuyKWwHuXY4HlVTFTit6wTCnW/u0qpXuS', '0904239996', NULL, 1, 'Nguyễn Phi Hùng', NULL, NULL, 4, NULL, 1, NULL, NULL, NULL, '2026-02-08 04:59:28', '2026-02-08 05:02:02'),
-(3, 'quangvinh@globalexpo.com.vn', '$2y$12$EjOXMDEl.y4NVLycNuVQyugEfctis3bX/VF8hNf39ZjQzW6ucbrWm', '0983109909', NULL, 1, 'Trần Quang Vinh', NULL, NULL, 4, NULL, 1, NULL, NULL, NULL, '2026-02-08 05:04:04', '2026-03-17 14:04:58');
+INSERT INTO `vdh_users` (`id`, `email`, `password`, `phone`, `avatar`, `status`, `fullname`, `birthday`, `passport`, `is_admin`, `role_id`, `address`, `organizer_id`, `forgot_pass_token`, `updated_forgot_token`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'vuduchong209305@gmail.com', '$2y$12$vAUtnsz67C1XxXIzjX2/UesJMOVDBDJiRkPHuLn2b9TsCbZ/XHWx.', '0986209305', 'user/2026/05/13/1778660712-OOP4gYy71UzlT6YYC1le.webp', 1, 'Vũ Đức Hồng', NULL, NULL, NULL, 1, NULL, 1, NULL, NULL, NULL, NULL, '2026-06-29 06:56:15'),
+(2, 'nguyenphihung@globalexpo.com.vn', '$2y$10$G86DiBRSCtq0Qqd.ta7TQe1qT4Y/28zJxucoLwk3pL0BXJ4X1VrDC', '0904239996', 'user/2026/05/13/1778660703-ZYPJT79FfFmbDsnzpqkM.webp', 1, 'Nguyễn Phi Hùng', '1977', NULL, 1, 1, NULL, 1, NULL, NULL, NULL, '2026-02-08 04:59:28', '2026-06-29 06:56:15'),
+(3, 'quangvinh@globalexpo.com.vn', '$2y$12$EjOXMDEl.y4NVLycNuVQyugEfctis3bX/VF8hNf39ZjQzW6ucbrWm', '0983109909', 'user/2026/05/12/1778580246-TCmV5vGFnYJD9FMmhrHE.webp', 1, 'Trần Quang Vinh', NULL, NULL, NULL, 1, NULL, 1, NULL, NULL, NULL, '2026-02-08 05:04:04', '2026-06-29 06:56:15'),
+(4, 'phuonglinh@globalexpo.com.vn', '$2y$12$T6srMt8vCkJz5kSzYdYBNel5BGpz6yQOd01fldAWeqXUhm4ELAZVe', NULL, 'user/2026/05/12/1778580221-xKmQL3QBU0xjBzDJ9kOw.webp', 1, 'Phương Linh', NULL, NULL, NULL, 1, NULL, 1, NULL, NULL, NULL, '2026-05-12 09:57:56', '2026-06-29 06:56:15');
 
 --
 -- Indexes for dumped tables
@@ -523,15 +1276,34 @@ ALTER TABLE `vdh_activity_logs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `vdh_comments`
+-- Indexes for table `vdh_admins`
 --
-ALTER TABLE `vdh_comments`
+ALTER TABLE `vdh_admins`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `vdh_campaign`
+--
+ALTER TABLE `vdh_campaign`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `vdh_company`
+-- Indexes for table `vdh_campaign_detail`
 --
-ALTER TABLE `vdh_company`
+ALTER TABLE `vdh_campaign_detail`
+  ADD PRIMARY KEY (`campaign_id`,`customer_id`);
+
+--
+-- Indexes for table `vdh_careers`
+--
+ALTER TABLE `vdh_careers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `title` (`title`) USING BTREE;
+
+--
+-- Indexes for table `vdh_comments`
+--
+ALTER TABLE `vdh_comments`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -540,6 +1312,12 @@ ALTER TABLE `vdh_company`
 ALTER TABLE `vdh_customers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`,`organizer_id`) USING BTREE;
+
+--
+-- Indexes for table `vdh_customer_career`
+--
+ALTER TABLE `vdh_customer_career`
+  ADD PRIMARY KEY (`customer_id`,`career_id`);
 
 --
 -- Indexes for table `vdh_customer_group`
@@ -554,6 +1332,12 @@ ALTER TABLE `vdh_customer_group_detail`
   ADD PRIMARY KEY (`customer_group_id`,`customer_id`);
 
 --
+-- Indexes for table `vdh_customer_stakeholder`
+--
+ALTER TABLE `vdh_customer_stakeholder`
+  ADD PRIMARY KEY (`customer_id`,`stakeholder_id`) USING BTREE;
+
+--
 -- Indexes for table `vdh_customer_type`
 --
 ALTER TABLE `vdh_customer_type`
@@ -566,9 +1350,95 @@ ALTER TABLE `vdh_events`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `vdh_exhibition`
+--
+ALTER TABLE `vdh_exhibition`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `vdh_languages`
+--
+ALTER TABLE `vdh_languages`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `vdh_organizer`
+--
+ALTER TABLE `vdh_organizer`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `vdh_permissions`
+--
+ALTER TABLE `vdh_permissions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `vdh_products`
+--
+ALTER TABLE `vdh_products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `vdh_progress`
+--
+ALTER TABLE `vdh_progress`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `vdh_quotation`
+--
+ALTER TABLE `vdh_quotation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `vdh_quotation_detail`
+--
+ALTER TABLE `vdh_quotation_detail`
+  ADD PRIMARY KEY (`quotation_id`,`product_id`);
+
+--
+-- Indexes for table `vdh_roles`
+--
+ALTER TABLE `vdh_roles`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `vdh_role_organizer`
+--
+ALTER TABLE `vdh_role_organizer`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `vdh_role_permission`
+--
+ALTER TABLE `vdh_role_permission`
+  ADD PRIMARY KEY (`role_id`,`permission_id`);
+
+--
+-- Indexes for table `vdh_setting`
+--
+ALTER TABLE `vdh_setting`
+  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD UNIQUE KEY `option_key` (`option_key`) USING BTREE;
+
+--
 -- Indexes for table `vdh_source`
 --
 ALTER TABLE `vdh_source`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `vdh_stakeholders`
+--
+ALTER TABLE `vdh_stakeholders`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `title` (`title`) USING BTREE;
+
+--
+-- Indexes for table `vdh_status`
+--
+ALTER TABLE `vdh_status`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -597,19 +1467,31 @@ ALTER TABLE `vdh_users`
 -- AUTO_INCREMENT for table `vdh_activity_logs`
 --
 ALTER TABLE `vdh_activity_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+
+--
+-- AUTO_INCREMENT for table `vdh_admins`
+--
+ALTER TABLE `vdh_admins`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `vdh_campaign`
+--
+ALTER TABLE `vdh_campaign`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `vdh_careers`
+--
+ALTER TABLE `vdh_careers`
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `vdh_comments`
 --
 ALTER TABLE `vdh_comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `vdh_company`
---
-ALTER TABLE `vdh_company`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `vdh_customers`
@@ -621,7 +1503,7 @@ ALTER TABLE `vdh_customers`
 -- AUTO_INCREMENT for table `vdh_customer_group`
 --
 ALTER TABLE `vdh_customer_group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `vdh_customer_type`
@@ -633,7 +1515,67 @@ ALTER TABLE `vdh_customer_type`
 -- AUTO_INCREMENT for table `vdh_events`
 --
 ALTER TABLE `vdh_events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `vdh_exhibition`
+--
+ALTER TABLE `vdh_exhibition`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `vdh_languages`
+--
+ALTER TABLE `vdh_languages`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `vdh_organizer`
+--
+ALTER TABLE `vdh_organizer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `vdh_permissions`
+--
+ALTER TABLE `vdh_permissions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+
+--
+-- AUTO_INCREMENT for table `vdh_products`
+--
+ALTER TABLE `vdh_products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `vdh_progress`
+--
+ALTER TABLE `vdh_progress`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `vdh_quotation`
+--
+ALTER TABLE `vdh_quotation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `vdh_roles`
+--
+ALTER TABLE `vdh_roles`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `vdh_role_organizer`
+--
+ALTER TABLE `vdh_role_organizer`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `vdh_setting`
+--
+ALTER TABLE `vdh_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `vdh_source`
@@ -642,22 +1584,34 @@ ALTER TABLE `vdh_source`
   MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `vdh_stakeholders`
+--
+ALTER TABLE `vdh_stakeholders`
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `vdh_status`
+--
+ALTER TABLE `vdh_status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `vdh_tasks`
 --
 ALTER TABLE `vdh_tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `vdh_to_do`
 --
 ALTER TABLE `vdh_to_do`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `vdh_users`
 --
 ALTER TABLE `vdh_users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

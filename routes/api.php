@@ -91,6 +91,10 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
                         Route::post('assignedTo', 'assignedTo')->name('assigned');
                         Route::get('career', 'career')->name('career');
                         Route::get('stakeholder', 'stakeholder')->name('stakeholder');
+                        Route::get('type', 'type')->name('type');
+                        Route::post('updateBulk', 'updateBulk')->name('updateBulk');
+                        Route::post('preview', 'preview')->name('preview');
+                        Route::post('import', 'import')->name('import');
                     });
 
             Route::prefix('customer-group')
@@ -102,6 +106,7 @@ Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
                         Route::post('save', 'save')->name('save');
                         Route::get('list', 'list')->name('list');
                         Route::post('assign', 'assign')->name('assign');
+                        Route::post('delete', 'delete')->name('delete');
                     });
 
             Route::prefix('campaign')

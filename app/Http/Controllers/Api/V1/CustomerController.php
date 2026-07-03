@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\CustomerType;
 use App\Models\Source;
 use App\Models\Comment;
 use App\Models\ActivityLogs;
@@ -302,5 +303,121 @@ class CustomerController extends Controller
     {
         $stakeholders = Stakeholder::orderBy('title', 'ASC')->get();
         return sendResponse($stakeholders);
+    }
+
+    public function type()
+    {
+        $types = CustomerType::orderBy('name', 'ASC')->get();
+        return sendResponse($types);
+    }
+
+    public function updateBulk(Request $request)
+    {
+        $data = [];
+
+        if ($request->type_id != '') {
+            $data['type_id'] = $request->type_id;
+        }
+
+        if ($request->bookmark != '') {
+            $data['bookmark'] = $request->bookmark;
+        }
+
+        if (count($data) == 0) {
+            return back()->withErrors('Không có dữ liệu cần cập nhật');
+        }
+
+        $count = Customer::whereIn('id', $request->ids)
+                            ->assignedTo()
+                            ->update($data);
+
+        return sendResponse($count, "Cập nhật {$count} dữ liệu");
+    }
+
+    public function preview(Request $request)
+    {
+        try {
+
+            $rows = getGoogleSheetRows(
+                $request->url
+            );
+
+            $preview = [];
+
+            foreach ($rows as $row) {
+
+                $email = trim(
+                    $row['email'] ?? ''
+                );
+
+                $exists = Customer::where([
+                    'email' => $email,
+                    'organizer_id' => auth('api')->user()->organizer_id
+                ])->exists();
+
+                $preview[] = [
+                    'email' => $email,
+                    'phone' => $row['phone'] ?? null,
+                    'fullname' => $row['fullname'] ?? null,
+                    'company' => $row['company'] ?? null,
+                    'address' => $row['address'] ?? null,
+                    'status' => $exists ? 'exists' : 'new'
+                ];
+            }
+
+            return sendResponse($preview, 'Xem dữ liệu thành công');
+
+        } catch (\Exception $e) {
+
+            return sendError(
+                $e->getMessage()
+            );
+        }
+    }
+
+    public function import(Request $request)
+    {
+        try {
+
+            $rows = getGoogleSheetRows(
+                $request->url
+            );
+
+            foreach ($rows as $row) {
+
+                $email = trim(
+                    $row['email'] ?? ''
+                );
+
+                if (empty($email)) {
+                    continue;
+                }
+
+                Customer::updateOrCreate(
+                    [
+                        'email' => $email,
+                        'organizer_id' => auth('api')->user()->organizer_id
+                    ],
+                    [
+                        'email' => $email,
+                        'phone' => $row['phone'] ?? null,
+                        'fullname' => $row['fullname'] ?? null,
+                        'company' => $row['company'] ?? null,
+                        'address' => $row['address'] ?? null
+                    ]
+                );
+            }
+
+            return sendResponse(
+                [],
+                'Import thành công'
+            );
+
+        } catch (\Exception $e) {
+
+            return sendError(
+                $e->getMessage()
+            );
+        }
     }
 }

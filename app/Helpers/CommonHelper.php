@@ -534,4 +534,79 @@ function convertToUtc($datetime, $timezone = 'Asia/Ho_Chi_Minh')
         ->format('Y-m-d\TH:i:s');
 }
 
+if (!function_exists('getGoogleSheetRows')) {
+    function getGoogleSheetRows($url)
+    {
+        preg_match(
+            '/\/d\/([a-zA-Z0-9-_]+)/',
+            $url,
+            $matches
+        );
+
+        if (empty($matches[1])) {
+            throw new \Exception(
+                'Google Sheet không hợp lệ'
+            );
+        }
+
+        $sheetId = $matches[1];
+
+        $csvUrl = "https://docs.google.com/spreadsheets/d/{$sheetId}/export?format=csv";
+
+        $csv = file_get_contents($csvUrl);
+
+        $handle = fopen('php://temp', 'r+');
+
+        fwrite($handle, $csv);
+
+        rewind($handle);
+
+        $rows = [];
+
+        while (($row = fgetcsv($handle)) !== false) {
+            $rows[] = $row;
+        }
+
+        fclose($handle);
+
+        $headers = array_map(
+            'trim',
+            array_shift($rows)
+        );
+
+        return collect($rows)
+            ->filter(function ($row) {
+
+                return collect($row)
+                    ->filter(fn($v) => trim($v) !== '')
+                    ->count() > 0;
+
+            })
+            ->map(function ($row) use ($headers) {
+
+                return array_combine(
+                    $headers,
+                    array_pad(
+                        $row,
+                        count($headers),
+                        null
+                    )
+                );
+
+            })
+            ->values();
+    }
+}
+
+function deleteFile($path)
+{
+    if (empty($path)) {
+        return;
+    }
+    $file = public_path('storage/' . $path);
+    if (file_exists($file)) {
+        @unlink($file);
+    }
+}
+
 ?>
